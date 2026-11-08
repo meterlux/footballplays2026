@@ -1,0 +1,2476 @@
+[
+ {
+  "id": "rub-right",
+  "page": 30,
+  "file": "o-030-019.png",
+  "name": "Deuce Right Tight Rub Right",
+  "category": "Pass",
+  "note": "In tight formation: play side inside receiver rubs to out. Backside X rubs to cross.",
+  "anchor": {
+   "cx": 541,
+   "losY": 488,
+   "unit": 69.0,
+   "yard5": 129
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 403,
+    "y": 488
+   },
+   {
+    "id": "LG",
+    "x": 472,
+    "y": 488
+   },
+   {
+    "id": "C",
+    "x": 541,
+    "y": 488
+   },
+   {
+    "id": "RG",
+    "x": 610,
+    "y": 488
+   },
+   {
+    "id": "RT",
+    "x": 679,
+    "y": 488
+   },
+   {
+    "id": "X",
+    "x": 273,
+    "y": 489,
+    "path": [
+     [
+      264,
+      358
+     ],
+     [
+      568,
+      355
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 812,
+    "y": 490,
+    "path": [
+     [
+      812,
+      230
+     ],
+     [
+      905,
+      140
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 341,
+    "y": 550,
+    "path": [
+     [
+      330,
+      217
+     ],
+     [
+      466,
+      36
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 746,
+    "y": 550,
+    "path": [
+     [
+      830,
+      403
+     ],
+     [
+      836,
+      353
+     ],
+     [
+      998,
+      353
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 541,
+    "y": 552,
+    "path": [
+     [
+      553,
+      598
+     ],
+     [
+      575,
+      627
+     ],
+     [
+      613,
+      647
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 541,
+    "y": 683,
+    "path": [
+     [
+      697,
+      566
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "slants",
+  "page": 31,
+  "file": "o-031-020.png",
+  "name": "Right Slants",
+  "category": "Pass",
+  "note": "Outside slants, inside seams. Check safeties, get the ball out quick.",
+  "anchor": {
+   "cx": 558,
+   "losY": 390,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 420,
+    "y": 390
+   },
+   {
+    "id": "LG",
+    "x": 489,
+    "y": 390
+   },
+   {
+    "id": "C",
+    "x": 558,
+    "y": 390
+   },
+   {
+    "id": "RG",
+    "x": 627,
+    "y": 390
+   },
+   {
+    "id": "RT",
+    "x": 696,
+    "y": 390
+   },
+   {
+    "id": "X",
+    "x": 133,
+    "y": 390,
+    "path": [
+     [
+      133,
+      313
+     ],
+     [
+      268,
+      262
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 358,
+    "y": 455,
+    "path": [
+     [
+      358,
+      92
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 765,
+    "y": 390,
+    "path": [
+     [
+      765,
+      30
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 993,
+    "y": 453,
+    "path": [
+     [
+      993,
+      374
+     ],
+     [
+      862,
+      320
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 558,
+    "y": 455,
+    "path": [
+     [
+      562,
+      503
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 558,
+    "y": 585,
+    "path": [
+     [
+      412,
+      474
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "sticks",
+  "page": 32,
+  "file": "o-032-021.png",
+  "name": "Right Sticks",
+  "category": "Pass",
+  "note": "Outside fades, inside sticks.",
+  "anchor": {
+   "cx": 537,
+   "losY": 385,
+   "unit": 69.0,
+   "yard5": 129
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 398,
+    "y": 385
+   },
+   {
+    "id": "LG",
+    "x": 467,
+    "y": 385
+   },
+   {
+    "id": "C",
+    "x": 537,
+    "y": 385
+   },
+   {
+    "id": "RG",
+    "x": 605,
+    "y": 385
+   },
+   {
+    "id": "RT",
+    "x": 674,
+    "y": 385
+   },
+   {
+    "id": "X",
+    "x": 123,
+    "y": 385,
+    "path": [
+     [
+      123,
+      22
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 337,
+    "y": 450,
+    "path": [
+     [
+      337,
+      177
+     ],
+     [
+      296,
+      177
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 743,
+    "y": 387,
+    "path": [
+     [
+      741,
+      175
+     ],
+     [
+      783,
+      176
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 966,
+    "y": 434,
+    "path": [
+     [
+      966,
+      72
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 538,
+    "y": 514,
+    "path": [
+     [
+      538,
+      562
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 466,
+    "y": 512,
+    "path": [
+     [
+      382,
+      448
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "swing-right",
+  "page": 33,
+  "file": "o-033-022.png",
+  "name": "Flex Right Swing Right",
+  "category": "Pass",
+  "note": "Block edge like a sweep. Spy WRs running off. 5 step drop.",
+  "anchor": {
+   "cx": 534,
+   "losY": 368,
+   "unit": 65.5,
+   "yard5": 123
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 403,
+    "y": 368
+   },
+   {
+    "id": "LG",
+    "x": 468,
+    "y": 368
+   },
+   {
+    "id": "C",
+    "x": 534,
+    "y": 368
+   },
+   {
+    "id": "RG",
+    "x": 600,
+    "y": 368
+   },
+   {
+    "id": "RT",
+    "x": 665,
+    "y": 368
+   },
+   {
+    "id": "X",
+    "x": 140,
+    "y": 368,
+    "path": [
+     [
+      128,
+      345
+     ],
+     [
+      110,
+      300
+     ],
+     [
+      100,
+      250
+     ],
+     [
+      97,
+      180
+     ],
+     [
+      97,
+      68
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 958,
+    "y": 432,
+    "path": [
+     [
+      975,
+      380
+     ],
+     [
+      990,
+      300
+     ],
+     [
+      995,
+      200
+     ],
+     [
+      997,
+      66
+     ]
+    ],
+    "end": "block",
+    "alt": "fade that ends in a T (stalk/run-off)"
+   },
+   {
+    "id": "TE",
+    "x": 731,
+    "y": 368,
+    "path": [
+     [
+      752,
+      330
+     ]
+    ],
+    "end": "block"
+   },
+   {
+    "id": "h",
+    "x": 790,
+    "y": 430,
+    "path": [
+     [
+      822,
+      352
+     ],
+     [
+      805,
+      340
+     ]
+    ],
+    "end": "block"
+   },
+   {
+    "id": "Q",
+    "x": 534,
+    "y": 432
+   },
+   {
+    "id": "H",
+    "x": 534,
+    "y": 555,
+    "path": [
+     [
+      700,
+      547
+     ],
+     [
+      790,
+      541
+     ],
+     [
+      828,
+      530
+     ],
+     [
+      870,
+      505
+     ],
+     [
+      910,
+      478
+     ]
+    ],
+    "end": "arrow"
+   }
+  ]
+ },
+ {
+  "id": "hawk-right",
+  "page": 34,
+  "file": "o-034-023.png",
+  "name": "Right Hawk Right",
+  "category": "Pass",
+  "note": "Inside receivers out/cross towards play side. Outside fade/post towards play side.",
+  "anchor": {
+   "cx": 530,
+   "losY": 378,
+   "unit": 69.0,
+   "yard5": 129
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 392,
+    "y": 378
+   },
+   {
+    "id": "LG",
+    "x": 461,
+    "y": 378
+   },
+   {
+    "id": "C",
+    "x": 530,
+    "y": 378
+   },
+   {
+    "id": "RG",
+    "x": 599,
+    "y": 378
+   },
+   {
+    "id": "RT",
+    "x": 668,
+    "y": 378
+   },
+   {
+    "id": "X",
+    "x": 116,
+    "y": 378,
+    "path": [
+     [
+      116,
+      118
+     ],
+     [
+      210,
+      28
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 330,
+    "y": 442,
+    "path": [
+     [
+      330,
+      196
+     ],
+     [
+      578,
+      194
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 736,
+    "y": 378,
+    "path": [
+     [
+      731,
+      176
+     ],
+     [
+      993,
+      177
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 944,
+    "y": 445,
+    "path": [
+     [
+      944,
+      82
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 530,
+    "y": 445,
+    "path": [
+     [
+      556,
+      520
+     ],
+     [
+      586,
+      543
+     ],
+     [
+      622,
+      547
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 530,
+    "y": 572,
+    "path": [
+     [
+      690,
+      437
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "zone-left-hawk-right",
+  "page": 35,
+  "file": "o-035-024.png",
+  "name": "Right Zone Left Hawk Right",
+  "category": "Pass",
+  "note": "SELL THE FAKE, peek the seek, hit open man.",
+  "anchor": {
+   "cx": 512,
+   "losY": 368,
+   "unit": 66.0,
+   "yard5": 123.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 380,
+    "y": 368
+   },
+   {
+    "id": "LG",
+    "x": 446,
+    "y": 368
+   },
+   {
+    "id": "C",
+    "x": 512,
+    "y": 368
+   },
+   {
+    "id": "RG",
+    "x": 578,
+    "y": 368
+   },
+   {
+    "id": "RT",
+    "x": 644,
+    "y": 368
+   },
+   {
+    "id": "X",
+    "x": 117,
+    "y": 368,
+    "path": [
+     [
+      118,
+      120
+     ],
+     [
+      206,
+      35
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 321,
+    "y": 430,
+    "path": [
+     [
+      321,
+      193
+     ],
+     [
+      556,
+      193
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 708,
+    "y": 368,
+    "path": [
+     [
+      704,
+      175
+     ],
+     [
+      953,
+      176
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 906,
+    "y": 432,
+    "path": [
+     [
+      906,
+      84
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 512,
+    "y": 432,
+    "path": [
+     [
+      495,
+      460
+     ],
+     [
+      490,
+      490
+     ],
+     [
+      510,
+      520
+     ],
+     [
+      558,
+      540
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 512,
+    "y": 553,
+    "path": [
+     [
+      388,
+      433
+     ]
+    ],
+    "end": "block",
+    "dashed": true,
+    "alt": "zone-left fake, then protect"
+   }
+  ]
+ },
+ {
+  "id": "hawk-left",
+  "page": 36,
+  "file": "o-036-025.png",
+  "name": "Right Hawk Left",
+  "category": "Pass",
+  "note": "Inside receivers out/cross towards play side. Outside fade/post towards play side.",
+  "anchor": {
+   "cx": 561,
+   "losY": 380,
+   "unit": 68.75,
+   "yard5": 129
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 423,
+    "y": 380
+   },
+   {
+    "id": "LG",
+    "x": 492,
+    "y": 380
+   },
+   {
+    "id": "C",
+    "x": 561,
+    "y": 380
+   },
+   {
+    "id": "RG",
+    "x": 630,
+    "y": 380
+   },
+   {
+    "id": "RT",
+    "x": 698,
+    "y": 380
+   },
+   {
+    "id": "X",
+    "x": 147,
+    "y": 380,
+    "path": [
+     [
+      147,
+      18
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 360,
+    "y": 445,
+    "path": [
+     [
+      358,
+      188
+     ],
+     [
+      36,
+      188
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 768,
+    "y": 380,
+    "path": [
+     [
+      770,
+      206
+     ],
+     [
+      458,
+      206
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 975,
+    "y": 445,
+    "path": [
+     [
+      975,
+      186
+     ],
+     [
+      882,
+      97
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 561,
+    "y": 445,
+    "path": [
+     [
+      548,
+      490
+     ],
+     [
+      520,
+      545
+     ],
+     [
+      490,
+      565
+     ],
+     [
+      466,
+      568
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 561,
+    "y": 575,
+    "path": [
+     [
+      397,
+      438
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "flex-hawk-right",
+  "page": 37,
+  "file": "o-037-026.png",
+  "name": "Right to Flex Right Hawk Right",
+  "category": "Pass",
+  "note": "When we bring a 3rd receiver to Hawk, Smash, Flood, Wheel, he runs a skinny post across the safety's face.",
+  "anchor": {
+   "cx": 503,
+   "losY": 368,
+   "unit": 65.75,
+   "yard5": 123
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 371,
+    "y": 368
+   },
+   {
+    "id": "LG",
+    "x": 437,
+    "y": 368
+   },
+   {
+    "id": "C",
+    "x": 503,
+    "y": 368
+   },
+   {
+    "id": "RG",
+    "x": 568,
+    "y": 368
+   },
+   {
+    "id": "RT",
+    "x": 634,
+    "y": 368
+   },
+   {
+    "id": "X",
+    "x": 108,
+    "y": 368,
+    "path": [
+     [
+      108,
+      122
+     ],
+     [
+      196,
+      36
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 312,
+    "y": 430,
+    "motion": [
+     [
+      757,
+      430
+     ]
+    ],
+    "path": [
+     [
+      760,
+      190
+     ],
+     [
+      738,
+      38
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 700,
+    "y": 368,
+    "path": [
+     [
+      695,
+      176
+     ],
+     [
+      945,
+      177
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 927,
+    "y": 428,
+    "path": [
+     [
+      945,
+      350
+     ],
+     [
+      948,
+      250
+     ],
+     [
+      950,
+      68
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 503,
+    "y": 430,
+    "path": [
+     [
+      528,
+      505
+     ],
+     [
+      558,
+      525
+     ],
+     [
+      592,
+      528
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 503,
+    "y": 553,
+    "path": [
+     [
+      657,
+      427
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "tight-zone-hawk-right",
+  "page": 38,
+  "file": "o-038-027.png",
+  "name": "Deuce Right Tight Zone Right Hawk Right",
+  "category": "Pass",
+  "note": "Inside receivers out/cross towards play side. Outside fade/post towards play side.",
+  "anchor": {
+   "cx": 495,
+   "losY": 370,
+   "unit": 65.75,
+   "yard5": 123.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 363,
+    "y": 370
+   },
+   {
+    "id": "LG",
+    "x": 429,
+    "y": 370
+   },
+   {
+    "id": "C",
+    "x": 495,
+    "y": 370
+   },
+   {
+    "id": "RG",
+    "x": 560,
+    "y": 370
+   },
+   {
+    "id": "RT",
+    "x": 626,
+    "y": 370
+   },
+   {
+    "id": "X",
+    "x": 231,
+    "y": 370,
+    "path": [
+     [
+      231,
+      122
+     ],
+     [
+      320,
+      36
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 299,
+    "y": 423,
+    "path": [
+     [
+      302,
+      202
+     ],
+     [
+      472,
+      200
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 697,
+    "y": 416,
+    "path": [
+     [
+      698,
+      215
+     ],
+     [
+      935,
+      215
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 770,
+    "y": 372,
+    "path": [
+     [
+      790,
+      320
+     ],
+     [
+      798,
+      250
+     ],
+     [
+      800,
+      170
+     ],
+     [
+      802,
+      50
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 495,
+    "y": 433,
+    "path": [
+     [
+      518,
+      505
+     ],
+     [
+      550,
+      527
+     ],
+     [
+      583,
+      530
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 495,
+    "y": 555,
+    "path": [
+     [
+      648,
+      428
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "smash-right",
+  "page": 39,
+  "file": "o-039-028.png",
+  "name": "Right Smash Right",
+  "category": "Pass",
+  "note": "Outside receivers out/cross towards play side. Inside receivers corner/post towards play side. We can tag a route to the play side WR (whip, comeback, curl, slant).",
+  "anchor": {
+   "cx": 544,
+   "losY": 373,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 406,
+    "y": 373
+   },
+   {
+    "id": "LG",
+    "x": 475,
+    "y": 373
+   },
+   {
+    "id": "C",
+    "x": 544,
+    "y": 373
+   },
+   {
+    "id": "RG",
+    "x": 613,
+    "y": 373
+   },
+   {
+    "id": "RT",
+    "x": 682,
+    "y": 373
+   },
+   {
+    "id": "X",
+    "x": 130,
+    "y": 373,
+    "path": [
+     [
+      137,
+      246
+     ],
+     [
+      464,
+      242
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 344,
+    "y": 436,
+    "path": [
+     [
+      344,
+      177
+     ],
+     [
+      436,
+      86
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 750,
+    "y": 373,
+    "path": [
+     [
+      751,
+      112
+     ],
+     [
+      843,
+      22
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 958,
+    "y": 438,
+    "path": [
+     [
+      958,
+      179
+     ],
+     [
+      1090,
+      179
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 544,
+    "y": 437,
+    "path": [
+     [
+      576,
+      509
+     ],
+     [
+      628,
+      547
+     ],
+     [
+      665,
+      550
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 544,
+    "y": 568,
+    "path": [
+     [
+      712,
+      445
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "smash-left",
+  "page": 40,
+  "file": "o-040-029.png",
+  "name": "Right Smash Left",
+  "category": "Pass",
+  "note": "Outside receivers out/cross towards play side. Inside receivers corner/post towards play side. We can tag a route to the play side WR (whip, comeback, curl, slant).",
+  "anchor": {
+   "cx": 600,
+   "losY": 391,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 462,
+    "y": 391
+   },
+   {
+    "id": "LG",
+    "x": 531,
+    "y": 391
+   },
+   {
+    "id": "C",
+    "x": 600,
+    "y": 391
+   },
+   {
+    "id": "RG",
+    "x": 669,
+    "y": 391
+   },
+   {
+    "id": "RT",
+    "x": 738,
+    "y": 391
+   },
+   {
+    "id": "X",
+    "x": 187,
+    "y": 391,
+    "path": [
+     [
+      187,
+      184
+     ],
+     [
+      48,
+      186
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 400,
+    "y": 455,
+    "path": [
+     [
+      399,
+      128
+     ],
+     [
+      304,
+      18
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 807,
+    "y": 391,
+    "path": [
+     [
+      807,
+      131
+     ],
+     [
+      715,
+      42
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 1014,
+    "y": 458,
+    "path": [
+     [
+      996,
+      262
+     ],
+     [
+      572,
+      253
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 600,
+    "y": 456,
+    "path": [
+     [
+      592,
+      500
+     ],
+     [
+      570,
+      546
+     ],
+     [
+      538,
+      568
+     ],
+     [
+      489,
+      574
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 600,
+    "y": 586,
+    "path": [
+     [
+      444,
+      466
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "flex-smash-right",
+  "page": 41,
+  "file": "o-041-030.png",
+  "name": "Right to Flex Right Smash Right",
+  "category": "Pass",
+  "note": "When we bring a 3rd receiver to Hawk, Smash, Flood, Wheel, he runs a skinny post across the safety's face.",
+  "anchor": {
+   "cx": 507,
+   "losY": 367,
+   "unit": 65.5,
+   "yard5": 123.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 375,
+    "y": 367
+   },
+   {
+    "id": "LG",
+    "x": 441,
+    "y": 367
+   },
+   {
+    "id": "C",
+    "x": 507,
+    "y": 367
+   },
+   {
+    "id": "RG",
+    "x": 572,
+    "y": 367
+   },
+   {
+    "id": "RT",
+    "x": 637,
+    "y": 367
+   },
+   {
+    "id": "X",
+    "x": 112,
+    "y": 367,
+    "path": [
+     [
+      119,
+      246
+     ],
+     [
+      428,
+      242
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 315,
+    "y": 428,
+    "motion": [
+     [
+      777,
+      424
+     ]
+    ],
+    "path": [
+     [
+      777,
+      118
+     ],
+     [
+      740,
+      36
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 703,
+    "y": 367,
+    "path": [
+     [
+      708,
+      165
+     ],
+     [
+      815,
+      106
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 900,
+    "y": 430,
+    "path": [
+     [
+      900,
+      182
+     ],
+     [
+      1027,
+      182
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 505,
+    "y": 430,
+    "path": [
+     [
+      537,
+      496
+     ],
+     [
+      588,
+      534
+     ],
+     [
+      621,
+      536
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 505,
+    "y": 551,
+    "path": [
+     [
+      673,
+      430
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "flood-right",
+  "page": 42,
+  "file": "o-042-031.png",
+  "name": "Right Flood Right",
+  "category": "Pass",
+  "note": "Comeback as deep as needed. Maintain levels on backside drags.",
+  "anchor": {
+   "cx": 497,
+   "losY": 389,
+   "unit": 68.75,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 359,
+    "y": 389
+   },
+   {
+    "id": "LG",
+    "x": 428,
+    "y": 389
+   },
+   {
+    "id": "C",
+    "x": 497,
+    "y": 389
+   },
+   {
+    "id": "RG",
+    "x": 566,
+    "y": 389
+   },
+   {
+    "id": "RT",
+    "x": 634,
+    "y": 389
+   },
+   {
+    "id": "X",
+    "x": 82,
+    "y": 389,
+    "path": [
+     [
+      92,
+      365
+     ],
+     [
+      138,
+      232
+     ],
+     [
+      185,
+      182
+     ],
+     [
+      240,
+      134
+     ],
+     [
+      270,
+      121
+     ],
+     [
+      310,
+      111
+     ],
+     [
+      493,
+      109
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 296,
+    "y": 453,
+    "path": [
+     [
+      303,
+      425
+     ],
+     [
+      320,
+      339
+     ],
+     [
+      366,
+      284
+     ],
+     [
+      440,
+      253
+     ],
+     [
+      655,
+      252
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 704,
+    "y": 389,
+    "path": [
+     [
+      704,
+      130
+     ],
+     [
+      797,
+      40
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 934,
+    "y": 450,
+    "path": [
+     [
+      935,
+      105
+     ],
+     [
+      998,
+      157
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 497,
+    "y": 454
+   },
+   {
+    "id": "H",
+    "x": 497,
+    "y": 585
+   }
+  ]
+ },
+ {
+  "id": "wheel-right",
+  "page": 43,
+  "file": "o-043-032.png",
+  "name": "Right Wheel Right",
+  "category": "Pass",
+  "note": "Post and wheel on play side, drag play side and backside dig.",
+  "anchor": {
+   "cx": 490,
+   "losY": 387,
+   "unit": 68.75,
+   "yard5": 129
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 353,
+    "y": 387
+   },
+   {
+    "id": "LG",
+    "x": 422,
+    "y": 387
+   },
+   {
+    "id": "C",
+    "x": 490,
+    "y": 387
+   },
+   {
+    "id": "RG",
+    "x": 559,
+    "y": 387
+   },
+   {
+    "id": "RT",
+    "x": 628,
+    "y": 387
+   },
+   {
+    "id": "X",
+    "x": 77,
+    "y": 387,
+    "path": [
+     [
+      77,
+      128
+     ],
+     [
+      210,
+      128
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 291,
+    "y": 452,
+    "path": [
+     [
+      295,
+      375
+     ],
+     [
+      303,
+      342
+     ],
+     [
+      320,
+      315
+     ],
+     [
+      360,
+      290
+     ],
+     [
+      420,
+      270
+     ],
+     [
+      480,
+      260
+     ],
+     [
+      560,
+      256
+     ],
+     [
+      670,
+      256
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 697,
+    "y": 387,
+    "path": [
+     [
+      720,
+      381
+     ],
+     [
+      800,
+      370
+     ],
+     [
+      880,
+      350
+     ],
+     [
+      940,
+      325
+     ],
+     [
+      985,
+      290
+     ],
+     [
+      1002,
+      250
+     ],
+     [
+      1008,
+      200
+     ],
+     [
+      1015,
+      42
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 904,
+    "y": 454,
+    "path": [
+     [
+      904,
+      192
+     ],
+     [
+      813,
+      102
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 490,
+    "y": 452
+   },
+   {
+    "id": "H",
+    "x": 490,
+    "y": 582
+   }
+  ]
+ },
+ {
+  "id": "wheel-left",
+  "page": 44,
+  "file": "o-044-033.png",
+  "name": "Right Wheel Left",
+  "category": "Pass",
+  "note": "Post and wheel on play side, drag play side and backside dig.",
+  "anchor": {
+   "cx": 568,
+   "losY": 382,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 430,
+    "y": 382
+   },
+   {
+    "id": "LG",
+    "x": 499,
+    "y": 382
+   },
+   {
+    "id": "C",
+    "x": 568,
+    "y": 382
+   },
+   {
+    "id": "RG",
+    "x": 637,
+    "y": 382
+   },
+   {
+    "id": "RT",
+    "x": 706,
+    "y": 382
+   },
+   {
+    "id": "X",
+    "x": 155,
+    "y": 382,
+    "path": [
+     [
+      155,
+      123
+     ],
+     [
+      246,
+      32
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 369,
+    "y": 447,
+    "path": [
+     [
+      280,
+      415
+     ],
+     [
+      180,
+      375
+     ],
+     [
+      140,
+      355
+     ],
+     [
+      90,
+      305
+     ],
+     [
+      65,
+      260
+     ],
+     [
+      50,
+      200
+     ],
+     [
+      40,
+      120
+     ],
+     [
+      38,
+      62
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "TE",
+    "x": 775,
+    "y": 382,
+    "path": [
+     [
+      768,
+      330
+     ],
+     [
+      740,
+      290
+     ],
+     [
+      700,
+      262
+     ],
+     [
+      640,
+      245
+     ],
+     [
+      560,
+      239
+     ],
+     [
+      320,
+      236
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Z",
+    "x": 983,
+    "y": 449,
+    "path": [
+     [
+      967,
+      120
+     ],
+     [
+      770,
+      115
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "Q",
+    "x": 568,
+    "y": 447,
+    "path": [
+     [
+      548,
+      513
+     ],
+     [
+      520,
+      550
+     ],
+     [
+      490,
+      567
+     ],
+     [
+      463,
+      568
+     ]
+    ],
+    "end": "drop"
+   },
+   {
+    "id": "H",
+    "x": 568,
+    "y": 577,
+    "path": [
+     [
+      420,
+      451
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ },
+ {
+  "id": "duo-fade-post",
+  "page": 46,
+  "file": "o-046-034.png",
+  "name": "Duo: Fade Post",
+  "category": "Pass",
+  "note": "H breaks Fade, Z breaks slant under H on each combo. Each route combo looks the same at first.",
+  "anchor": {
+   "cx": 118,
+   "losY": 368,
+   "unit": 0,
+   "yard5": 123
+  },
+  "players": [
+   {
+    "id": "Z",
+    "x": 188,
+    "y": 368,
+    "path": [
+     [
+      205,
+      305
+     ],
+     [
+      108,
+      275
+     ],
+     [
+      108,
+      143
+     ],
+     [
+      25,
+      48
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 140,
+    "y": 416,
+    "path": [
+     [
+      132,
+      385
+     ],
+     [
+      126,
+      305
+     ],
+     [
+      138,
+      280
+     ],
+     [
+      180,
+      245
+     ],
+     [
+      210,
+      195
+     ],
+     [
+      225,
+      140
+     ],
+     [
+      235,
+      95
+     ]
+    ],
+    "end": "arrow"
+   }
+  ]
+ },
+ {
+  "id": "duo-comeback-slant",
+  "page": 46,
+  "file": "o-046-035.png",
+  "name": "Duo: Comeback Slant",
+  "category": "Pass",
+  "note": "H breaks Fade, Z breaks slant under H on each combo. Each route combo looks the same at first.",
+  "anchor": {
+   "cx": 121,
+   "losY": 366,
+   "unit": 0,
+   "yard5": 123
+  },
+  "players": [
+   {
+    "id": "Z",
+    "x": 191,
+    "y": 367,
+    "path": [
+     [
+      210,
+      300
+     ],
+     [
+      67,
+      230
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 144,
+    "y": 413,
+    "path": [
+     [
+      136,
+      385
+     ],
+     [
+      130,
+      315
+     ],
+     [
+      140,
+      285
+     ],
+     [
+      175,
+      255
+     ],
+     [
+      205,
+      205
+     ],
+     [
+      225,
+      140
+     ],
+     [
+      238,
+      80
+     ],
+     [
+      309,
+      128
+     ]
+    ],
+    "end": "arrow"
+   }
+  ]
+ },
+ {
+  "id": "duo-dig-whip",
+  "page": 46,
+  "file": "o-046-036.png",
+  "name": "Duo: Dig Whip",
+  "category": "Pass",
+  "note": "H breaks Fade, Z breaks slant under H on each combo. Each route combo looks the same at first.",
+  "anchor": {
+   "cx": 115,
+   "losY": 367,
+   "unit": 0,
+   "yard5": 123
+  },
+  "players": [
+   {
+    "id": "Z",
+    "x": 185,
+    "y": 368,
+    "path": [
+     [
+      200,
+      300
+     ],
+     [
+      85,
+      225
+     ],
+     [
+      240,
+      225
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 138,
+    "y": 412,
+    "path": [
+     [
+      134,
+      385
+     ],
+     [
+      130,
+      325
+     ],
+     [
+      130,
+      290
+     ],
+     [
+      150,
+      265
+     ],
+     [
+      175,
+      230
+     ],
+     [
+      190,
+      180
+     ],
+     [
+      193,
+      120
+     ],
+     [
+      192,
+      82
+     ],
+     [
+      180,
+      72
+     ],
+     [
+      140,
+      70
+     ],
+     [
+      75,
+      72
+     ]
+    ],
+    "end": "arrow"
+   }
+  ]
+ },
+ {
+  "id": "duo-out-jerk",
+  "page": 46,
+  "file": "o-046-037.png",
+  "name": "Duo: Out Jerk",
+  "category": "Pass",
+  "note": "H breaks Fade, Z breaks slant under H on each combo. Each route combo looks the same at first.",
+  "anchor": {
+   "cx": 115,
+   "losY": 357,
+   "unit": 0,
+   "yard5": 122
+  },
+  "players": [
+   {
+    "id": "Z",
+    "x": 185,
+    "y": 358,
+    "path": [
+     [
+      203,
+      295
+     ],
+     [
+      95,
+      206
+     ],
+     [
+      118,
+      206
+     ],
+     [
+      102,
+      228
+     ],
+     [
+      43,
+      228
+     ]
+    ],
+    "end": "arrow"
+   },
+   {
+    "id": "h",
+    "x": 138,
+    "y": 405,
+    "path": [
+     [
+      130,
+      385
+     ],
+     [
+      120,
+      285
+     ],
+     [
+      145,
+      250
+     ],
+     [
+      165,
+      215
+     ],
+     [
+      185,
+      162
+     ],
+     [
+      260,
+      162
+     ]
+    ],
+    "end": "arrow"
+   }
+  ]
+ }
+]

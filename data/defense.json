@@ -1,0 +1,5813 @@
+[
+ {
+  "id": "d01-4-4-base-cover-3-run",
+  "num": 1,
+  "page": 3,
+  "file": "d-03.png",
+  "name": "4-4 Base Cover 3 Run",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 643.7,
+    "y": 185.0
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 186.9,
+    "y": 271.5
+   },
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 325.0,
+    "y": 280.6
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 338.3
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 502.5,
+    "y": 395.1,
+    "path": [
+     [
+      495.0,
+      312.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T",
+    "label": "T",
+    "team": "def",
+    "x": 576.9,
+    "y": 386.0,
+    "path": [
+     [
+      622.5,
+      300.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "N",
+    "label": "N",
+    "team": "def",
+    "x": 698.3,
+    "y": 389.1,
+    "path": [
+     [
+      663.4,
+      300.7
+     ]
+    ],
+    "end": "block",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 778.8,
+    "y": 395.1,
+    "path": [
+     [
+      781.8,
+      326.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 358.4,
+    "y": 424.0,
+    "path": [
+     [
+      422.1,
+      294.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 188.4,
+    "y": 437.6,
+    "path": [
+     [
+      194.5,
+      617.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 554.1,
+    "y": 457.4,
+    "path": [
+     [
+      546.6,
+      303.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 708.9,
+    "y": 451.3,
+    "path": [
+     [
+      716.6,
+      311.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 863.7,
+    "y": 448.3,
+    "path": [
+     [
+      854.7,
+      352.3
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 989.7,
+    "y": 442.2,
+    "path": [
+     [
+      1004.9,
+      573.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 637.6,
+    "y": 539.3,
+    "path": [
+     [
+      645.2,
+      686.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": []
+ },
+ {
+  "id": "d02-4-4-base-cover-3",
+  "num": 2,
+  "page": 3,
+  "file": "d-03.png",
+  "name": "4-4 Base Cover 3",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   825.0,
+   1229.2,
+   1566.7
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 1080.0,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 643.7,
+    "y": 926.7
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 186.9,
+    "y": 1013.2
+   },
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 325.0,
+    "y": 1022.3
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1024.5
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 1080.0
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 1080.0
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 1080.0
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1080.0
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 1080.0
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 1080.0
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 1080.0
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 502.5,
+    "y": 1136.8,
+    "path": [
+     [
+      495.0,
+      1054.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T",
+    "label": "T",
+    "team": "def",
+    "x": 576.9,
+    "y": 1127.7,
+    "path": [
+     [
+      622.5,
+      1042.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "N",
+    "label": "N",
+    "team": "def",
+    "x": 698.3,
+    "y": 1130.7,
+    "path": [
+     [
+      663.4,
+      1042.4
+     ]
+    ],
+    "end": "block",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 778.8,
+    "y": 1136.8,
+    "path": [
+     [
+      781.8,
+      1068.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 337.1,
+    "y": 1168.7,
+    "path": [
+     [
+      296.2,
+      1182.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 188.4,
+    "y": 1179.3,
+    "path": [
+     [
+      194.5,
+      1359.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 989.7,
+    "y": 1183.8,
+    "path": [
+     [
+      1004.9,
+      1315.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 554.1,
+    "y": 1199.0,
+    "path": [
+     [
+      514.7,
+      1238.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 708.9,
+    "y": 1193.0,
+    "path": [
+     [
+      715.0,
+      1223.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 872.8,
+    "y": 1222.6,
+    "path": [
+     [
+      951.8,
+      1174.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 637.6,
+    "y": 1281.0,
+    "path": [
+     [
+      645.2,
+      1427.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": [
+   {
+    "x": 296.2,
+    "y": 1182.0,
+    "r": 110.8,
+    "color": "red",
+    "owner": "S"
+   },
+   {
+    "x": 715.0,
+    "y": 1223.0,
+    "r": 89.2,
+    "color": "red",
+    "owner": "M"
+   },
+   {
+    "x": 514.7,
+    "y": 1238.2,
+    "r": 86.5,
+    "color": "red",
+    "owner": "W"
+   },
+   {
+    "x": 194.5,
+    "y": 1359.6,
+    "r": 156.8,
+    "color": "teal",
+    "owner": "C-L"
+   },
+   {
+    "x": 1004.9,
+    "y": 1315.6,
+    "r": 137.9,
+    "color": "teal",
+    "owner": "C-R"
+   },
+   {
+    "x": 951.8,
+    "y": 1174.4,
+    "r": 105.4,
+    "color": "red",
+    "owner": "B"
+   },
+   {
+    "x": 645.2,
+    "y": 1427.9,
+    "r": 162.2,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d03-4-4-base-cover-2",
+  "num": 3,
+  "page": 4,
+  "file": "d-04.png",
+  "name": "4-4 Base Cover 2",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 643.7,
+    "y": 185.0
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 186.9,
+    "y": 271.5
+   },
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 325.0,
+    "y": 280.6
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 338.3
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 502.5,
+    "y": 395.1,
+    "path": [
+     [
+      495.0,
+      312.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T",
+    "label": "T",
+    "team": "def",
+    "x": 576.9,
+    "y": 386.0,
+    "path": [
+     [
+      622.5,
+      300.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "N",
+    "label": "N",
+    "team": "def",
+    "x": 698.3,
+    "y": 389.1,
+    "path": [
+     [
+      663.4,
+      300.7
+     ]
+    ],
+    "end": "block",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 778.8,
+    "y": 395.1,
+    "path": [
+     [
+      781.8,
+      326.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 188.4,
+    "y": 437.6
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 391.8,
+    "y": 440.7,
+    "path": [
+     [
+      350.8,
+      454.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 554.1,
+    "y": 457.4,
+    "path": [
+     [
+      514.7,
+      496.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 708.9,
+    "y": 451.3,
+    "path": [
+     [
+      715.0,
+      481.3
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 872.8,
+    "y": 480.9,
+    "path": [
+     [
+      951.8,
+      432.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 962.4,
+    "y": 528.7,
+    "path": [
+     [
+      768.2,
+      727.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 454.0,
+    "y": 577.3,
+    "path": [
+     [
+      284.0,
+      740.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": [
+   {
+    "x": 350.8,
+    "y": 454.0,
+    "r": 110.8,
+    "color": "red",
+    "owner": "S"
+   },
+   {
+    "x": 715.0,
+    "y": 481.3,
+    "r": 89.2,
+    "color": "red",
+    "owner": "M"
+   },
+   {
+    "x": 514.7,
+    "y": 496.5,
+    "r": 86.5,
+    "color": "red",
+    "owner": "W"
+   },
+   {
+    "x": 188.4,
+    "y": 434.3,
+    "r": 100.0,
+    "color": "teal",
+    "owner": "C-L"
+   },
+   {
+    "x": 768.2,
+    "y": 727.2,
+    "r": 137.9,
+    "color": "teal",
+    "owner": "C-R"
+   },
+   {
+    "x": 951.8,
+    "y": 432.8,
+    "r": 105.4,
+    "color": "red",
+    "owner": "B"
+   },
+   {
+    "x": 284.0,
+    "y": 740.9,
+    "r": 162.2,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d04-4-4-base-man",
+  "num": 4,
+  "page": 4,
+  "file": "d-04.png",
+  "name": "4-4 Base Man",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   825.0,
+   1229.2,
+   1566.7
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 1080.0,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 643.7,
+    "y": 926.7
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 186.9,
+    "y": 1013.2
+   },
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 325.0,
+    "y": 1022.3
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1024.5
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 1080.0
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 1080.0
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 1080.0
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1080.0
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 1080.0
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 1080.0
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 1080.0
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 183.8,
+    "y": 1135.3,
+    "path": [
+     [
+      180.8,
+      1021.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 502.5,
+    "y": 1136.8,
+    "path": [
+     [
+      495.0,
+      1054.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T",
+    "label": "T",
+    "team": "def",
+    "x": 576.9,
+    "y": 1127.7,
+    "path": [
+     [
+      622.5,
+      1042.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "N",
+    "label": "N",
+    "team": "def",
+    "x": 698.3,
+    "y": 1130.7,
+    "path": [
+     [
+      663.4,
+      1042.4
+     ]
+    ],
+    "end": "block",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 778.8,
+    "y": 1136.8,
+    "path": [
+     [
+      781.8,
+      1068.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 554.1,
+    "y": 1199.0
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 708.9,
+    "y": 1193.0
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 863.7,
+    "y": 1189.9
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 989.7,
+    "y": 1183.8,
+    "path": [
+     [
+      988.2,
+      1084.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 432.7,
+    "y": 1208.1,
+    "path": [
+     [
+      461.2,
+      1102.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 320.0,
+    "y": 1222.9,
+    "path": [
+     [
+      320.1,
+      1032.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   }
+  ],
+  "zones": []
+ },
+ {
+  "id": "d05-4-4-base-man-even-formation",
+  "num": 5,
+  "page": 5,
+  "file": "d-05.png",
+  "name": "4-4 Base Man even formation",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 637.6,
+    "y": 217.2
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 183.9,
+    "y": 263.9
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 282.8
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "U",
+    "label": "U",
+    "team": "opp",
+    "x": 812.5,
+    "y": 338.3
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 183.8,
+    "y": 393.6,
+    "path": [
+     [
+      180.8,
+      279.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 502.5,
+    "y": 395.1,
+    "path": [
+     [
+      495.0,
+      312.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T",
+    "label": "T",
+    "team": "def",
+    "x": 579.9,
+    "y": 401.2,
+    "path": [
+     [
+      586.8,
+      359.2
+     ],
+     [
+      604.3,
+      311.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "N",
+    "label": "N",
+    "team": "def",
+    "x": 701.4,
+    "y": 393.6,
+    "path": [
+     [
+      666.5,
+      305.3
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 778.8,
+    "y": 395.1,
+    "path": [
+     [
+      781.8,
+      326.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 863.7,
+    "y": 448.3,
+    "path": [
+     [
+      830.4,
+      346.3
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 989.7,
+    "y": 442.2,
+    "path": [
+     [
+      988.2,
+      343.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 458.5,
+    "y": 469.5,
+    "path": [
+     [
+      454.0,
+      364.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 705.9,
+    "y": 471.0
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 575.4,
+    "y": 483.2
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 643.7,
+    "y": 704.7
+   }
+  ],
+  "zones": [
+   {
+    "x": 643.7,
+    "y": 701.4,
+    "r": 200.0,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d06-4-4-indy-cover-3",
+  "num": 6,
+  "page": 5,
+  "file": "d-05.png",
+  "name": "4-4 Indy Cover 3",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   825.0,
+   1229.2,
+   1566.7
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 1080.0,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 636.1,
+    "y": 922.2
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 334.1,
+    "y": 1020.9
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1024.5
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 180.8,
+    "y": 1040.6
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 1080.0
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 1080.0
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 1080.0
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1080.0
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 1080.0
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 1080.0
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 1080.0
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 488.9,
+    "y": 1135.3,
+    "path": [
+     [
+      481.3,
+      1016.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 563.2,
+    "y": 1141.4,
+    "path": [
+     [
+      549.6,
+      1021.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 715.0,
+    "y": 1144.4,
+    "path": [
+     [
+      718.1,
+      1033.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 786.3,
+    "y": 1138.4,
+    "path": [
+     [
+      783.3,
+      1031.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 173.2,
+    "y": 1176.3,
+    "path": [
+     [
+      183.9,
+      1315.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 359.9,
+    "y": 1190.0,
+    "path": [
+     [
+      262.8,
+      1162.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 716.5,
+    "y": 1202.1,
+    "path": [
+     [
+      759.1,
+      1276.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 560.2,
+    "y": 1209.7,
+    "path": [
+     [
+      487.4,
+      1274.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 872.8,
+    "y": 1222.6,
+    "path": [
+     [
+      963.9,
+      1150.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 1001.8,
+    "y": 1231.0,
+    "path": [
+     [
+      1012.5,
+      1380.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 569.3,
+    "y": 1334.2,
+    "path": [
+     [
+      576.9,
+      1456.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": [
+   {
+    "x": 262.8,
+    "y": 1162.4,
+    "r": 110.8,
+    "color": "red",
+    "owner": "S"
+   },
+   {
+    "x": 759.1,
+    "y": 1276.2,
+    "r": 105.4,
+    "color": "red",
+    "owner": "M"
+   },
+   {
+    "x": 487.4,
+    "y": 1274.7,
+    "r": 118.9,
+    "color": "red",
+    "owner": "W"
+   },
+   {
+    "x": 183.9,
+    "y": 1315.6,
+    "r": 167.6,
+    "color": "teal",
+    "owner": "C-L"
+   },
+   {
+    "x": 1012.5,
+    "y": 1380.9,
+    "r": 205.4,
+    "color": "teal",
+    "owner": "C-R"
+   },
+   {
+    "x": 963.9,
+    "y": 1150.2,
+    "r": 118.9,
+    "color": "red",
+    "owner": "B"
+   },
+   {
+    "x": 576.9,
+    "y": 1456.8,
+    "r": 191.9,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d07-4-4-indy-cover-3-run-play",
+  "num": 7,
+  "page": 6,
+  "file": "d-06.png",
+  "name": "4-4 Indy Cover 3 Run Play",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 636.1,
+    "y": 180.5
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 334.1,
+    "y": 279.2
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 180.8,
+    "y": 298.9
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 338.3
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 488.9,
+    "y": 393.7,
+    "path": [
+     [
+      481.3,
+      275.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 563.2,
+    "y": 399.7,
+    "path": [
+     [
+      549.6,
+      279.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 715.0,
+    "y": 402.8,
+    "path": [
+     [
+      718.1,
+      291.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 786.3,
+    "y": 396.7,
+    "path": [
+     [
+      783.3,
+      290.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 173.2,
+    "y": 434.7,
+    "path": [
+     [
+      183.9,
+      574.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 359.9,
+    "y": 448.3,
+    "path": [
+     [
+      388.7,
+      311.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 716.5,
+    "y": 460.5,
+    "path": [
+     [
+      661.9,
+      328.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 560.2,
+    "y": 468.0,
+    "path": [
+     [
+      607.3,
+      323.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 872.8,
+    "y": 480.9,
+    "path": [
+     [
+      847.1,
+      363.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 1001.8,
+    "y": 489.3,
+    "path": [
+     [
+      1012.5,
+      639.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 569.3,
+    "y": 592.5,
+    "path": [
+     [
+      576.9,
+      715.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": []
+ },
+ {
+  "id": "d08-4-4-indy-man-coverage",
+  "num": 8,
+  "page": 6,
+  "file": "d-06.png",
+  "name": "4-4 Indy Man Coverage",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   825.0,
+   1229.2,
+   1566.7
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 1080.0,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 636.1,
+    "y": 922.2
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 334.1,
+    "y": 1020.9
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1024.5
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 180.8,
+    "y": 1040.6
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 1080.0
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 1080.0
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 1080.0
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1080.0
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 1080.0
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 1080.0
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 1080.0
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 488.9,
+    "y": 1135.3,
+    "path": [
+     [
+      481.3,
+      1016.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 563.2,
+    "y": 1141.4,
+    "path": [
+     [
+      549.6,
+      1021.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 710.5,
+    "y": 1130.8,
+    "path": [
+     [
+      713.5,
+      1019.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 786.3,
+    "y": 1138.4,
+    "path": [
+     [
+      783.3,
+      1031.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 173.2,
+    "y": 1176.3,
+    "path": [
+     [
+      174.8,
+      1063.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 989.7,
+    "y": 1186.9,
+    "path": [
+     [
+      992.8,
+      1095.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 837.9,
+    "y": 1203.6
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 324.6,
+    "y": 1216.9,
+    "path": [
+     [
+      332.2,
+      1042.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 458.9,
+    "y": 1214.6,
+    "path": [
+     [
+      455.9,
+      1100.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 579.9,
+    "y": 1218.8
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 725.6,
+    "y": 1217.3
+   }
+  ],
+  "zones": []
+ },
+ {
+  "id": "d09-4-4-indy-man-coverage-even-formation",
+  "num": 9,
+  "page": 7,
+  "file": "d-07.png",
+  "name": "4-4 Indy Man Coverage even formation",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 637.6,
+    "y": 217.2
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 172.1,
+    "y": 276.5
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 282.8
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "U",
+    "label": "U",
+    "team": "opp",
+    "x": 812.5,
+    "y": 338.3
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 488.9,
+    "y": 393.7,
+    "path": [
+     [
+      481.3,
+      275.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 563.2,
+    "y": 399.7,
+    "path": [
+     [
+      549.6,
+      279.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 710.5,
+    "y": 389.1,
+    "path": [
+     [
+      713.5,
+      278.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 786.3,
+    "y": 396.7,
+    "path": [
+     [
+      783.3,
+      290.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 173.2,
+    "y": 434.7,
+    "path": [
+     [
+      174.8,
+      322.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 989.7,
+    "y": 445.3,
+    "path": [
+     [
+      992.8,
+      353.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 450.9,
+    "y": 462.0,
+    "path": [
+     [
+      447.9,
+      347.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 560.2,
+    "y": 468.0
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 837.9,
+    "y": 462.0,
+    "path": [
+     [
+      828.9,
+      353.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 725.6,
+    "y": 475.6
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 640.6,
+    "y": 739.7
+   }
+  ],
+  "zones": [
+   {
+    "x": 640.7,
+    "y": 736.4,
+    "r": 248.7,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d10-4-4-pinch-cover-3",
+  "num": 10,
+  "page": 7,
+  "file": "d-07.png",
+  "name": "4-4 Pinch Cover 3",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   825.0,
+   1229.2,
+   1566.7
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 1080.0,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 640.7,
+    "y": 931.3
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 182.3,
+    "y": 1023.9
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1024.5
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 329.6,
+    "y": 1039.1
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 1080.0
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 1080.0
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 1080.0
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1080.0
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 1080.0
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 1080.0
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 1080.0
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 516.2,
+    "y": 1141.4,
+    "path": [
+     [
+      556.0,
+      1046.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 579.3,
+    "y": 1136.1,
+    "path": [
+     [
+      611.8,
+      1031.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 695.9,
+    "y": 1136.1,
+    "path": [
+     [
+      654.3,
+      1039.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 751.4,
+    "y": 1141.4,
+    "path": [
+     [
+      716.6,
+      1050.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 186.9,
+    "y": 1177.8,
+    "path": [
+     [
+      200.6,
+      1349.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 405.4,
+    "y": 1180.9,
+    "path": [
+     [
+      287.1,
+      1130.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 581.5,
+    "y": 1219.5,
+    "path": [
+     [
+      481.3,
+      1286.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 696.8,
+    "y": 1219.5,
+    "path": [
+     [
+      794.0,
+      1282.3
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 872.8,
+    "y": 1222.6,
+    "path": [
+     [
+      948.8,
+      1125.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 1044.3,
+    "y": 1214.3,
+    "path": [
+     [
+      1052.0,
+      1364.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 643.7,
+    "y": 1356.9,
+    "path": [
+     [
+      658.9,
+      1500.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": [
+   {
+    "x": 287.1,
+    "y": 1130.5,
+    "r": 110.8,
+    "color": "red",
+    "owner": "S"
+   },
+   {
+    "x": 794.0,
+    "y": 1282.3,
+    "r": 121.6,
+    "color": "red",
+    "owner": "M"
+   },
+   {
+    "x": 481.3,
+    "y": 1286.8,
+    "r": 113.5,
+    "color": "red",
+    "owner": "W"
+   },
+   {
+    "x": 200.6,
+    "y": 1349.0,
+    "r": 191.9,
+    "color": "teal",
+    "owner": "C-L"
+   },
+   {
+    "x": 1052.0,
+    "y": 1364.2,
+    "r": 146.0,
+    "color": "teal",
+    "owner": "C-R"
+   },
+   {
+    "x": 948.8,
+    "y": 1125.9,
+    "r": 124.3,
+    "color": "red",
+    "owner": "B"
+   },
+   {
+    "x": 658.9,
+    "y": 1500.8,
+    "r": 170.3,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d11-4-4-pinch-cover-3-run-play",
+  "num": 11,
+  "page": 8,
+  "file": "d-08.png",
+  "name": "4-4 Pinch Cover 3 Run Play",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 640.7,
+    "y": 189.6
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 182.3,
+    "y": 282.2
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 329.6,
+    "y": 297.4
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 338.3
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 516.2,
+    "y": 399.7,
+    "path": [
+     [
+      556.0,
+      304.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 579.3,
+    "y": 394.5,
+    "path": [
+     [
+      611.8,
+      290.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 695.9,
+    "y": 394.5,
+    "path": [
+     [
+      654.3,
+      297.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 751.4,
+    "y": 399.7,
+    "path": [
+     [
+      716.6,
+      308.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 186.9,
+    "y": 436.2,
+    "path": [
+     [
+      200.6,
+      607.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 405.4,
+    "y": 439.2,
+    "path": [
+     [
+      413.0,
+      309.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 581.5,
+    "y": 477.9
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 696.8,
+    "y": 477.9
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 872.8,
+    "y": 480.9,
+    "path": [
+     [
+      822.8,
+      308.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 1044.3,
+    "y": 472.6,
+    "path": [
+     [
+      1052.0,
+      622.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 643.7,
+    "y": 615.3,
+    "path": [
+     [
+      658.9,
+      759.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": []
+ },
+ {
+  "id": "d12-4-4-pinch-man-coverage",
+  "num": 12,
+  "page": 8,
+  "file": "d-08.png",
+  "name": "4-4 Pinch Man Coverage",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   825.0,
+   1229.2,
+   1566.7
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 1080.0,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 640.7,
+    "y": 931.3
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 182.3,
+    "y": 1023.9
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1024.5
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 329.6,
+    "y": 1039.1
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 1080.0
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 1080.0
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 1080.0
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1080.0
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 1080.0
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 1080.0
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 1080.0
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 186.9,
+    "y": 1139.9,
+    "path": [
+     [
+      185.4,
+      1037.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 516.2,
+    "y": 1141.4,
+    "path": [
+     [
+      556.0,
+      1046.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 579.3,
+    "y": 1136.1,
+    "path": [
+     [
+      611.8,
+      1031.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 695.9,
+    "y": 1136.1,
+    "path": [
+     [
+      654.3,
+      1039.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 751.4,
+    "y": 1141.4,
+    "path": [
+     [
+      716.6,
+      1050.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 336.0,
+    "y": 1164.6,
+    "path": [
+     [
+      331.5,
+      1070.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 836.4,
+    "y": 1173.3
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 431.6,
+    "y": 1197.6,
+    "path": [
+     [
+      454.4,
+      1095.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 992.7,
+    "y": 1193.0,
+    "path": [
+     [
+      988.2,
+      1089.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 528.3,
+    "y": 1216.9
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 681.6,
+    "y": 1218.8
+   }
+  ],
+  "zones": []
+ },
+ {
+  "id": "d13-4-4-pinch-man-coverage-even-formation",
+  "num": 13,
+  "page": 9,
+  "file": "d-09.png",
+  "name": "4-4 Pinch Man Coverage even formation",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 637.6,
+    "y": 217.2
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 288.0,
+    "y": 282.8
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 282.8
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "U",
+    "label": "U",
+    "team": "opp",
+    "x": 812.5,
+    "y": 338.3
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 186.9,
+    "y": 398.2,
+    "path": [
+     [
+      185.4,
+      296.3
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 516.2,
+    "y": 399.7,
+    "path": [
+     [
+      556.0,
+      304.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 579.3,
+    "y": 394.5,
+    "path": [
+     [
+      611.8,
+      290.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 692.2,
+    "y": 396.7,
+    "path": [
+     [
+      650.7,
+      300.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 751.4,
+    "y": 399.7,
+    "path": [
+     [
+      716.6,
+      308.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 836.4,
+    "y": 431.6,
+    "path": [
+     [
+      800.0,
+      285.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 452.5,
+    "y": 445.3,
+    "path": [
+     [
+      458.6,
+      358.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 992.7,
+    "y": 451.3,
+    "path": [
+     [
+      988.2,
+      347.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 552.6,
+    "y": 466.5
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 707.4,
+    "y": 466.5
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 639.1,
+    "y": 694.2
+   }
+  ],
+  "zones": [
+   {
+    "x": 639.2,
+    "y": 690.8,
+    "r": 208.1,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d14-4-4-strong-cover-3",
+  "num": 14,
+  "page": 9,
+  "file": "d-09.png",
+  "name": "4-4 Strong Cover 3",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   825.0,
+   1229.2,
+   1566.7
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 1080.0,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 637.6,
+    "y": 945.0
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 303.8,
+    "y": 1023.9
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1024.5
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 162.6,
+    "y": 1040.6
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 1080.0
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 1080.0
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 1080.0
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1080.0
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 1080.0
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 1080.0
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 1080.0
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 462.8,
+    "y": 1136.1,
+    "path": [
+     [
+      411.5,
+      1039.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 579.3,
+    "y": 1136.1,
+    "path": [
+     [
+      520.8,
+      1021.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 695.9,
+    "y": 1136.1,
+    "path": [
+     [
+      642.2,
+      1025.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 763.6,
+    "y": 1135.3,
+    "path": [
+     [
+      699.6,
+      1009.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 164.1,
+    "y": 1183.9,
+    "path": [
+     [
+      167.2,
+      1371.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 381.1,
+    "y": 1199.1,
+    "path": [
+     [
+      259.7,
+      1129.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 575.4,
+    "y": 1200.6,
+    "path": [
+     [
+      560.2,
+      1236.7
+     ],
+     [
+      532.9,
+      1267.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 1045.9,
+    "y": 1208.9,
+    "path": [
+     [
+      1056.5,
+      1382.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 696.8,
+    "y": 1219.5,
+    "path": [
+     [
+      769.7,
+      1264.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 872.8,
+    "y": 1222.6,
+    "path": [
+     [
+      959.4,
+      1125.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 652.8,
+    "y": 1396.4,
+    "path": [
+     [
+      658.9,
+      1538.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": [
+   {
+    "x": 259.7,
+    "y": 1129.0,
+    "r": 124.3,
+    "color": "red",
+    "owner": "S"
+   },
+   {
+    "x": 769.7,
+    "y": 1264.0,
+    "r": 137.9,
+    "color": "red",
+    "owner": "M"
+   },
+   {
+    "x": 532.9,
+    "y": 1267.1,
+    "r": 110.8,
+    "color": "red",
+    "owner": "W"
+   },
+   {
+    "x": 167.2,
+    "y": 1371.8,
+    "r": 135.2,
+    "color": "teal",
+    "owner": "C-L"
+   },
+   {
+    "x": 1056.5,
+    "y": 1382.4,
+    "r": 132.4,
+    "color": "teal",
+    "owner": "C-R"
+   },
+   {
+    "x": 959.4,
+    "y": 1125.9,
+    "r": 124.3,
+    "color": "red",
+    "owner": "B"
+   },
+   {
+    "x": 658.9,
+    "y": 1538.7,
+    "r": 175.7,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d15-4-4-strong-cover-2",
+  "num": 15,
+  "page": 10,
+  "file": "d-10.png",
+  "name": "4-4 Strong Cover 2",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 637.6,
+    "y": 203.3
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 303.8,
+    "y": 282.2
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 162.6,
+    "y": 298.9
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 338.3
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 462.8,
+    "y": 394.5,
+    "path": [
+     [
+      411.5,
+      297.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 579.3,
+    "y": 394.5,
+    "path": [
+     [
+      520.8,
+      279.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 695.9,
+    "y": 394.5,
+    "path": [
+     [
+      642.2,
+      284.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 763.6,
+    "y": 393.7,
+    "path": [
+     [
+      699.6,
+      268.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 164.1,
+    "y": 442.2,
+    "path": [
+     [
+      163.6,
+      424.7
+     ],
+     [
+      168.4,
+      419.5
+     ],
+     [
+      157.9,
+      409.8
+     ],
+     [
+      167.6,
+      399.4
+     ],
+     [
+      157.1,
+      389.7
+     ],
+     [
+      161.7,
+      378.8
+     ],
+     [
+      161.1,
+      364.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 381.1,
+    "y": 457.4
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 575.4,
+    "y": 458.9,
+    "path": [
+     [
+      560.2,
+      495.1
+     ],
+     [
+      532.9,
+      525.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 696.8,
+    "y": 477.9,
+    "path": [
+     [
+      769.7,
+      522.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 872.8,
+    "y": 480.9,
+    "path": [
+     [
+      959.4,
+      384.3
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 991.2,
+    "y": 493.8,
+    "path": [
+     [
+      821.3,
+      733.3
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 452.5,
+    "y": 688.1,
+    "path": [
+     [
+      299.2,
+      812.3
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": [
+   {
+    "x": 381.2,
+    "y": 454.1,
+    "r": 124.3,
+    "color": "red",
+    "owner": "S"
+   },
+   {
+    "x": 769.7,
+    "y": 522.4,
+    "r": 137.9,
+    "color": "red",
+    "owner": "M"
+   },
+   {
+    "x": 532.9,
+    "y": 525.4,
+    "r": 110.8,
+    "color": "red",
+    "owner": "W"
+   },
+   {
+    "x": 161.1,
+    "y": 364.5,
+    "r": 105.4,
+    "color": "teal",
+    "owner": "C-L"
+   },
+   {
+    "x": 821.3,
+    "y": 733.3,
+    "r": 224.4,
+    "color": "teal",
+    "owner": "C-R"
+   },
+   {
+    "x": 959.4,
+    "y": 384.3,
+    "r": 124.3,
+    "color": "red",
+    "owner": "B"
+   },
+   {
+    "x": 299.2,
+    "y": 812.3,
+    "r": 170.3,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d16-4-4-strong-cover-3-run-play",
+  "num": 16,
+  "page": 10,
+  "file": "d-10.png",
+  "name": "4-4 Strong Cover 3 Run play",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   825.0,
+   1229.2,
+   1566.7
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 1080.0,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 637.6,
+    "y": 945.0
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 303.8,
+    "y": 1023.9
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1024.5
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 162.6,
+    "y": 1040.6
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 1080.0
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 1080.0
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 1080.0
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1080.0
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 1080.0
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 1080.0
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 1080.0
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 462.8,
+    "y": 1136.1,
+    "path": [
+     [
+      411.5,
+      1039.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 579.3,
+    "y": 1136.1,
+    "path": [
+     [
+      520.8,
+      1021.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 695.9,
+    "y": 1136.1,
+    "path": [
+     [
+      642.2,
+      1025.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 763.6,
+    "y": 1135.3,
+    "path": [
+     [
+      699.6,
+      1009.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 164.1,
+    "y": 1183.9,
+    "path": [
+     [
+      167.2,
+      1371.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 381.1,
+    "y": 1199.1,
+    "path": [
+     [
+      487.4,
+      1094.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 1045.9,
+    "y": 1208.9,
+    "path": [
+     [
+      1056.5,
+      1382.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 581.5,
+    "y": 1219.5,
+    "path": [
+     [
+      608.8,
+      1069.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 696.8,
+    "y": 1219.5,
+    "path": [
+     [
+      599.7,
+      1261.0
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 872.8,
+    "y": 1222.6,
+    "path": [
+     [
+      844.0,
+      1121.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 652.8,
+    "y": 1396.4,
+    "path": [
+     [
+      658.9,
+      1538.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": []
+ },
+ {
+  "id": "d17-4-4-strong-man-coverage",
+  "num": 17,
+  "page": 11,
+  "file": "d-11.png",
+  "name": "4-4 Strong Man Coverage",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 637.6,
+    "y": 203.3
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 303.8,
+    "y": 282.2
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 162.6,
+    "y": 298.9
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 338.3
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 462.8,
+    "y": 394.5,
+    "path": [
+     [
+      411.5,
+      297.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 579.3,
+    "y": 394.5,
+    "path": [
+     [
+      520.8,
+      279.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 695.9,
+    "y": 394.5,
+    "path": [
+     [
+      642.2,
+      284.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 763.6,
+    "y": 393.7,
+    "path": [
+     [
+      699.6,
+      268.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 298.4,
+    "y": 410.4,
+    "path": [
+     [
+      311.0,
+      292.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 162.6,
+    "y": 425.5,
+    "path": [
+     [
+      161.1,
+      314.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 866.8,
+    "y": 427.1
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 416.8,
+    "y": 455.9,
+    "path": [
+     [
+      455.5,
+      338.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 531.4,
+    "y": 469.6
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 707.4,
+    "y": 462.0
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 991.2,
+    "y": 466.5,
+    "path": [
+     [
+      992.8,
+      352.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   }
+  ],
+  "zones": []
+ },
+ {
+  "id": "d18-4-4-strong-man-coverage-even-formation",
+  "num": 18,
+  "page": 11,
+  "file": "d-11.png",
+  "name": "4-4 Strong Man Coverage even formation",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   825.0,
+   1229.2,
+   1566.7
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 1080.0,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 637.6,
+    "y": 958.9
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 161.1,
+    "y": 1017.8
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1024.5
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 1024.5
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 1080.0
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 1080.0
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 1080.0
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1080.0
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 1080.0
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 1080.0
+   },
+   {
+    "id": "U",
+    "label": "U",
+    "team": "opp",
+    "x": 812.5,
+    "y": 1080.0
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 462.8,
+    "y": 1136.1,
+    "path": [
+     [
+      411.5,
+      1039.4
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 579.3,
+    "y": 1136.1,
+    "path": [
+     [
+      520.8,
+      1021.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 695.9,
+    "y": 1136.1,
+    "path": [
+     [
+      642.2,
+      1025.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 768.1,
+    "y": 1149.0,
+    "path": [
+     [
+      704.1,
+      1023.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 162.6,
+    "y": 1167.2,
+    "path": [
+     [
+      159.6,
+      1028.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 408.8,
+    "y": 1190.7,
+    "path": [
+     [
+      448.7,
+      1087.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 837.9,
+    "y": 1189.6,
+    "path": [
+     [
+      809.1,
+      1070.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 531.4,
+    "y": 1211.2
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 707.4,
+    "y": 1203.6
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 991.2,
+    "y": 1208.2,
+    "path": [
+     [
+      992.8,
+      1094.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 639.1,
+    "y": 1404.0
+   }
+  ],
+  "zones": [
+   {
+    "x": 639.2,
+    "y": 1400.6,
+    "r": 186.5,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d19-4-4-5-3-red-zone-man-coverage",
+  "num": 19,
+  "page": 12,
+  "file": "d-12.png",
+  "name": "4-4 5-3 Red Zone Man Coverage",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 637.6,
+    "y": 173.5
+   },
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 637.6,
+    "y": 228.2
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 232.4,
+    "y": 287.9
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 338.3
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 233.5,
+    "y": 384.2,
+    "path": [
+     [
+      235.8,
+      309.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 441.8,
+    "y": 397.9
+   },
+   {
+    "id": "T-L",
+    "label": "T",
+    "team": "def",
+    "x": 539.7,
+    "y": 400.1
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 638.7,
+    "y": 401.3
+   },
+   {
+    "id": "T-R",
+    "label": "T",
+    "team": "def",
+    "x": 717.3,
+    "y": 395.6
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 790.1,
+    "y": 397.9
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 987.1,
+    "y": 393.3,
+    "path": [
+     [
+      995.0,
+      337.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 391.8,
+    "y": 459.3,
+    "path": [
+     [
+      443.0,
+      346.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 860.7,
+    "y": 473.0
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 630.8,
+    "y": 480.9
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 579.6,
+    "y": 598.2
+   }
+  ],
+  "zones": [
+   {
+    "x": 579.6,
+    "y": 594.8,
+    "r": 146.3,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d20-4-4-base-cover-3-spy",
+  "num": 20,
+  "page": 12,
+  "file": "d-12.png",
+  "name": "4-4 Base Cover 3 Spy",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   825.0,
+   1229.2,
+   1566.7
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 1224.2,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 643.7,
+    "y": 1070.9
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 186.9,
+    "y": 1157.4
+   },
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 325.0,
+    "y": 1166.6
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1168.7
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 1224.2
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 1224.2
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 1224.2
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 1224.2
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 1224.2
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 1224.2
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 987.3,
+    "y": 1224.2
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 182.3,
+    "y": 1249.2,
+    "path": [
+     [
+      193.0,
+      1160.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 502.5,
+    "y": 1281.0,
+    "path": [
+     [
+      495.0,
+      1198.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T",
+    "label": "T",
+    "team": "def",
+    "x": 576.9,
+    "y": 1272.0,
+    "path": [
+     [
+      622.5,
+      1186.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "N",
+    "label": "N",
+    "team": "def",
+    "x": 698.3,
+    "y": 1275.0,
+    "path": [
+     [
+      663.4,
+      1186.7
+     ]
+    ],
+    "end": "block",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 778.8,
+    "y": 1281.0,
+    "path": [
+     [
+      781.8,
+      1212.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 411.5,
+    "y": 1325.1,
+    "path": [
+     [
+      288.6,
+      1306.6
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 989.7,
+    "y": 1328.1,
+    "path": [
+     [
+      1004.9,
+      1459.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 639.1,
+    "y": 1350.9
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 872.8,
+    "y": 1366.8,
+    "path": [
+     [
+      951.8,
+      1318.7
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 194.5,
+    "y": 1378.2,
+    "path": [
+     [
+      200.6,
+      1558.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 637.6,
+    "y": 1425.2,
+    "path": [
+     [
+      645.2,
+      1572.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": [
+   {
+    "x": 639.2,
+    "y": 1347.5,
+    "r": 124.3,
+    "color": "red",
+    "owner": "M"
+   },
+   {
+    "x": 288.6,
+    "y": 1306.6,
+    "r": 86.5,
+    "color": "red",
+    "owner": "W"
+   },
+   {
+    "x": 200.6,
+    "y": 1558.5,
+    "r": 156.8,
+    "color": "teal",
+    "owner": "C-L"
+   },
+   {
+    "x": 1004.9,
+    "y": 1459.8,
+    "r": 137.9,
+    "color": "teal",
+    "owner": "C-R"
+   },
+   {
+    "x": 951.8,
+    "y": 1318.7,
+    "r": 105.4,
+    "color": "red",
+    "owner": "B"
+   },
+   {
+    "x": 645.2,
+    "y": 1572.1,
+    "r": 162.2,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ },
+ {
+  "id": "d21-4-4-base-4-3-cover-2",
+  "num": 21,
+  "page": 13,
+  "file": "d-13.png",
+  "name": "4-4 Base 4-3 cover 2",
+  "category": "Defense",
+  "note": "",
+  "crop": [
+   45.8,
+   83.3,
+   1229.2,
+   825.0
+  ],
+  "anchor": {
+   "cx": 637.6,
+   "losY": 338.3,
+   "unit": 58.0,
+   "yard5": 108.8
+  },
+  "players": [
+   {
+    "id": "F",
+    "label": "F",
+    "team": "opp",
+    "x": 643.7,
+    "y": 185.0
+   },
+   {
+    "id": "Z",
+    "label": "Z",
+    "team": "opp",
+    "x": 186.9,
+    "y": 271.5
+   },
+   {
+    "id": "H",
+    "label": "H",
+    "team": "opp",
+    "x": 325.0,
+    "y": 280.6
+   },
+   {
+    "id": "Q",
+    "label": "Q",
+    "team": "opp",
+    "x": 637.6,
+    "y": 282.8
+   },
+   {
+    "id": "Y",
+    "label": "Y",
+    "team": "opp",
+    "x": 462.8,
+    "y": 338.3
+   },
+   {
+    "id": "RT",
+    "label": "RT",
+    "team": "opp",
+    "x": 521.1,
+    "y": 338.3
+   },
+   {
+    "id": "RG",
+    "label": "RG",
+    "team": "opp",
+    "x": 579.4,
+    "y": 338.3
+   },
+   {
+    "id": "C",
+    "label": "C",
+    "team": "opp",
+    "x": 637.6,
+    "y": 338.3
+   },
+   {
+    "id": "LG",
+    "label": "LG",
+    "team": "opp",
+    "x": 695.9,
+    "y": 338.3
+   },
+   {
+    "id": "LT",
+    "label": "LT",
+    "team": "opp",
+    "x": 753.3,
+    "y": 338.3
+   },
+   {
+    "id": "X",
+    "label": "X",
+    "team": "opp",
+    "x": 1032.2,
+    "y": 333.8
+   },
+   {
+    "id": "C-L",
+    "label": "C",
+    "team": "def",
+    "x": 191.4,
+    "y": 396.7
+   },
+   {
+    "id": "E-L",
+    "label": "E",
+    "team": "def",
+    "x": 502.5,
+    "y": 395.1,
+    "path": [
+     [
+      495.0,
+      312.9
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "T",
+    "label": "T",
+    "team": "def",
+    "x": 576.9,
+    "y": 386.0,
+    "path": [
+     [
+      622.5,
+      300.8
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "N",
+    "label": "N",
+    "team": "def",
+    "x": 698.3,
+    "y": 389.1,
+    "path": [
+     [
+      663.4,
+      300.8
+     ]
+    ],
+    "end": "block",
+    "dashed": false
+   },
+   {
+    "id": "E-R",
+    "label": "E",
+    "team": "def",
+    "x": 778.8,
+    "y": 395.1,
+    "path": [
+     [
+      781.8,
+      326.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "C-R",
+    "label": "C",
+    "team": "def",
+    "x": 1032.2,
+    "y": 414.9
+   },
+   {
+    "id": "S",
+    "label": "S",
+    "team": "def",
+    "x": 352.3,
+    "y": 465.0,
+    "path": [
+     [
+      355.0,
+      475.6
+     ],
+     [
+      351.0,
+      481.6
+     ],
+     [
+      362.8,
+      489.5
+     ],
+     [
+      354.8,
+      501.3
+     ],
+     [
+      366.6,
+      509.3
+     ],
+     [
+      358.7,
+      521.0
+     ],
+     [
+      370.4,
+      529.0
+     ],
+     [
+      362.5,
+      540.8
+     ],
+     [
+      374.3,
+      548.8
+     ],
+     [
+      366.3,
+      560.6
+     ],
+     [
+      378.1,
+      568.5
+     ],
+     [
+      370.1,
+      580.3
+     ],
+     [
+      381.9,
+      588.3
+     ],
+     [
+      373.9,
+      600.1
+     ],
+     [
+      385.7,
+      608.0
+     ],
+     [
+      383.0,
+      620.7
+     ],
+     [
+      385.7,
+      634.7
+     ],
+     [
+      407.0,
+      704.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "W",
+    "label": "W",
+    "team": "def",
+    "x": 485.8,
+    "y": 455.9,
+    "path": [
+     [
+      446.4,
+      495.1
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "M",
+    "label": "M",
+    "team": "def",
+    "x": 649.8,
+    "y": 460.5,
+    "path": [
+     [
+      655.9,
+      490.5
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "B",
+    "label": "B",
+    "team": "def",
+    "x": 819.7,
+    "y": 492.3,
+    "path": [
+     [
+      898.7,
+      444.2
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   },
+   {
+    "id": "FS",
+    "label": "FS",
+    "team": "def",
+    "x": 724.1,
+    "y": 553.0,
+    "path": [
+     [
+      863.8,
+      686.3
+     ]
+    ],
+    "end": "arrow",
+    "dashed": false
+   }
+  ],
+  "zones": [
+   {
+    "x": 407.0,
+    "y": 704.5,
+    "r": 148.7,
+    "color": "red",
+    "owner": "S"
+   },
+   {
+    "x": 655.9,
+    "y": 490.5,
+    "r": 89.2,
+    "color": "red",
+    "owner": "M"
+   },
+   {
+    "x": 446.4,
+    "y": 495.1,
+    "r": 86.5,
+    "color": "red",
+    "owner": "W"
+   },
+   {
+    "x": 191.5,
+    "y": 393.4,
+    "r": 100.0,
+    "color": "teal",
+    "owner": "C-L"
+   },
+   {
+    "x": 1032.2,
+    "y": 411.6,
+    "r": 91.9,
+    "color": "teal",
+    "owner": "C-R"
+   },
+   {
+    "x": 898.7,
+    "y": 444.2,
+    "r": 105.4,
+    "color": "red",
+    "owner": "B"
+   },
+   {
+    "x": 863.8,
+    "y": 686.3,
+    "r": 162.2,
+    "color": "teal",
+    "owner": "FS"
+   }
+  ]
+ }
+]

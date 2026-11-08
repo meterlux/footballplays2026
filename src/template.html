@@ -1,0 +1,809 @@
+<title>Cal's Play Trainer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Graduate&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: one column. Practice-whiteboard field card in the middle, controls below it. The field keeps the playbook's look in both themes. */
+:root {
+  --bg: #eef1f4;
+  --surface: #ffffff;
+  --ink: #14213a;
+  --muted: #5b6678;
+  --line: #d6dce4;
+  --accent: #1d4fd8;
+  --accent-ink: #ffffff;
+  --gold: #f2b705;
+  --good: #1f8a4c;
+  --warn: #b86e00;
+  --bad: #c62828;
+  --field: #fbfcfa;
+  --field-grid: #e6eae6;
+  --field-line: #c9d0ca;
+  --los: #2f5fd0;
+  --font-display: "Graduate", "Rockwell", Georgia, serif;
+  --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-cond: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1726; --surface: #182235; --ink: #e8edf6; --muted: #9aa6ba; --line: #2a3750;
+    --accent: #6f95ff; --accent-ink: #0b1220; --gold: #f5c430; --good: #4cc27f; --warn: #f0a640; --bad: #ff6b6b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1726; --surface: #182235; --ink: #e8edf6; --muted: #9aa6ba; --line: #2a3750;
+  --accent: #6f95ff; --accent-ink: #0b1220; --gold: #f5c430; --good: #4cc27f; --warn: #f0a640; --bad: #ff6b6b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.4;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 12px 32px;
+  -webkit-tap-highlight-color: transparent;
+}
+.wrap { max-width: 760px; margin: 0 auto; display: grid; gap: 14px; }
+button { font: inherit; color: inherit; }
+button:focus-visible, .play-row:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- Menu ---------- */
+.brand { display: grid; gap: 2px; padding-top: 6px; }
+.brand h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px, 7vw, 40px); line-height: 1.05; margin: 0; letter-spacing: .01em; text-wrap: balance; }
+.brand h1 .num { color: var(--gold); -webkit-text-stroke: 1px var(--ink); }
+.brand p { margin: 0; color: var(--muted); font-size: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { border: 1.5px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 14px; font-family: var(--font-cond); font-weight: 600; font-size: 16px; letter-spacing: .03em; text-transform: uppercase; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.quick { display: flex; align-items: center; gap: 12px; background: var(--ink); color: var(--bg); border-radius: 14px; padding: 14px 16px; border: 0; cursor: pointer; text-align: left; width: 100%; }
+.quick b { font-family: var(--font-display); font-weight: 400; font-size: 20px; display: block; }
+.quick span { font-size: 14px; opacity: .8; }
+.quick .go { margin-left: auto; font-family: var(--font-cond); font-weight: 700; background: var(--gold); color: #14213a; padding: 6px 12px; border-radius: 8px; letter-spacing: .04em; }
+.group h2 { font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 15px; color: var(--muted); margin: 10px 0 6px; display: flex; gap: 8px; align-items: baseline; }
+.group h2 small { font-weight: 500; letter-spacing: .02em; text-transform: none; font-family: var(--font-body); }
+.list { display: grid; gap: 6px; }
+.play-row { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; cursor: pointer; text-align: left; width: 100%; }
+.play-row .n { font-family: var(--font-cond); font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; font-size: 15px; }
+.play-row .t { min-width: 0; }
+.play-row .t b { display: block; font-family: var(--font-cond); font-weight: 700; font-size: 19px; line-height: 1.15; }
+.play-row .t span { display: block; color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.badge { font-family: var(--font-cond); font-weight: 700; font-size: 14px; padding: 3px 8px; border-radius: 6px; border: 1.5px solid var(--line); color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.badge.good { border-color: var(--good); color: var(--good); }
+.badge.mid { border-color: var(--warn); color: var(--warn); }
+.badge.low { border-color: var(--bad); color: var(--bad); }
+.foot { color: var(--muted); font-size: 13px; }
+
+/* ---------- Play screen ---------- */
+.bar { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
+.back { border: 1.5px solid var(--line); background: var(--surface); border-radius: 10px; padding: 6px 12px; cursor: pointer; font-family: var(--font-cond); font-weight: 700; font-size: 16px; }
+.title { min-width: 0; }
+.title .cat { font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 13px; color: var(--accent); }
+.title h2 { margin: 0; font-family: var(--font-cond); font-weight: 700; font-size: clamp(22px, 5.5vw, 30px); line-height: 1.05; text-wrap: balance; }
+.title p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+.drillhead { font-family: var(--font-cond); font-weight: 700; font-size: 14px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+
+.fieldcard { position: relative; background: var(--field); border-radius: 14px; border: 1px solid var(--line); overflow: hidden; box-shadow: 0 1px 0 rgba(0,0,0,.04); }
+.prompt { background: #14213a; color: #fff; border-radius: 10px; padding: 9px 12px; font-weight: 600; font-size: 15px; display: flex; gap: 8px; align-items: center; min-height: 42px; }
+.prompt.quiet { background: var(--surface); color: var(--muted); border: 1px solid var(--line); font-weight: 500; }
+.prompt.quiet .dot { background: var(--line); animation: none; }
+.hint { color: var(--muted); font-size: 13px; margin: -6px 0 0; display: none; }
+@media (orientation: portrait) and (max-width: 560px) { .hint { display: block; } }
+@media (orientation: landscape) and (max-height: 560px) {
+  .wrap { max-width: 1100px; }
+  svg.field { max-height: calc(100vh - 20px); }
+  .title p { display: none; }
+}
+@media (max-width: 480px) { .fieldcard { margin-inline: -8px; } }
+.prompt .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--gold); flex: none; animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 50% { transform: scale(1.5); opacity: .6; } }
+@media (prefers-reduced-motion: reduce) { .prompt .dot { animation: none; } }
+svg.field { display: block; width: 100%; height: auto; max-height: 64vh; touch-action: none; user-select: none; -webkit-user-select: none; }
+.controls { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; }
+.btn { border: 0; border-radius: 12px; padding: 12px 10px; font-family: var(--font-cond); font-weight: 700; font-size: 19px; letter-spacing: .04em; text-transform: uppercase; cursor: pointer; background: var(--surface); border: 1.5px solid var(--line); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.seg { display: inline-flex; border: 1.5px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
+.seg button { border: 0; background: transparent; padding: 0 12px; font-family: var(--font-cond); font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: .04em; cursor: pointer; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--gold); color: #14213a; }
+.subcontrols { display: flex; gap: 8px; flex-wrap: wrap; }
+.link { background: none; border: 0; color: var(--accent); font-weight: 600; cursor: pointer; padding: 4px 0; text-decoration: underline; text-underline-offset: 3px; }
+
+.feedback { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 10px; }
+.score { display: flex; align-items: center; gap: 14px; }
+.ring { --p: 0; width: 64px; height: 64px; border-radius: 50%; flex: none; display: grid; place-items: center; background: conic-gradient(var(--rc, var(--good)) calc(var(--p) * 1%), var(--line) 0); }
+.ring span { width: 50px; height: 50px; border-radius: 50%; background: var(--surface); display: grid; place-items: center; font-family: var(--font-cond); font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums; }
+.score h3 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 22px; }
+.score p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+.tips { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.tips li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; align-items: start; }
+.tips li i { font-style: normal; width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; font-weight: 700; font-size: 13px; color: #fff; background: var(--warn); }
+.tips li.ok i { background: var(--good); }
+.tips li.no i { background: var(--bad); }
+.tips li.info i { background: var(--accent); color: var(--accent-ink); }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+.legend svg { width: 26px; height: 8px; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.actions .btn { flex: 1 1 140px; font-size: 17px; padding: 10px; }
+
+.summary { display: grid; gap: 8px; }
+.summary .row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; }
+.summary .row b { font-family: var(--font-cond); font-size: 18px; }
+.summary .row span { color: var(--muted); font-size: 13px; display: block; }
+</style>
+
+<div class="wrap" id="app"></div>
+
+<script>
+const PLAYS = /*__PLAYS__*/[];
+const SOURCE = /*__SOURCE__*/{};
+
+/* ---------------- constants ---------------- */
+const COLORS = {
+  X: '#9b1fc4', Z: '#9b1fc4', h: '#f0561e', H: '#2a9d45', TE: '#d9a900', Q: '#df1b1b',
+  OL: '#6b7280', DEF_RED: '#d91c1c', DEF_TEAL: '#007a70', OPP: '#8a94a3'
+};
+const ROLE = {
+  X: 'X receiver', Z: 'Z receiver', h: 'H-back (h)', H: 'Running back (H)', TE: 'Tight end', Q: 'Quarterback',
+  LT: 'Left tackle', LG: 'Left guard', C: 'Center', RG: 'Right guard', RT: 'Right tackle',
+  E: 'Defensive end', T: 'Tackle', N: 'Nose', S: 'Sam linebacker', W: 'Will linebacker', M: 'Mike linebacker',
+  B: 'Buck linebacker', FS: 'Free safety', '$': 'Safety'
+};
+const TEAL_LABELS = new Set(['C', 'FS', 'SS', '$', 'CB']);
+const CATS = ['Formation', 'Run', 'Pass', 'Defense'];
+const CAT_LABEL = { Formation: 'Formations', Run: 'Run plays', Pass: 'Pass plays', Defense: 'Defense' };
+const SPEED = { learn: 2.6, real: 7.5 };   // yards per second
+const MOTION_SPEED = { learn: 2.2, real: 5.5 };
+
+/* ---------------- storage ---------------- */
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('cpt:' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem('cpt:' + k, JSON.stringify(v)); } catch (e) {} }
+};
+
+/* ---------------- geometry ---------------- */
+const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+function polyLen(p) { let s = 0; for (let i = 1; i < p.length; i++) s += dist(p[i - 1], p[i]); return s; }
+function pointAt(p, d) {
+  if (p.length === 1) return p[0].slice();
+  for (let i = 1; i < p.length; i++) {
+    const L = dist(p[i - 1], p[i]);
+    if (d <= L || i === p.length - 1) {
+      const t = L ? Math.max(0, Math.min(1, d / L)) : 1;
+      return [p[i - 1][0] + (p[i][0] - p[i - 1][0]) * t, p[i - 1][1] + (p[i][1] - p[i - 1][1]) * t];
+    }
+    d -= L;
+  }
+  return p[p.length - 1].slice();
+}
+function resample(p, n) { const L = polyLen(p); const out = []; for (let i = 0; i < n; i++) out.push(pointAt(p, L * i / (n - 1))); return out; }
+function nearestOnPoly(p, q) {
+  let best = Infinity, bestS = 0, acc = 0;
+  for (let i = 1; i < p.length; i++) {
+    const a = p[i - 1], b = p[i]; const dx = b[0] - a[0], dy = b[1] - a[1]; const L2 = dx * dx + dy * dy;
+    const t = L2 ? Math.max(0, Math.min(1, ((q[0] - a[0]) * dx + (q[1] - a[1]) * dy) / L2)) : 0;
+    const pt = [a[0] + dx * t, a[1] + dy * t]; const d = dist(pt, q);
+    if (d < best) { best = d; bestS = acc + Math.sqrt(L2) * t; }
+    acc += Math.sqrt(L2);
+  }
+  return { d: best, s: bestS };
+}
+function angleOf(v) { return Math.atan2(v[1], v[0]); }
+function angDiff(a, b) { let d = Math.abs(a - b) % (2 * Math.PI); return d > Math.PI ? 2 * Math.PI - d : d; }
+
+/* ---------------- play helpers ---------------- */
+function isDefPlay(play) { return play.cat === 'Defense'; }
+function playerColor(play, p) {
+  if (p.team === 'opp') return COLORS.OPP;
+  if (p.team === 'def') return TEAL_LABELS.has(p.label) ? COLORS.DEF_TEAL : COLORS.DEF_RED;
+  if (['LT', 'LG', 'C', 'RG', 'RT'].includes(p.id)) return COLORS.OL;
+  return COLORS[p.id] || COLORS.OL;
+}
+function selectable(play, p) { return isDefPlay(play) ? p.team === 'def' : p.team !== 'opp'; }
+function fullRoute(p) { return [[p.x, p.y], ...(p.motion || []), ...(p.path || [])]; }
+function hasRoute(p) { return polyLen(fullRoute(p)) > 0.5; }
+function huddleSpot(play) {
+  let maxY = -Infinity; play.players.forEach(p => { maxY = Math.max(maxY, p.y); });
+  return [0, maxY + 3.5];
+}
+function roleName(p) { const l = p.label || p.id; return ROLE[l] ? ROLE[l] : l; }
+function dotRadius(play) {
+  let m = Infinity; const ps = play.players;
+  for (let i = 0; i < ps.length; i++) for (let j = i + 1; j < ps.length; j++) m = Math.min(m, dist([ps[i].x, ps[i].y], [ps[j].x, ps[j].y]));
+  if (!isFinite(m)) m = 2.5;
+  return Math.max(0.55, Math.min(1.15, m * 0.46));
+}
+function bounds(play) {
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  const add = (x, y, r = 0) => { x0 = Math.min(x0, x - r); x1 = Math.max(x1, x + r); y0 = Math.min(y0, y - r); y1 = Math.max(y1, y + r); };
+  play.players.forEach(p => fullRoute(p).forEach(q => add(q[0], q[1])));
+  (play.zones || []).forEach(z => add(z.x, z.y, z.r));
+  if (play.cat === 'Formation') { const h = huddleSpot(play); add(h[0], h[1]); }
+  const pad = 1.6;
+  x0 -= pad; x1 += pad; y0 -= pad + 0.6; y1 += pad;
+  let w = x1 - x0, h = y1 - y0;
+  if (w < 24) { const c = (x0 + x1) / 2; x0 = c - 12; x1 = c + 12; w = 24; }
+  if (h < 11) { const c = (y0 + y1) / 2; y0 = c - 5.5; y1 = c + 5.5; h = 11; }
+  return { x0, y0, w, h };
+}
+
+/* ---------------- words for directions ---------------- */
+// Offense faces up the screen (upfield = -y). Defense in these diagrams also lines up below the ball, so "deeper" = +y.
+function lateralWord(play, p, dx) {
+  // Offense and defense both face the top of the screen in these diagrams, so screen right is the player's right.
+  return dx > 0 ? 'to your right' : 'to your left';
+}
+function dirWords(play, p, v) {
+  const [dx, dy] = v; const ax = Math.abs(dx), ay = Math.abs(dy);
+  const def = isDefPlay(play);
+  const vert = def ? (dy > 0 ? 'deeper' : 'up toward the ball') : (dy < 0 ? 'upfield' : 'back toward the line');
+  const lat = lateralWord(play, p, dx);
+  if (ax < ay * 0.4) return vert;
+  if (ay < ax * 0.4) return lat;
+  return vert + ' and ' + lat;
+}
+const yd = n => { const r = Math.round(n); return r + (r === 1 ? ' yard' : ' yards'); };
+function depthOf(play, pt) { return isDefPlay(play) ? pt[1] : -pt[1]; }
+
+/* ---------------- grading ---------------- */
+function findBreaks(route) {
+  const out = [];
+  let s = 0;
+  for (let i = 1; i < route.length - 1; i++) {
+    s += dist(route[i - 1], route[i]);
+    const a = angleOf([route[i][0] - route[i - 1][0], route[i][1] - route[i - 1][1]]);
+    const b = angleOf([route[i + 1][0] - route[i][0], route[i + 1][1] - route[i][1]]);
+    if (angDiff(a, b) > 0.6 && dist(route[i - 1], route[i]) > 0.8) out.push({ i, s, pt: route[i] });
+  }
+  return out;
+}
+function userTurnNear(trace, sTarget, window) {
+  // find the sharpest turn of the user's trace within +/- window yards (arc length) of sTarget
+  const R = resample(trace, Math.max(12, Math.round(polyLen(trace) / 0.5)));
+  const step = polyLen(trace) / (R.length - 1);
+  const k = Math.max(2, Math.round(1.5 / step));
+  let best = null;
+  for (let i = k; i < R.length - k; i++) {
+    const s = i * step; if (Math.abs(s - sTarget) > window) continue;
+    const a = angleOf([R[i][0] - R[i - k][0], R[i][1] - R[i - k][1]]);
+    const b = angleOf([R[i + k][0] - R[i][0], R[i + k][1] - R[i][1]]);
+    const t = angDiff(a, b);
+    if (!best || t > best.t) best = { t, pt: R[i], s };
+  }
+  return best && best.t > 0.45 ? best : null;
+}
+
+function grade(play, p, trace, opts) {
+  const tips = [];
+  const formation = play.cat === 'Formation';
+  let truth = formation ? [huddleSpot(play), [p.x, p.y]] : fullRoute(p);
+  const endT = truth[truth.length - 1], endU = trace[trace.length - 1];
+  const endErr = dist(endT, endU);
+  const lenT = polyLen(truth), lenU = polyLen(trace);
+
+  if (formation) {
+    const score = clampScore(100 * (1 - (endErr - 0.6) / 5));
+    const dx = endU[0] - endT[0], dy = endU[1] - endT[1];
+    if (endErr <= 1) tips.push(['ok', 'Right on your spot. That is your alignment in ' + play.name + '.']);
+    else {
+      if (Math.abs(dx) > 0.9) {
+        const wider = Math.abs(endU[0]) > Math.abs(endT[0]);
+        tips.push(['warn', 'You lined up ' + yd(Math.abs(dx)) + ' too ' + (wider ? 'wide' : 'tight') + '. Move ' + (dx > 0 ? 'left' : 'right') + '.']);
+      }
+      if (Math.abs(dy) > 0.9) tips.push(['warn', 'You were ' + yd(Math.abs(dy)) + (dy > 0 ? ' too deep. Come up closer to the line.' : ' too close to the line. Back off the ball.')]);
+    }
+    const onLine = Math.abs(endT[1]) < 0.6;
+    if (p.id !== 'Q' && !['LT', 'LG', 'C', 'RG', 'RT'].includes(p.id)) tips.push(['info', onLine ? 'In this formation you are ON the line of scrimmage.' : 'In this formation you are OFF the ball (in the backfield).']);
+    return { score, tips, truth };
+  }
+
+  const N = 48; const A = resample(truth, N), B = resample(trace, N);
+  let mean = 0; for (let i = 0; i < N; i++) mean += dist(A[i], B[i]); mean /= N;
+  let miss = 0; A.forEach(q => { miss = Math.max(miss, nearestOnPoly(trace, q).d); });
+  let score = clampScore(100 * (1 - (0.45 * mean + 0.35 * endErr + 0.2 * miss - 0.9) / 5));
+
+  // 1. motion
+  const motion = p.motion && p.motion.length ? [[p.x, p.y], ...p.motion] : null;
+  if (motion) {
+    const mEnd = motion[motion.length - 1]; const near = nearestOnPoly(trace, mEnd);
+    const v = [mEnd[0] - p.x, mEnd[1] - p.y];
+    if (near.d > 2.2) tips.push(['no', 'Start with your motion: before the snap, go in motion ' + dirWords(play, p, v) + ' about ' + yd(Math.hypot(v[0], v[1])) + ', then run the play.']);
+    else tips.push(['ok', 'Good motion before the snap.']);
+  }
+
+  // 2. wrong way / finish direction
+  const lastLeg = [endT[0] - truth[Math.max(0, truth.length - 2)][0], endT[1] - truth[Math.max(0, truth.length - 2)][1]];
+  const uBack = pointAt(trace, Math.max(0, lenU - Math.min(3, lenU * 0.3)));
+  const uLeg = [endU[0] - uBack[0], endU[1] - uBack[1]];
+  const startT = truth[0];
+  const netT = [endT[0] - startT[0], endT[1] - startT[1]], netU = [endU[0] - trace[0][0], endU[1] - trace[0][1]];
+  if (Math.abs(netT[0]) > 2.5 && Math.sign(netT[0]) !== Math.sign(netU[0]) && Math.abs(netU[0]) > 1.5) {
+    tips.push(['no', 'Wrong way. This route ends ' + lateralWord(play, p, netT[0]) + '.']);
+  } else if (Math.hypot(...uLeg) > 0.8 && Math.hypot(...lastLeg) > 0.8 && angDiff(angleOf(lastLeg), angleOf(uLeg)) > 1.0) {
+    tips.push(['warn', 'Check your finish. The last part of this route goes ' + dirWords(play, p, lastLeg) + '.']);
+  }
+
+  // 3. break depth
+  const route = p.path && p.path.length ? [motion ? motion[motion.length - 1] : [p.x, p.y], ...p.path] : null;
+  if (route) {
+    const breaks = findBreaks(route);
+    const offset = motion ? polyLen(motion) : 0;
+    if (breaks.length) {
+      const b = breaks[0]; const s0 = route[0];
+      const want = Math.abs(depthOf(play, b.pt) - depthOf(play, s0));
+      const u = userTurnNear(trace, offset + b.s, Math.max(3, b.s * 0.6));
+      if (want >= 1.5) {
+        if (!u) tips.push(['warn', 'Make a sharp cut. Run about ' + yd(want) + ', then break.']);
+        else {
+          const got = Math.abs(depthOf(play, u.pt) - depthOf(play, s0));
+          if (Math.abs(got - want) > 1.4) tips.push(['warn', 'You ran about ' + yd(got) + ' before your cut. The playbook says about ' + yd(want) + '. ' + (got < want ? 'Go deeper before you cut.' : 'Cut sooner.')]);
+          else tips.push(['ok', 'Good break depth (about ' + yd(want) + ' before the cut).']);
+        }
+      }
+    }
+  }
+
+  // 4. length / finish spot
+  if (lenU < lenT * 0.65) tips.push(['warn', 'Keep going. Your route is about ' + yd(lenT) + ' long; you ran about ' + yd(lenU) + '.']);
+  else if (lenU > lenT * 1.5 && lenT > 2) tips.push(['warn', 'You ran too far. Stop where the route ends.']);
+  else if (endErr > 2) {
+    const v = [endT[0] - endU[0], endT[1] - endU[1]]; const parts = [];
+    const deeper = isDefPlay(play) ? v[1] > 0 : v[1] < 0;
+    if (Math.abs(v[1]) > 0.8) parts.push('about ' + yd(Math.abs(v[1])) + (deeper ? ' deeper' : ' shorter'));
+    if (Math.abs(v[0]) > 0.8) parts.push('about ' + yd(Math.abs(v[0])) + ' more ' + lateralWord(play, p, v[0]).replace('to ', 'to '));
+    tips.push(['warn', 'Your finish spot was ' + yd(endErr) + ' off. Finish ' + parts.join(' and ') + '.']);
+  }
+
+  // 5. zone
+  const zone = (play.zones || []).find(z => z.owner === p.id);
+  if (zone) {
+    const dz = dist([zone.x, zone.y], endU);
+    if (dz <= zone.r) tips.push(['ok', 'You got to your zone (the shaded circle).']);
+    else tips.push(['warn', 'Get to your zone. You finished ' + yd(dz - zone.r) + ' outside the shaded circle.']);
+  }
+
+  // 6. assignment reminder
+  if (p.carrier) tips.push(['info', 'You get the ball on this play. Take the handoff and hit the hole hard.']);
+  if (p.end === 'handoff') tips.push(['info', 'Mesh with the ball carrier and hand it off at the small circle. Then carry out your fake.']);
+  if (p.end === 'drop') tips.push(['info', 'Take your drop to the circle, set your feet, read it and throw.']);
+  if (p.end === 'block') tips.push(['info', 'The T at the end of your line means block. Finish your block.']);
+  if (p.dashed && !isDefPlay(play) && p.end === 'block' && play.cat === 'Pass') tips.push(['info', 'Dashed line to a T: you stay in and pass protect.']);
+  else if (play.cat === 'Run' && p.motion && !p.carrier) tips.push(['info', 'Your motion takes you to the point of attack. You are the extra blocker there, so lead and block.']);
+  else if (play.cat === 'Run' && p.dashed && !p.carrier && p.end === 'arrow') tips.push(['info', 'Dashed line means a fake. Sell it like you have the ball.']);
+  if (isDefPlay(play) && p.dashed) tips.push(['info', 'Dotted line: that is your rush lane or the man you take. Read it at the snap.']);
+
+  if (score >= 85 && !tips.some(t => t[0] === 'no' || t[0] === 'warn')) tips.unshift(['ok', 'That matches the playbook. Nice work.']);
+  return { score, tips, truth };
+}
+function clampScore(v) { return Math.max(0, Math.min(100, Math.round(v))); }
+function verdict(score) {
+  if (score >= 85) return ['Nailed it', 'good'];
+  if (score >= 65) return ['Close', 'mid'];
+  if (score >= 40) return ['Getting there', 'mid'];
+  return ['Not yet', 'low'];
+}
+
+/* ---------------- state ---------------- */
+const state = {
+  view: 'menu', filter: store.get('filter', 'All'), speed: store.get('speed', 'learn'),
+  play: null, reveal: false, revealedDuringDrill: false,
+  phase: 'pick',          // pick | drag | done | info
+  sel: null, trace: [], result: null,
+  anim: null, quick: null
+};
+const app = document.getElementById('app');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+/* ---------------- menu ---------------- */
+function bestKey(play) { return 'best:' + play.id; }
+function renderMenu() {
+  stopAnim();
+  state.view = 'menu';
+  const filters = ['All', ...CATS];
+  const groups = CATS.filter(c => state.filter === 'All' || state.filter === c).map(c => {
+    const plays = PLAYS.filter(p => p.cat === c);
+    if (!plays.length) return '';
+    return `<section class="group"><h2>${CAT_LABEL[c]} <small>${plays.length}</small></h2><div class="list">${plays.map(p => {
+      const b = store.get(bestKey(p), null);
+      const cls = b == null ? '' : b >= 85 ? 'good' : b >= 50 ? 'mid' : 'low';
+      return `<button class="play-row" data-id="${p.id}"><span class="n">${p.cat === 'Defense' ? p.num : PLAYS.filter(q => q.cat === c).indexOf(p) + 1}</span><span class="t"><b>${esc(p.name)}</b>${p.note ? `<span>${esc(p.note)}</span>` : ''}</span><span class="badge ${cls}">${b == null ? 'new' : 'best ' + b}</span></button>`;
+    }).join('')}</div></section>`;
+  }).join('');
+  app.innerHTML = `
+    <header class="brand"><h1>Cal’s Play Trainer</h1><p>${esc(SOURCE.label || '')}</p></header>
+    <button class="quick" id="quick"><div><b>Quick drill</b><span>5 random plays. Tap your spot, run your route, get a report card.</span></div><span class="go">Start</span></button>
+    <div class="chips" role="group" aria-label="Filter plays">${filters.map(f => `<button class="chip" data-f="${f}" aria-pressed="${state.filter === f}">${f === 'All' ? 'All' : CAT_LABEL[f]}</button>`).join('')}</div>
+    ${groups}
+    <p class="foot">Plays and diagrams from ${esc(SOURCE.detail || 'the team playbook')}. Best scores are saved on this device only.</p>`;
+  app.querySelectorAll('.chip').forEach(b => b.onclick = () => { state.filter = b.dataset.f; store.set('filter', state.filter); renderMenu(); });
+  app.querySelectorAll('.play-row').forEach(b => b.onclick = () => { state.quick = null; openPlay(PLAYS.find(p => p.id === b.dataset.id)); });
+  document.getElementById('quick').onclick = startQuick;
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- quick drill ---------------- */
+function startQuick() {
+  const pool = state.filter === 'All' ? PLAYS.filter(p => p.cat !== 'Formation') : PLAYS.filter(p => p.cat === state.filter);
+  const pick = pool.slice().sort(() => Math.random() - 0.5).slice(0, Math.min(5, pool.length));
+  state.quick = { list: pick, i: 0, results: [] };
+  openPlay(pick[0]);
+}
+function quickNext() {
+  const q = state.quick; q.i++;
+  if (q.i >= q.list.length) return renderSummary();
+  openPlay(q.list[q.i]);
+}
+function renderSummary() {
+  stopAnim();
+  const q = state.quick; const avg = Math.round(q.results.reduce((s, r) => s + r.score, 0) / Math.max(1, q.results.length));
+  const [word] = verdict(avg);
+  const weak = q.results.filter(r => r.score < 70);
+  app.innerHTML = `
+    <div class="bar"><button class="back" id="back">← Plays</button><div class="title"><div class="cat">Quick drill</div><h2>Report card</h2></div></div>
+    <div class="feedback"><div class="score"><div class="ring" style="--p:${avg};--rc:var(--${avg >= 85 ? 'good' : avg >= 50 ? 'warn' : 'bad'})"><span>${avg}</span></div><div><h3>${word}</h3><p>Average across ${q.results.length} plays.</p></div></div>
+    <ul class="tips">${weak.length ? `<li class="warn"><i>!</i><span>Review ${weak.map(r => '<b>' + esc(r.play.name) + '</b>').join(', ')}. Hit Reveal, watch it in Learn speed, then drill it again.</span></li>` : `<li class="ok"><i>✓</i><span>Every play scored 70 or better. Try Real speed, or drill a different position.</span></li>`}</ul></div>
+    <div class="summary">${q.results.map(r => `<button class="row play-row" style="grid-template-columns:1fr auto" data-id="${r.play.id}"><span class="t"><b>${esc(r.play.name)}</b><span>${esc(roleName(r.player))}</span></span><span class="badge ${verdict(r.score)[1]}">${r.score}</span></button>`).join('')}</div>
+    <div class="actions"><button class="btn primary" id="again">New quick drill</button><button class="btn" id="menu">All plays</button></div>`;
+  document.getElementById('back').onclick = renderMenu; document.getElementById('menu').onclick = renderMenu;
+  document.getElementById('again').onclick = startQuick;
+  app.querySelectorAll('.summary .row').forEach(b => b.onclick = () => { state.quick = null; openPlay(PLAYS.find(p => p.id === b.dataset.id)); });
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- play screen ---------------- */
+function openPlay(play) {
+  stopAnim();
+  Object.assign(state, { view: 'play', play, reveal: false, revealedDuringDrill: false, phase: 'pick', sel: null, trace: [], result: null });
+  const q = state.quick;
+  app.innerHTML = `
+    <div class="bar"><button class="back" id="back">← ${q ? 'Quit' : 'Plays'}</button>
+      <div class="title"><div class="cat">${q ? `Quick drill · ${q.i + 1} of ${q.list.length}` : esc(CAT_LABEL[play.cat])}${play.num ? ' · #' + play.num : ''}</div><h2>${esc(play.name)}</h2>${play.note ? `<p>${esc(play.note)}</p>` : ''}</div></div>
+    <div class="prompt" id="prompt" aria-live="polite"></div>
+    <div class="fieldcard"><svg class="field" id="field" role="img" aria-label="Play diagram for ${esc(play.name)}"></svg></div>
+    <p class="hint">Turn your phone sideways for a bigger field.</p>
+    <div class="controls">
+      <button class="btn" id="reveal" aria-pressed="false">Reveal</button>
+      <button class="btn primary" id="run">Run ▶</button>
+      <div class="seg" role="group" aria-label="Speed"><button id="sp-learn" aria-pressed="${state.speed === 'learn'}">Learn</button><button id="sp-real" aria-pressed="${state.speed === 'real'}">Real</button></div>
+    </div>
+    <div id="fb"></div>`;
+  document.getElementById('back').onclick = () => { state.quick = null; renderMenu(); };
+  document.getElementById('reveal').onclick = toggleReveal;
+  document.getElementById('run').onclick = () => runPlay();
+  document.getElementById('sp-learn').onclick = () => setSpeed('learn');
+  document.getElementById('sp-real').onclick = () => setSpeed('real');
+  setupField();
+  drawField();
+  setPrompt();
+  window.scrollTo(0, 0);
+}
+function setSpeed(s) {
+  state.speed = s; store.set('speed', s);
+  document.getElementById('sp-learn').setAttribute('aria-pressed', s === 'learn');
+  document.getElementById('sp-real').setAttribute('aria-pressed', s === 'real');
+}
+function toggleReveal() {
+  state.reveal = !state.reveal;
+  if (state.reveal && (state.phase === 'pick' || state.phase === 'drag')) state.revealedDuringDrill = true;
+  document.getElementById('reveal').setAttribute('aria-pressed', state.reveal);
+  document.getElementById('reveal').textContent = state.reveal ? 'Hide' : 'Reveal';
+  if (!state.anim) drawField();
+}
+function setPrompt() {
+  const el = document.getElementById('prompt'); if (!el) return;
+  const play = state.play;
+  let msg = '';
+  if (state.phase === 'pick') msg = 'Tap the dot for your position.';
+  else if (state.phase === 'drag') msg = play.cat === 'Formation' ? `You are ${esc(state.sel.label || state.sel.id)}. Drag from the huddle to your spot.` : `You are ${esc(state.sel.label || state.sel.id)}. Drag your dot along your route${state.sel.motion ? ' (motion first)' : ''}.`;
+  if (!msg) msg = (state.phase === 'done' && state.result ? 'Solid line = playbook. Dashed = what you ran. ' : '') + 'Tap any dot to drill another spot.';
+  el.classList.toggle('quiet', state.phase === 'done');
+  el.innerHTML = `<span class="dot"></span><span>${msg}</span>`;
+}
+
+/* ---------------- SVG drawing ---------------- */
+const NS = 'http://www.w3.org/2000/svg';
+let svg, geo;
+function setupField() {
+  svg = document.getElementById('field');
+  const b = bounds(state.play);
+  geo = { ...b, r: dotRadius(state.play) };
+  svg.setAttribute('viewBox', `${b.x0} ${b.y0} ${b.w} ${b.h}`);
+  svg.addEventListener('pointerdown', onDown);
+  svg.addEventListener('pointermove', onMove);
+  svg.addEventListener('pointerup', onUp);
+  svg.addEventListener('pointercancel', onUp);
+}
+function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+function pts(p) { return p.map(q => q[0].toFixed(2) + ',' + q[1].toFixed(2)).join(' '); }
+function zigzag(poly, amp, wave) {
+  const L = polyLen(poly); if (L < 0.1) return poly;
+  const n = Math.max(2, Math.round(L / (wave / 2))); const out = [poly[0]];
+  for (let i = 1; i < n; i++) {
+    const s = L * i / n; const a = pointAt(poly, s), b = pointAt(poly, Math.min(L, s + 0.05));
+    let dx = b[0] - a[0], dy = b[1] - a[1]; const m = Math.hypot(dx, dy) || 1; dx /= m; dy /= m;
+    const sgn = i % 2 ? 1 : -1; out.push([a[0] - dy * amp * sgn, a[1] + dx * amp * sgn]);
+  }
+  out.push(poly[poly.length - 1]); return out;
+}
+function drawEnd(g, poly, kind, color, w) {
+  if (poly.length < 2 || kind === 'none') return;
+  const a = poly[poly.length - 2], b = poly[poly.length - 1];
+  const ang = Math.atan2(b[1] - a[1], b[0] - a[0]); const s = w * 3.2;
+  if (kind === 'block') {
+    const nx = -Math.sin(ang), ny = Math.cos(ang);
+    el('line', { x1: b[0] + nx * s, y1: b[1] + ny * s, x2: b[0] - nx * s, y2: b[1] - ny * s, stroke: color, 'stroke-width': w * 1.2, 'stroke-linecap': 'round' }, g);
+  } else if (kind === 'handoff' || kind === 'drop') {
+    el('circle', { cx: b[0], cy: b[1], r: w * 1.6, fill: '#fff', stroke: color, 'stroke-width': w * 0.8 }, g);
+  } else {
+    const p1 = [b[0] - Math.cos(ang - 0.45) * s, b[1] - Math.sin(ang - 0.45) * s];
+    const p2 = [b[0] - Math.cos(ang + 0.45) * s, b[1] - Math.sin(ang + 0.45) * s];
+    el('polygon', { points: pts([b, p1, p2]), fill: color }, g);
+  }
+}
+function drawRoute(g, p, color, opts = {}) {
+  const w = opts.w || 0.26; const op = opts.opacity ?? 1;
+  const gg = el('g', { opacity: op }, g);
+  let start = [p.x, p.y];
+  if (p.motion && p.motion.length) {
+    const m = [start, ...p.motion];
+    el('polyline', { points: pts(zigzag(m, 0.35, 0.9)), fill: 'none', stroke: color, 'stroke-width': w, 'stroke-linejoin': 'round' }, gg);
+    start = m[m.length - 1];
+  }
+  if (p.path && p.path.length) {
+    const r = [start, ...p.path];
+    el('polyline', { points: pts(r), fill: 'none', stroke: color, 'stroke-width': w, 'stroke-linejoin': 'round', 'stroke-linecap': 'round', 'stroke-dasharray': p.dashed ? `${w * 2.2} ${w * 2.2}` : '' }, gg);
+    drawEnd(gg, r, p.end || 'arrow', color, w);
+  }
+}
+function drawField(positions, trails) {
+  if (!svg) return;
+  const play = state.play; const { x0, y0, w, h, r } = geo;
+  svg.innerHTML = '';
+  el('rect', { x: x0, y: y0, width: w, height: h, fill: 'var(--field)' }, svg);
+  // 1-yard grid + 5-yard lines measured from the line of scrimmage
+  const grid = el('g', {}, svg);
+  for (let y = Math.ceil(y0); y <= y0 + h; y++) {
+    const five = y % 5 === 0;
+    el('line', { x1: x0, x2: x0 + w, y1: y, y2: y, stroke: five ? 'var(--field-line)' : 'var(--field-grid)', 'stroke-width': five ? 0.14 : 0.06 }, grid);
+  }
+  for (let x = Math.ceil(x0); x <= x0 + w; x++) el('line', { y1: y0, y2: y0 + h, x1: x, x2: x, stroke: 'var(--field-grid)', 'stroke-width': 0.04 }, grid);
+  for (let y = Math.ceil(y0 / 5) * 5; y <= y0 + h; y += 5) {
+    if (y === 0) continue;
+    const t = el('text', { x: x0 + 0.6, y: y - 0.35, 'font-size': 0.95, fill: '#9aa3ad', 'font-family': 'Barlow Condensed, sans-serif', 'font-weight': 600 }, grid);
+    t.textContent = Math.abs(y) + ' yd';
+  }
+  el('line', { x1: x0, x2: x0 + w, y1: 0, y2: 0, stroke: 'var(--los)', 'stroke-width': 0.16, opacity: 0.7 }, svg);
+
+  // zones
+  (play.zones || []).forEach(z => {
+    const mine = state.sel && z.owner === state.sel.id;
+    if (!(state.reveal || (state.phase === 'done' && mine))) return;
+    el('circle', { cx: z.x, cy: z.y, r: z.r, fill: z.color === 'teal' ? COLORS.DEF_TEAL : COLORS.DEF_RED, opacity: mine ? 0.28 : 0.16 }, svg);
+  });
+
+  // routes
+  const routes = el('g', {}, svg);
+  if (state.reveal) play.players.forEach(p => drawRoute(routes, p, playerColor(play, p), { opacity: state.sel && state.sel !== p && state.phase === 'done' ? 0.35 : 0.9 }));
+  else if (state.phase === 'done' && state.sel) {
+    if (play.cat === 'Formation') {
+      const hs = huddleSpot(play);
+      el('polyline', { points: pts([hs, [state.sel.x, state.sel.y]]), fill: 'none', stroke: playerColor(play, state.sel), 'stroke-width': 0.26, 'stroke-dasharray': '0.5 0.5' }, routes);
+    } else drawRoute(routes, state.sel, playerColor(play, state.sel), { w: 0.3 });
+  }
+  if (trails) trails.forEach(t => { if (t.pts.length > 1) el('polyline', { points: pts(t.pts), fill: 'none', stroke: t.color, 'stroke-width': 0.22, opacity: 0.55, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, routes); });
+
+  // user's trace
+  if (state.trace.length > 1) el('polyline', { points: pts(state.trace), fill: 'none', stroke: '#14213a', 'stroke-width': 0.22, 'stroke-dasharray': '0.45 0.35', 'stroke-linecap': 'round', opacity: 0.85 }, svg);
+
+  // huddle marker for formation drills
+  if (play.cat === 'Formation' && state.phase === 'drag') {
+    const hs = huddleSpot(play);
+    const t = el('text', { x: hs[0], y: hs[1] + r + 1.1, 'text-anchor': 'middle', 'font-size': 0.9, fill: '#6b7280', 'font-family': 'Barlow Condensed, sans-serif', 'font-weight': 700 }, svg);
+    t.textContent = 'HUDDLE';
+  }
+
+  // ball
+  const ballPos = positions && positions.__ball ? positions.__ball : centerSpot(play);
+  if (play.cat === 'Formation' && state.phase === 'done' && state.sel) el('circle', { cx: state.sel.x, cy: state.sel.y, r: r * 1.15, fill: 'none', stroke: playerColor(play, state.sel), 'stroke-width': r * 0.14, 'stroke-dasharray': `${r * 0.35} ${r * 0.25}` }, svg);
+  // players
+  const dots = el('g', {}, svg);
+  play.players.forEach(p => {
+    let pos = positions && positions[p.id] ? positions[p.id] : [p.x, p.y];
+    if (!positions && state.sel === p) {
+      if (state.phase === 'drag' || state.phase === 'done') pos = state.trace.length ? state.trace[state.trace.length - 1] : (play.cat === 'Formation' ? huddleSpot(play) : [p.x, p.y]);
+    }
+    const color = playerColor(play, p);
+    const isSel = state.sel === p;
+    const canPick = state.phase === 'pick' && selectable(play, p);
+    const g = el('g', { transform: `translate(${pos[0].toFixed(2)},${pos[1].toFixed(2)})`, style: canPick ? 'cursor:pointer' : '' }, dots);
+    if (isSel) el('circle', { r: r * 1.55, fill: 'none', stroke: '#f2b705', 'stroke-width': r * 0.28 }, g);
+    if (p.team === 'def') {
+      const s = r * 1.15;
+      el('polygon', { points: pts([[0, -s], [s * 0.95, s * 0.7], [-s * 0.95, s * 0.7]]), fill: color, stroke: '#fff', 'stroke-width': r * 0.12, 'stroke-linejoin': 'round' }, g);
+    } else if (p.label === 'C' && p.team !== 'def') {
+      el('rect', { x: -r * 0.9, y: -r * 0.9, width: r * 1.8, height: r * 1.8, rx: r * 0.2, fill: color, stroke: '#fff', 'stroke-width': r * 0.12 }, g);
+    } else {
+      el('circle', { r, fill: color, stroke: '#fff', 'stroke-width': r * 0.12 }, g);
+    }
+    const lab = p.label || p.id;
+    const t = el('text', { 'text-anchor': 'middle', y: p.team === 'def' ? r * 0.42 : r * 0.36, 'font-size': (lab.length > 1 ? r * 0.82 : r * 1.0), fill: p.id === 'TE' ? '#2a2200' : '#fff', 'font-family': 'Barlow Condensed, sans-serif', 'font-weight': 700, 'pointer-events': 'none' }, g);
+    t.textContent = lab === 'TE' ? 'te' : lab;
+    if (canPick) { el('circle', { r: r * 1.35, fill: 'none', stroke: color, 'stroke-width': r * 0.08, opacity: 0.45 }, g); }
+  });
+  if (ballPos) el('ellipse', { cx: ballPos[0], cy: ballPos[1] + (positions ? 0 : (isDefPlay(play) ? 1 : -1) * r * 1.25), rx: r * 0.42, ry: r * 0.27, fill: '#8b4a1c', stroke: '#fff', 'stroke-width': r * 0.06, opacity: isDefPlay(play) ? 0.6 : 1 }, svg);
+}
+function centerSpot(play) { const c = play.players.find(p => p.team !== 'def' && p.label === 'C'); return c ? [c.x, c.y] : [0, 0]; }
+
+/* ---------------- pointer / drill ---------------- */
+function svgPoint(ev) {
+  const pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
+  const m = svg.getScreenCTM(); if (!m) return [0, 0];
+  const r = pt.matrixTransform(m.inverse()); return [r.x, r.y];
+}
+let dragging = false;
+function onDown(ev) {
+  if (state.anim) return;
+  const q = svgPoint(ev); const play = state.play;
+  if (state.phase === 'pick' || state.phase === 'done') {
+    // tap a dot (also lets you pick a new position after a drill)
+    let best = null, bd = Infinity;
+    play.players.forEach(p => { if (!selectable(play, p)) return; const d = dist(q, [p.x, p.y]); if (d < bd) { bd = d; best = p; } });
+    if (!best || bd >= geo.r * 2.2) return;
+    if (state.phase === 'done') resetDrill();
+    pickPlayer(best);
+    return;
+  }
+  if (state.phase === 'drag') {
+    const cur = play.cat === 'Formation' ? huddleSpot(play) : [state.sel.x, state.sel.y];
+    if (dist(q, cur) > geo.r * 3) { flashPrompt('Start the drag on your own dot.'); return; }
+    dragging = true; state.trace = [cur.slice()];
+    svg.setPointerCapture(ev.pointerId); ev.preventDefault();
+    drawField();
+  }
+}
+function onMove(ev) {
+  if (!dragging) return;
+  const q = svgPoint(ev); const last = state.trace[state.trace.length - 1];
+  if (dist(q, last) >= 0.2) { state.trace.push(q); drawField(); }
+}
+function onUp() {
+  if (!dragging) return; dragging = false;
+  if (polyLen(state.trace) < 1) { state.trace = []; drawField(); flashPrompt('Hold your finger on your dot and drag it.'); return; }
+  finishDrill();
+}
+function flashPrompt(msg) {
+  const el2 = document.getElementById('prompt'); if (!el2) return;
+  el2.classList.remove('quiet'); el2.innerHTML = `<span class="dot"></span><span>${esc(msg)}</span>`;
+  clearTimeout(flashPrompt.t); flashPrompt.t = setTimeout(setPrompt, 1800);
+}
+function pickPlayer(p) {
+  const play = state.play;
+  state.sel = p;
+  if (play.cat !== 'Formation' && !hasRoute(p)) {
+    state.phase = 'info';
+    const ol = ['LT', 'LG', 'C', 'RG', 'RT'].includes(p.id);
+    const msg = ol ? `Linemen block on this play. The playbook doesn't draw a route for ${p.id} here. Tap Reset and pick a skill player to drill a route.`
+      : isDefPlay(play) ? `The playbook doesn't draw a line for ${p.label || p.id} on this play. Know your alignment and ask Coach what you read. Tap Reset to try another spot.`
+      : `No route is drawn for ${p.label || p.id} on this play. Tap Reset and try another position.`;
+    renderFeedback({ info: true, msg });
+    state.phase = 'done'; drawField(); setPrompt(); return;
+  }
+  state.phase = 'drag'; state.trace = [];
+  drawField(); setPrompt();
+}
+function finishDrill() {
+  const play = state.play, p = state.sel;
+  const res = grade(play, p, state.trace, { revealed: state.revealedDuringDrill });
+  state.result = res; state.phase = 'done';
+  if (!state.revealedDuringDrill) {
+    const k = bestKey(play); const prev = store.get(k, null);
+    if (prev == null || res.score > prev) store.set(k, res.score);
+  }
+  if (state.quick) state.quick.results.push({ play, player: p, score: res.score });
+  setPrompt(); drawField(); renderFeedback(res);
+}
+function renderFeedback(res) {
+  const fb = document.getElementById('fb'); if (!fb) return;
+  const q = state.quick;
+  if (res.info) {
+    fb.innerHTML = `<div class="feedback"><ul class="tips"><li class="info"><i>i</i><span>${esc(res.msg)}</span></li></ul><div class="actions"><button class="btn primary" id="retry">Reset</button></div></div>`;
+    document.getElementById('retry').onclick = resetDrill; return;
+  }
+  const [word, cls] = verdict(res.score);
+  const color = cls === 'good' ? 'var(--good)' : cls === 'mid' ? 'var(--warn)' : 'var(--bad)';
+  const icon = { ok: '✓', warn: '!', no: '✕', info: 'i' };
+  fb.innerHTML = `<div class="feedback">
+    <div class="score"><div class="ring" style="--p:${res.score};--rc:${color}"><span>${res.score}</span></div>
+      <div><h3>${word}</h3><p>${esc(roleName(state.sel))}${state.revealedDuringDrill ? ' · route was revealed, so this score isn’t saved' : ''}</p></div></div>
+    <ul class="tips">${res.tips.slice(0, 5).map(t => `<li class="${t[0]}"><i>${icon[t[0]]}</i><span>${esc(t[1])}</span></li>`).join('')}</ul>
+    <div class="legend"><span><svg viewBox="0 0 26 8"><line x1="1" y1="4" x2="25" y2="4" stroke="${playerColor(state.play, state.sel)}" stroke-width="3"/></svg>Playbook route</span><span><svg viewBox="0 0 26 8"><line x1="1" y1="4" x2="25" y2="4" stroke="#14213a" stroke-width="2.4" stroke-dasharray="4 3"/></svg>Your route</span></div>
+    <div class="actions">
+      <button class="btn" id="retry">Try again</button>
+      <button class="btn" id="watch">Watch it ▶</button>
+      ${q ? `<button class="btn primary" id="next">${q.i + 1 >= q.list.length ? 'Report card' : 'Next play'} →</button>` : `<button class="btn primary" id="nextplay">Next play →</button>`}
+    </div></div>`;
+  document.getElementById('retry').onclick = () => { const p = state.sel; resetDrill(); if (state.play.cat === 'Formation' || hasRoute(p)) pickPlayer(p); };
+  document.getElementById('watch').onclick = () => runPlay(state.sel);
+  if (q) document.getElementById('next').onclick = quickNext;
+  else document.getElementById('nextplay').onclick = () => { const i = PLAYS.indexOf(state.play); openPlay(PLAYS[(i + 1) % PLAYS.length]); };
+  fb.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+}
+function resetDrill() {
+  stopAnim();
+  Object.assign(state, { phase: 'pick', sel: null, trace: [], result: null, revealedDuringDrill: state.reveal });
+  document.getElementById('fb').innerHTML = '';
+  drawField(); setPrompt();
+}
+
+/* ---------------- animation ---------------- */
+function stopAnim() { if (state.anim) { cancelAnimationFrame(state.anim.raf); state.anim = null; } const b = document.getElementById('run'); if (b) b.textContent = 'Run ▶'; }
+function runPlay(focus) {
+  if (state.anim) { stopAnim(); drawField(); return; }
+  if (state.phase === 'drag') { flashPrompt('Finish your drag first, or tap Reveal to peek.'); return; }
+  const play = state.play;
+  if (play.cat === 'Formation') { animateFormation(focus); return; }
+  const sp = SPEED[state.speed], msp = MOTION_SPEED[state.speed];
+  const tracks = play.players.map(p => {
+    const motion = p.motion && p.motion.length ? [[p.x, p.y], ...p.motion] : [[p.x, p.y]];
+    const mEnd = motion[motion.length - 1];
+    const path = p.path && p.path.length ? [mEnd, ...p.path] : [mEnd];
+    return { p, motion, path, mLen: polyLen(motion), pLen: polyLen(path), color: playerColor(play, p) };
+  });
+  const motionTime = Math.max(0, ...tracks.map(t => t.mLen / msp));
+  const setTime = state.speed === 'learn' ? 0.8 : 0.35;
+  const snap = motionTime + (motionTime ? setTime : setTime * 0.6);
+  const playTime = Math.max(0.6, ...tracks.map(t => t.pLen / sp));
+  const total = snap + playTime + 0.6;
+  const q = tracks.find(t => t.p.id === 'Q'); const carrier = tracks.find(t => t.p.carrier);
+  const handoffAt = q && carrier ? snap + q.pLen / sp : Infinity;
+  const t0 = performance.now(); const btn = document.getElementById('run'); if (btn) btn.textContent = 'Stop ■';
+  const saveSel = state.sel, savePhase = state.phase, saveTrace = state.trace;
+  const frame = now => {
+    const t = (now - t0) / 1000;
+    const pos = {}; const trails = [];
+    tracks.forEach(tr => {
+      let cur, trail;
+      if (t < snap) { const d = Math.min(tr.mLen, (t) * msp); cur = pointAt(tr.motion, d); trail = tr.mLen ? partial(tr.motion, d) : null; }
+      else { const d = Math.min(tr.pLen, (t - snap) * sp); cur = pointAt(tr.path, d); trail = [...tr.motion, ...partial(tr.path, d).slice(1)]; }
+      pos[tr.p.id] = cur;
+      if (trail && trail.length > 1 && (!focus || focus === tr.p)) trails.push({ pts: trail, color: tr.color });
+    });
+    // ball: at center until the snap, then with the QB, then with the ball carrier after the handoff
+    if (!isDefPlay(play)) pos.__ball = t < snap ? centerSpot(play) : (t >= handoffAt && carrier ? pos[carrier.p.id] : q ? pos['Q'] : centerSpot(play));
+    state.sel = focus || null; state.phase = 'anim'; state.trace = [];
+    drawField(pos, trails);
+    state.sel = saveSel; state.phase = savePhase; state.trace = saveTrace;
+    if (t < total) state.anim.raf = requestAnimationFrame(frame);
+    else { state.anim = null; if (btn) btn.textContent = 'Run ▶'; setTimeout(() => { if (!state.anim) drawField(); }, 900); }
+  };
+  state.anim = { raf: requestAnimationFrame(frame) };
+}
+function partial(poly, d) {
+  const out = [poly[0]]; let acc = 0;
+  for (let i = 1; i < poly.length; i++) { const L = dist(poly[i - 1], poly[i]); if (acc + L >= d) { out.push(pointAt(poly, d)); return out; } out.push(poly[i]); acc += L; }
+  return out;
+}
+function animateFormation(focus) {
+  const play = state.play; const hs = huddleSpot(play); const sp = SPEED[state.speed] * 1.4;
+  const tracks = play.players.map(p => ({ p, path: [hs, [p.x, p.y]], L: dist(hs, [p.x, p.y]) }));
+  const total = Math.max(...tracks.map(t => t.L)) / sp + 0.5;
+  const t0 = performance.now(); const btn = document.getElementById('run'); if (btn) btn.textContent = 'Stop ■';
+  const saveSel = state.sel, savePhase = state.phase, saveTrace = state.trace;
+  const frame = now => {
+    const t = (now - t0) / 1000; const pos = {};
+    tracks.forEach(tr => { pos[tr.p.id] = pointAt(tr.path, Math.min(tr.L, t * sp)); });
+    pos.__ball = centerSpot(play);
+    state.sel = focus || null; state.phase = 'anim'; state.trace = [];
+    drawField(pos, []);
+    state.sel = saveSel; state.phase = savePhase; state.trace = saveTrace;
+    if (t < total) state.anim.raf = requestAnimationFrame(frame);
+    else { state.anim = null; if (btn) btn.textContent = 'Run ▶'; drawField(); }
+  };
+  state.anim = { raf: requestAnimationFrame(frame) };
+}
+
+renderMenu();
+</script>

@@ -1,0 +1,1687 @@
+[
+ {
+  "id": "f-right",
+  "page": 9,
+  "file": "o-009-000.png",
+  "name": "Right",
+  "category": "Formation",
+  "note": "Base formation. TE and Z right, X left.",
+  "anchor": {
+   "cx": 610,
+   "losY": 271,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 472,
+    "y": 271
+   },
+   {
+    "id": "LG",
+    "x": 541,
+    "y": 271
+   },
+   {
+    "id": "C",
+    "x": 610,
+    "y": 271
+   },
+   {
+    "id": "RG",
+    "x": 680,
+    "y": 271
+   },
+   {
+    "id": "RT",
+    "x": 748,
+    "y": 271
+   },
+   {
+    "id": "X",
+    "x": 197,
+    "y": 271
+   },
+   {
+    "id": "TE",
+    "x": 817,
+    "y": 271
+   },
+   {
+    "id": "h",
+    "x": 410,
+    "y": 336
+   },
+   {
+    "id": "Q",
+    "x": 610,
+    "y": 336
+   },
+   {
+    "id": "Z",
+    "x": 1024,
+    "y": 337
+   },
+   {
+    "id": "H",
+    "x": 610,
+    "y": 466
+   }
+  ]
+ },
+ {
+  "id": "f-flex-right",
+  "page": 10,
+  "file": "o-010-001.png",
+  "name": "Flex Right",
+  "category": "Formation",
+  "note": "",
+  "anchor": {
+   "cx": 611,
+   "losY": 268,
+   "unit": 69.0,
+   "yard5": 130
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 473,
+    "y": 268
+   },
+   {
+    "id": "LG",
+    "x": 542,
+    "y": 268
+   },
+   {
+    "id": "C",
+    "x": 611,
+    "y": 268
+   },
+   {
+    "id": "RG",
+    "x": 680,
+    "y": 268
+   },
+   {
+    "id": "RT",
+    "x": 749,
+    "y": 268
+   },
+   {
+    "id": "X",
+    "x": 198,
+    "y": 268
+   },
+   {
+    "id": "TE",
+    "x": 818,
+    "y": 268
+   },
+   {
+    "id": "Q",
+    "x": 611,
+    "y": 335
+   },
+   {
+    "id": "h",
+    "x": 880,
+    "y": 332
+   },
+   {
+    "id": "Z",
+    "x": 1025,
+    "y": 335
+   },
+   {
+    "id": "H",
+    "x": 611,
+    "y": 463
+   }
+  ]
+ },
+ {
+  "id": "f-slot-right",
+  "page": 11,
+  "file": "o-011-002.png",
+  "name": "Slot Right",
+  "category": "Formation",
+  "note": "",
+  "anchor": {
+   "cx": 545,
+   "losY": 242,
+   "unit": 65.75,
+   "yard5": 123.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 413,
+    "y": 242
+   },
+   {
+    "id": "LG",
+    "x": 479,
+    "y": 242
+   },
+   {
+    "id": "C",
+    "x": 545,
+    "y": 242
+   },
+   {
+    "id": "RG",
+    "x": 610,
+    "y": 242
+   },
+   {
+    "id": "RT",
+    "x": 676,
+    "y": 242
+   },
+   {
+    "id": "X",
+    "x": 150,
+    "y": 242
+   },
+   {
+    "id": "TE",
+    "x": 742,
+    "y": 242
+   },
+   {
+    "id": "Q",
+    "x": 545,
+    "y": 305
+   },
+   {
+    "id": "h",
+    "x": 865,
+    "y": 304
+   },
+   {
+    "id": "Z",
+    "x": 979,
+    "y": 302
+   },
+   {
+    "id": "H",
+    "x": 545,
+    "y": 429
+   }
+  ]
+ },
+ {
+  "id": "f-twins-right",
+  "page": 12,
+  "file": "o-012-003.png",
+  "name": "Twins Right",
+  "category": "Formation",
+  "note": "",
+  "anchor": {
+   "cx": 556,
+   "losY": 244,
+   "unit": 65.75,
+   "yard5": 123
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 424,
+    "y": 244
+   },
+   {
+    "id": "LG",
+    "x": 490,
+    "y": 244
+   },
+   {
+    "id": "C",
+    "x": 556,
+    "y": 244
+   },
+   {
+    "id": "RG",
+    "x": 621,
+    "y": 244
+   },
+   {
+    "id": "RT",
+    "x": 687,
+    "y": 244
+   },
+   {
+    "id": "X",
+    "x": 160,
+    "y": 244
+   },
+   {
+    "id": "Z",
+    "x": 962,
+    "y": 244
+   },
+   {
+    "id": "TE",
+    "x": 744,
+    "y": 291
+   },
+   {
+    "id": "h",
+    "x": 914,
+    "y": 293
+   },
+   {
+    "id": "Q",
+    "x": 556,
+    "y": 306
+   },
+   {
+    "id": "H",
+    "x": 556,
+    "y": 431
+   }
+  ]
+ },
+ {
+  "id": "f-deuce-right",
+  "page": 13,
+  "file": "o-013-004.png",
+  "name": "Deuce Right",
+  "category": "Formation",
+  "note": "",
+  "anchor": {
+   "cx": 610,
+   "losY": 271,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 472,
+    "y": 271
+   },
+   {
+    "id": "LG",
+    "x": 541,
+    "y": 271
+   },
+   {
+    "id": "C",
+    "x": 610,
+    "y": 271
+   },
+   {
+    "id": "RG",
+    "x": 680,
+    "y": 271
+   },
+   {
+    "id": "RT",
+    "x": 748,
+    "y": 271
+   },
+   {
+    "id": "X",
+    "x": 185,
+    "y": 271
+   },
+   {
+    "id": "Z",
+    "x": 1040,
+    "y": 271
+   },
+   {
+    "id": "h",
+    "x": 240,
+    "y": 339
+   },
+   {
+    "id": "Q",
+    "x": 610,
+    "y": 337
+   },
+   {
+    "id": "TE",
+    "x": 978,
+    "y": 336
+   },
+   {
+    "id": "H",
+    "x": 610,
+    "y": 467
+   }
+  ]
+ },
+ {
+  "id": "f-ace-right",
+  "page": 14,
+  "file": "o-014-005.png",
+  "name": "Ace Right",
+  "category": "Formation",
+  "note": "",
+  "anchor": {
+   "cx": 610,
+   "losY": 273,
+   "unit": 69.0,
+   "yard5": 130
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 472,
+    "y": 273
+   },
+   {
+    "id": "LG",
+    "x": 541,
+    "y": 273
+   },
+   {
+    "id": "C",
+    "x": 610,
+    "y": 273
+   },
+   {
+    "id": "RG",
+    "x": 680,
+    "y": 273
+   },
+   {
+    "id": "RT",
+    "x": 748,
+    "y": 273
+   },
+   {
+    "id": "X",
+    "x": 337,
+    "y": 273
+   },
+   {
+    "id": "TE",
+    "x": 929,
+    "y": 273
+   },
+   {
+    "id": "Q",
+    "x": 610,
+    "y": 340
+   },
+   {
+    "id": "h",
+    "x": 874,
+    "y": 340
+   },
+   {
+    "id": "Z",
+    "x": 984,
+    "y": 343
+   },
+   {
+    "id": "H",
+    "x": 610,
+    "y": 468
+   }
+  ]
+ },
+ {
+  "id": "f-double-right",
+  "page": 15,
+  "file": "o-015-006.png",
+  "name": "Double Right",
+  "category": "Formation",
+  "note": "",
+  "anchor": {
+   "cx": 610,
+   "losY": 271,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 472,
+    "y": 271
+   },
+   {
+    "id": "LG",
+    "x": 541,
+    "y": 271
+   },
+   {
+    "id": "C",
+    "x": 610,
+    "y": 271
+   },
+   {
+    "id": "RG",
+    "x": 680,
+    "y": 271
+   },
+   {
+    "id": "RT",
+    "x": 748,
+    "y": 271
+   },
+   {
+    "id": "h",
+    "x": 396,
+    "y": 271
+   },
+   {
+    "id": "TE",
+    "x": 817,
+    "y": 271
+   },
+   {
+    "id": "X",
+    "x": 207,
+    "y": 338
+   },
+   {
+    "id": "Q",
+    "x": 610,
+    "y": 336
+   },
+   {
+    "id": "Z",
+    "x": 1024,
+    "y": 338
+   },
+   {
+    "id": "H",
+    "x": 610,
+    "y": 442
+   }
+  ]
+ },
+ {
+  "id": "f-i-right",
+  "page": 16,
+  "file": "o-016-007.png",
+  "name": "I Right",
+  "category": "Formation",
+  "note": "",
+  "anchor": {
+   "cx": 610,
+   "losY": 270,
+   "unit": 69.0,
+   "yard5": 130
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 472,
+    "y": 270
+   },
+   {
+    "id": "LG",
+    "x": 541,
+    "y": 270
+   },
+   {
+    "id": "C",
+    "x": 610,
+    "y": 270
+   },
+   {
+    "id": "RG",
+    "x": 680,
+    "y": 270
+   },
+   {
+    "id": "RT",
+    "x": 748,
+    "y": 270
+   },
+   {
+    "id": "X",
+    "x": 197,
+    "y": 270
+   },
+   {
+    "id": "TE",
+    "x": 817,
+    "y": 270
+   },
+   {
+    "id": "Q",
+    "x": 610,
+    "y": 336
+   },
+   {
+    "id": "Z",
+    "x": 1024,
+    "y": 336
+   },
+   {
+    "id": "h",
+    "x": 610,
+    "y": 424
+   },
+   {
+    "id": "H",
+    "x": 610,
+    "y": 484
+   }
+  ]
+ },
+ {
+  "id": "f-deuce-right-tight",
+  "page": 17,
+  "file": "o-017-008.png",
+  "name": "Deuce Right Tight",
+  "category": "Formation",
+  "note": "Tight can be tagged to any formation. Maintain 1.5 ft splits at all positions.",
+  "anchor": {
+   "cx": 610,
+   "losY": 271,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 472,
+    "y": 271
+   },
+   {
+    "id": "LG",
+    "x": 541,
+    "y": 271
+   },
+   {
+    "id": "C",
+    "x": 610,
+    "y": 271
+   },
+   {
+    "id": "RG",
+    "x": 680,
+    "y": 271
+   },
+   {
+    "id": "RT",
+    "x": 748,
+    "y": 271
+   },
+   {
+    "id": "X",
+    "x": 343,
+    "y": 271
+   },
+   {
+    "id": "Z",
+    "x": 882,
+    "y": 272
+   },
+   {
+    "id": "h",
+    "x": 410,
+    "y": 336
+   },
+   {
+    "id": "Q",
+    "x": 610,
+    "y": 336
+   },
+   {
+    "id": "TE",
+    "x": 816,
+    "y": 336
+   },
+   {
+    "id": "H",
+    "x": 610,
+    "y": 466
+   }
+  ]
+ },
+ {
+  "id": "f-right-gun",
+  "page": 18,
+  "file": "o-018-009.png",
+  "name": "Right Gun",
+  "category": "Formation",
+  "note": "Gun: QB heels 4 yards behind ball. RB toes to QB heel, shade to inside shoulder of guard.",
+  "anchor": {
+   "cx": 610,
+   "losY": 270,
+   "unit": 69.0,
+   "yard5": 130
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 472,
+    "y": 270
+   },
+   {
+    "id": "LG",
+    "x": 541,
+    "y": 270
+   },
+   {
+    "id": "C",
+    "x": 610,
+    "y": 270
+   },
+   {
+    "id": "RG",
+    "x": 680,
+    "y": 270
+   },
+   {
+    "id": "RT",
+    "x": 748,
+    "y": 270
+   },
+   {
+    "id": "X",
+    "x": 197,
+    "y": 270
+   },
+   {
+    "id": "TE",
+    "x": 817,
+    "y": 270
+   },
+   {
+    "id": "h",
+    "x": 410,
+    "y": 334
+   },
+   {
+    "id": "Z",
+    "x": 1024,
+    "y": 337
+   },
+   {
+    "id": "Q",
+    "x": 610,
+    "y": 389
+   },
+   {
+    "id": "H",
+    "x": 678,
+    "y": 389
+   }
+  ]
+ },
+ {
+  "id": "zone-right",
+  "page": 20,
+  "file": "o-020-010.png",
+  "name": "Right to Pig Right Zone Right",
+  "category": "Run",
+  "note": "Inside zone with motion to point of attack to add blocker.",
+  "anchor": {
+   "cx": 555,
+   "losY": 260,
+   "unit": 68.5,
+   "yard5": 129
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 418,
+    "y": 260
+   },
+   {
+    "id": "LG",
+    "x": 486,
+    "y": 260
+   },
+   {
+    "id": "C",
+    "x": 555,
+    "y": 260
+   },
+   {
+    "id": "RG",
+    "x": 623,
+    "y": 260
+   },
+   {
+    "id": "RT",
+    "x": 692,
+    "y": 260
+   },
+   {
+    "id": "X",
+    "x": 140,
+    "y": 260
+   },
+   {
+    "id": "TE",
+    "x": 761,
+    "y": 260
+   },
+   {
+    "id": "Z",
+    "x": 968,
+    "y": 326
+   },
+   {
+    "id": "h",
+    "x": 355,
+    "y": 328,
+    "motion": [
+     [
+      655,
+      328
+     ]
+    ],
+    "path": [
+     [
+      660,
+      282
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "Q",
+    "x": 553,
+    "y": 322,
+    "path": [
+     [
+      602,
+      370
+     ]
+    ],
+    "end": "handoff"
+   },
+   {
+    "id": "H",
+    "x": 555,
+    "y": 455,
+    "path": [
+     [
+      602,
+      370
+     ],
+     [
+      640,
+      308
+     ]
+    ],
+    "end": "arrow",
+    "carrier": true
+   }
+  ]
+ },
+ {
+  "id": "stretch-right",
+  "page": 21,
+  "file": "o-021-011.png",
+  "name": "Right to Pig Right Stretch Right",
+  "category": "Run",
+  "note": "Outside zone with motion to point of attack to add blocker.",
+  "anchor": {
+   "cx": 537,
+   "losY": 262,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 398,
+    "y": 262
+   },
+   {
+    "id": "LG",
+    "x": 467,
+    "y": 262
+   },
+   {
+    "id": "C",
+    "x": 537,
+    "y": 262
+   },
+   {
+    "id": "RG",
+    "x": 605,
+    "y": 262
+   },
+   {
+    "id": "RT",
+    "x": 674,
+    "y": 262
+   },
+   {
+    "id": "X",
+    "x": 122,
+    "y": 262
+   },
+   {
+    "id": "TE",
+    "x": 743,
+    "y": 262
+   },
+   {
+    "id": "Z",
+    "x": 950,
+    "y": 330
+   },
+   {
+    "id": "h",
+    "x": 337,
+    "y": 335,
+    "motion": [
+     [
+      640,
+      332
+     ]
+    ],
+    "path": [
+     [
+      795,
+      297
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   },
+   {
+    "id": "Q",
+    "x": 535,
+    "y": 323,
+    "path": [
+     [
+      585,
+      374
+     ]
+    ],
+    "end": "handoff"
+   },
+   {
+    "id": "H",
+    "x": 537,
+    "y": 458,
+    "path": [
+     [
+      585,
+      374
+     ],
+     [
+      598,
+      352
+     ],
+     [
+      750,
+      317
+     ]
+    ],
+    "end": "arrow",
+    "carrier": true
+   }
+  ]
+ },
+ {
+  "id": "sweep-right",
+  "page": 22,
+  "file": "o-022-012.png",
+  "name": "Deuce Right Tight to Flex Right Sweep Right",
+  "category": "Run",
+  "note": "Sweep with motion to point of attack to add blocker.",
+  "anchor": {
+   "cx": 547,
+   "losY": 265,
+   "unit": 69.0,
+   "yard5": 130
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 409,
+    "y": 265
+   },
+   {
+    "id": "LG",
+    "x": 478,
+    "y": 265
+   },
+   {
+    "id": "C",
+    "x": 547,
+    "y": 265
+   },
+   {
+    "id": "RG",
+    "x": 616,
+    "y": 265
+   },
+   {
+    "id": "RT",
+    "x": 685,
+    "y": 265
+   },
+   {
+    "id": "X",
+    "x": 281,
+    "y": 265
+   },
+   {
+    "id": "Z",
+    "x": 819,
+    "y": 265
+   },
+   {
+    "id": "h",
+    "x": 348,
+    "y": 328,
+    "motion": [
+     [
+      905,
+      326
+     ]
+    ],
+    "path": [
+     [
+      882,
+      243
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   },
+   {
+    "id": "TE",
+    "x": 752,
+    "y": 330,
+    "path": [
+     [
+      940,
+      262
+     ],
+     [
+      940,
+      218
+     ]
+    ],
+    "end": "block",
+    "alt": "solid to the edge, short dashed climb"
+   },
+   {
+    "id": "Q",
+    "x": 547,
+    "y": 328,
+    "path": [
+     [
+      520,
+      368
+     ],
+     [
+      640,
+      433
+     ]
+    ],
+    "end": "handoff"
+   },
+   {
+    "id": "H",
+    "x": 547,
+    "y": 460,
+    "path": [
+     [
+      640,
+      433
+     ],
+     [
+      688,
+      420
+     ],
+     [
+      848,
+      343
+     ]
+    ],
+    "end": "arrow",
+    "carrier": true
+   }
+  ]
+ },
+ {
+  "id": "zone-right-counter",
+  "page": 23,
+  "file": "o-023-013.png",
+  "name": "Right to Pig Right Zone Right Counter",
+  "category": "Run",
+  "note": "Inside zone look with motion to point of attack, with counter action.",
+  "anchor": {
+   "cx": 549,
+   "losY": 263,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 411,
+    "y": 263
+   },
+   {
+    "id": "LG",
+    "x": 480,
+    "y": 263
+   },
+   {
+    "id": "C",
+    "x": 549,
+    "y": 263
+   },
+   {
+    "id": "RG",
+    "x": 618,
+    "y": 263
+   },
+   {
+    "id": "RT",
+    "x": 687,
+    "y": 263
+   },
+   {
+    "id": "X",
+    "x": 135,
+    "y": 263
+   },
+   {
+    "id": "TE",
+    "x": 756,
+    "y": 263
+   },
+   {
+    "id": "Z",
+    "x": 963,
+    "y": 329
+   },
+   {
+    "id": "h",
+    "x": 349,
+    "y": 334,
+    "motion": [
+     [
+      650,
+      331
+     ]
+    ],
+    "path": [
+     [
+      470,
+      290
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true
+   },
+   {
+    "id": "Q",
+    "x": 548,
+    "y": 323,
+    "path": [
+     [
+      598,
+      374
+     ],
+     [
+      578,
+      391
+     ]
+    ],
+    "end": "handoff"
+   },
+   {
+    "id": "H",
+    "x": 549,
+    "y": 457,
+    "path": [
+     [
+      597,
+      407
+     ],
+     [
+      578,
+      391
+     ],
+     [
+      457,
+      303
+     ]
+    ],
+    "end": "arrow",
+    "carrier": true
+   }
+  ]
+ },
+ {
+  "id": "sweep-right-counter",
+  "page": 24,
+  "file": "o-024-014.png",
+  "name": "Right to Pig Right Sweep Right Counter",
+  "category": "Run",
+  "note": "Sweep action with motion to point of attack, counter to motion back.",
+  "anchor": {
+   "cx": 545,
+   "losY": 265,
+   "unit": 69.0,
+   "yard5": 130
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 407,
+    "y": 265
+   },
+   {
+    "id": "LG",
+    "x": 476,
+    "y": 265
+   },
+   {
+    "id": "C",
+    "x": 545,
+    "y": 265
+   },
+   {
+    "id": "RG",
+    "x": 614,
+    "y": 265
+   },
+   {
+    "id": "RT",
+    "x": 683,
+    "y": 265
+   },
+   {
+    "id": "X",
+    "x": 131,
+    "y": 265
+   },
+   {
+    "id": "TE",
+    "x": 752,
+    "y": 265
+   },
+   {
+    "id": "Z",
+    "x": 958,
+    "y": 335
+   },
+   {
+    "id": "h",
+    "x": 345,
+    "y": 337,
+    "motion": [
+     [
+      652,
+      335
+     ]
+    ],
+    "path": [
+     [
+      592,
+      313
+     ],
+     [
+      570,
+      300
+     ],
+     [
+      505,
+      260
+     ]
+    ],
+    "end": "arrow",
+    "carrier": true
+   },
+   {
+    "id": "Q",
+    "x": 545,
+    "y": 325,
+    "path": [
+     [
+      520,
+      370
+     ],
+     [
+      582,
+      405
+     ],
+     [
+      592,
+      316
+     ]
+    ],
+    "end": "handoff",
+    "alt": "reverse out, fake to H, last part dashed back to the mesh"
+   },
+   {
+    "id": "H",
+    "x": 545,
+    "y": 459,
+    "path": [
+     [
+      730,
+      420
+     ],
+     [
+      805,
+      367
+     ]
+    ],
+    "end": "arrow"
+   }
+  ]
+ },
+ {
+  "id": "dive-left",
+  "page": 25,
+  "file": "o-025-015.png",
+  "name": "Right Dive Left",
+  "category": "Run",
+  "note": "Inside run to A gap.",
+  "anchor": {
+   "cx": 513,
+   "losY": 242,
+   "unit": 65.75,
+   "yard5": 123
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 382,
+    "y": 242
+   },
+   {
+    "id": "LG",
+    "x": 449,
+    "y": 242
+   },
+   {
+    "id": "C",
+    "x": 513,
+    "y": 242
+   },
+   {
+    "id": "RG",
+    "x": 580,
+    "y": 242
+   },
+   {
+    "id": "RT",
+    "x": 645,
+    "y": 242
+   },
+   {
+    "id": "X",
+    "x": 119,
+    "y": 242
+   },
+   {
+    "id": "TE",
+    "x": 710,
+    "y": 242
+   },
+   {
+    "id": "h",
+    "x": 323,
+    "y": 312
+   },
+   {
+    "id": "Z",
+    "x": 907,
+    "y": 305
+   },
+   {
+    "id": "Q",
+    "x": 512,
+    "y": 302,
+    "path": [
+     [
+      484,
+      307
+     ]
+    ],
+    "end": "handoff"
+   },
+   {
+    "id": "H",
+    "x": 513,
+    "y": 427,
+    "path": [
+     [
+      486,
+      307
+     ],
+     [
+      477,
+      218
+     ]
+    ],
+    "end": "arrow",
+    "carrier": true
+   }
+  ]
+ },
+ {
+  "id": "dive-left-counter",
+  "page": 26,
+  "file": "o-026-016.png",
+  "name": "Right Dive Left Counter",
+  "category": "Run",
+  "note": "Fake dive left to sweep action right.",
+  "anchor": {
+   "cx": 532,
+   "losY": 262,
+   "unit": 68.75,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 394,
+    "y": 262
+   },
+   {
+    "id": "LG",
+    "x": 462,
+    "y": 262
+   },
+   {
+    "id": "C",
+    "x": 532,
+    "y": 262
+   },
+   {
+    "id": "RG",
+    "x": 601,
+    "y": 262
+   },
+   {
+    "id": "RT",
+    "x": 669,
+    "y": 262
+   },
+   {
+    "id": "X",
+    "x": 118,
+    "y": 262
+   },
+   {
+    "id": "TE",
+    "x": 738,
+    "y": 262
+   },
+   {
+    "id": "Z",
+    "x": 945,
+    "y": 330
+   },
+   {
+    "id": "Q",
+    "x": 530,
+    "y": 322,
+    "path": [
+     [
+      548,
+      357
+     ],
+     [
+      516,
+      366
+     ]
+    ],
+    "end": "handoff"
+   },
+   {
+    "id": "H",
+    "x": 532,
+    "y": 457,
+    "path": [
+     [
+      516,
+      366
+     ],
+     [
+      492,
+      236
+     ]
+    ],
+    "end": "arrow",
+    "dashed": true,
+    "alt": "dashed = dive fake"
+   },
+   {
+    "id": "h",
+    "x": 331,
+    "y": 337,
+    "path": [
+     [
+      405,
+      363
+     ],
+     [
+      663,
+      356
+     ],
+     [
+      805,
+      314
+     ]
+    ],
+    "end": "arrow",
+    "carrier": true
+   }
+  ]
+ },
+ {
+  "id": "jet-right",
+  "page": 27,
+  "file": "o-027-017.png",
+  "name": "Right to Pig Left Jet Right",
+  "category": "Run",
+  "note": "Motion into Jet Sweep.",
+  "anchor": {
+   "cx": 539,
+   "losY": 260,
+   "unit": 69.0,
+   "yard5": 129.5
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 400,
+    "y": 260
+   },
+   {
+    "id": "LG",
+    "x": 469,
+    "y": 260
+   },
+   {
+    "id": "C",
+    "x": 539,
+    "y": 260
+   },
+   {
+    "id": "RG",
+    "x": 607,
+    "y": 260
+   },
+   {
+    "id": "RT",
+    "x": 676,
+    "y": 260
+   },
+   {
+    "id": "X",
+    "x": 125,
+    "y": 260
+   },
+   {
+    "id": "TE",
+    "x": 745,
+    "y": 260
+   },
+   {
+    "id": "Z",
+    "x": 952,
+    "y": 326
+   },
+   {
+    "id": "H",
+    "x": 539,
+    "y": 457
+   },
+   {
+    "id": "h",
+    "x": 343,
+    "y": 328,
+    "motion": [
+     [
+      410,
+      330
+     ]
+    ],
+    "path": [
+     [
+      505,
+      338
+     ],
+     [
+      710,
+      340
+     ],
+     [
+      818,
+      284
+     ]
+    ],
+    "end": "arrow",
+    "carrier": true
+   },
+   {
+    "id": "Q",
+    "x": 538,
+    "y": 316,
+    "path": [
+     [
+      500,
+      316
+     ],
+     [
+      505,
+      338
+     ]
+    ],
+    "end": "handoff"
+   }
+  ]
+ },
+ {
+  "id": "gun-jet-right",
+  "page": 28,
+  "file": "o-028-018.png",
+  "name": "Double Left Tight Gun Jet Right",
+  "category": "Run",
+  "note": "Jet Sweep from tight formation.",
+  "anchor": {
+   "cx": 520,
+   "losY": 262,
+   "unit": 69.0,
+   "yard5": 129
+  },
+  "players": [
+   {
+    "id": "LT",
+    "x": 382,
+    "y": 262
+   },
+   {
+    "id": "LG",
+    "x": 451,
+    "y": 262
+   },
+   {
+    "id": "C",
+    "x": 520,
+    "y": 262
+   },
+   {
+    "id": "RG",
+    "x": 589,
+    "y": 262
+   },
+   {
+    "id": "RT",
+    "x": 658,
+    "y": 262
+   },
+   {
+    "id": "TE",
+    "x": 304,
+    "y": 262
+   },
+   {
+    "id": "h",
+    "x": 731,
+    "y": 262
+   },
+   {
+    "id": "H",
+    "x": 445,
+    "y": 386
+   },
+   {
+    "id": "Z",
+    "x": 237,
+    "y": 328,
+    "path": [
+     [
+      520,
+      326
+     ],
+     [
+      688,
+      325
+     ],
+     [
+      850,
+      289
+     ]
+    ],
+    "end": "arrow",
+    "carrier": true
+   },
+   {
+    "id": "Q",
+    "x": 522,
+    "y": 384,
+    "path": [
+     [
+      520,
+      328
+     ]
+    ],
+    "end": "handoff"
+   },
+   {
+    "id": "X",
+    "x": 800,
+    "y": 328,
+    "path": [
+     [
+      832,
+      232
+     ]
+    ],
+    "end": "block",
+    "dashed": true
+   }
+  ]
+ }
+]
