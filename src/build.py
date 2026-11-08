@@ -17,10 +17,35 @@ DATA = os.path.join(ROOT, "data")
 FILES = ["offense_runs.json", "offense_pass.json", "defense.json"]
 CAT_ORDER = {"Formation": 0, "Run": 1, "Pass": 2, "Defense": 3}
 
+VERSION = "v0.2"
+APP_NAME = "Olsson's Play Trainer 2026"
 SOURCE = {
     "label": "Gridiron Elite offense + defense · playbooks sent Nov 6, 2026",
-    "detail": "the Gridiron Elite offensive and defensive playbooks emailed Nov 6, 2026",
+    "detail": "Coach Olsson's Gridiron Elite offense and defense playbooks (Nov 6, 2026)",
 }
+
+
+def make_icons():
+    """Home-screen icon: navy tile, line of scrimmage, three player dots and a route arrow."""
+    from PIL import Image, ImageDraw
+    for size in (180, 192, 512):
+        k = size / 180
+        im = Image.new("RGB", (size, size), "#14213a")
+        d = ImageDraw.Draw(im)
+        d.line([(18 * k, 104 * k), (162 * k, 104 * k)], fill="#4f74d9", width=max(2, int(5 * k)))
+        d.line([(132 * k, 128 * k), (132 * k, 56 * k), (100 * k, 30 * k)], fill="#f2b705", width=max(3, int(9 * k)), joint="curve")
+        d.polygon([(92 * k, 22 * k), (112 * k, 26 * k), (100 * k, 40 * k)], fill="#f2b705")
+        for cx, cy, col in ((48, 104, "#9b1fc4"), (90, 128, "#df1b1b"), (132, 128, "#f2b705"), (90, 154, "#2a9d45")):
+            r = 13 * k
+            d.ellipse([cx * k - r, cy * k - r, cx * k + r, cy * k + r], fill=col, outline="#ffffff", width=max(2, int(3 * k)))
+        im.save(os.path.join(ROOT, "icon-%d.png" % size))
+    manifest = {
+        "name": APP_NAME, "short_name": "Play Trainer", "start_url": "./", "scope": "./", "display": "standalone",
+        "background_color": "#0f1a30", "theme_color": "#14213a",
+        "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+                  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"}],
+    }
+    json.dump(manifest, open(os.path.join(ROOT, "manifest.webmanifest"), "w"), indent=1)
 
 
 def conv(play):
@@ -86,14 +111,23 @@ def main():
     page = (
         '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+        '<meta name="theme-color" content="#14213a">\n'
+        '<meta name="apple-mobile-web-app-capable" content="yes">\n'
+        '<meta name="mobile-web-app-capable" content="yes">\n'
+        '<meta name="apple-mobile-web-app-title" content="Play Trainer">\n'
+        '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">\n'
+        '<link rel="apple-touch-icon" href="icon-180.png">\n'
+        '<link rel="icon" type="image/png" href="icon-192.png">\n'
+        '<link rel="manifest" href="manifest.webmanifest">\n'
         "<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}"
         "body{margin:0}[hidden]{display:none!important}</style>\n</head>\n<body>\n" + body + "\n</body>\n</html>\n"
     )
     open(os.path.join(ROOT, "index.html"), "w").write(page)
+    make_icons()
     counts = {}
     for p in plays:
         counts[p["cat"]] = counts.get(p["cat"], 0) + 1
-    print("built", len(plays), "plays", counts)
+    print("built", VERSION, len(plays), "plays", counts)
 
 
 if __name__ == "__main__":
