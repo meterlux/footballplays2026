@@ -132,16 +132,11 @@ table.res th{color:var(--muted);font-weight:500}
 body[data-mode="expert"] #panel{display:none}
 body:not([data-mode="expert"]) #xbtns{display:none}
 
+/* Always landscape: when the phone is upright (or rotation-locked), turn the whole app sideways.
+   Safe-area insets are re-mapped to the rotated edges. */
 @media (orientation:portrait){
-  #headRow{flex-wrap:wrap}
-  #ctx{order:5;flex-basis:100%}
-  .keypad{grid-template-columns:repeat(7,minmax(0,1fr))}
-  #quizRow{flex-wrap:wrap}
-  #quizRow .acts{flex-basis:100%;display:flex;gap:6px}
-  #quizRow .acts button{flex:1}
-  #learnUI{flex-wrap:wrap}
-  #stepText{flex-basis:100%;max-height:7.5em;font-size:15px}
-  .nav{flex-basis:100%} .nav button{flex:1}
+  :root{--sl:env(safe-area-inset-top,0px);--sr:env(safe-area-inset-bottom,0px);--st:0px;--sb:env(safe-area-inset-left,0px)}
+  #app{inset:auto;top:0;left:0;width:var(--vh,100vh);height:var(--vw,100vw);transform-origin:0 0;transform:translateX(var(--vw,100vw)) rotate(90deg)}
 }
 @media (prefers-reduced-motion:reduce){ .ans.blink::after{animation:none} }
 </style>
@@ -197,12 +192,12 @@ body:not([data-mode="expert"]) #xbtns{display:none}
       </div>
     </div>
   </div>
-</div>
 <div id="sheet" hidden>
   <div id="sheetCard" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
     <div id="sheetHead"><h2 id="sheetTitle"></h2><button id="sheetClose">Done</button></div>
     <div id="sheetBody"></div>
   </div>
+</div>
 </div>
 
 <script src="textures.js"></script>
@@ -365,8 +360,9 @@ const view={w:0,h:0,dpr:1,sl:0,sr:0};
 let hl=new Set(), marks=[];
 let flipK=1;
 function measure(){
-  const r=$('#stage').getBoundingClientRect();
-  view.w=Math.max(1,r.width);view.h=Math.max(1,r.height);view.dpr=Math.min(3,window.devicePixelRatio||1);
+  const de=document.documentElement.style;de.setProperty('--vw',innerWidth+'px');de.setProperty('--vh',innerHeight+'px');
+  const sg=$('#stage');
+  view.w=Math.max(1,sg.clientWidth);view.h=Math.max(1,sg.clientHeight);view.dpr=Math.min(3,window.devicePixelRatio||1);
   cv.width=Math.round(view.w*view.dpr);cv.height=Math.round(view.h*view.dpr);
   const cs=getComputedStyle($('#probe'));view.sl=parseFloat(cs.paddingLeft)||0;view.sr=parseFloat(cs.paddingRight)||0;
   invalidate();
@@ -412,7 +408,7 @@ function makeGrain(){
   for(let i=0;i<id.data.length;i+=4){const v=Math.random()<.5?0:255;id.data[i]=id.data[i+1]=id.data[i+2]=v;id.data[i+3]=Math.random()*9;}
   g.putImageData(id,0,0);grain=ctx.createPattern(c,'repeat');
 }
-const INK='#2a2520', RED='#b3392b', MARK='#1767c2';
+const INK='#1f1c19', RED='#b42c1f', MARK='#1767c2';
 const LEN=[.5,.4,.32,.25,.19];
 const FONT=(px,w=500)=>`${w} ${px.toFixed(1)}px "Barlow Condensed","Avenir Next Condensed","Arial Narrow",sans-serif`;
 const BODY=[-0.072,1.07], SLIDE_EXT=[-0.13,1.13];
@@ -446,7 +442,7 @@ function draw(){
   const bx0=X(BODY[0]),bw=(BODY[1]-BODY[0])*L;
   ctx.fillStyle='rgba(45,28,12,.55)';ctx.fillRect(bx0,G.slideTop-.5,bw,1);ctx.fillRect(bx0,G.slideBot-.5,bw,1);
   ctx.fillStyle='rgba(255,255,255,.35)';ctx.fillRect(bx0,G.slideTop+.6,bw,.6);ctx.fillRect(bx0,G.slideBot+.6,bw,.6);
-  if(grain){ctx.globalAlpha=.9;ctx.fillStyle=grain;ctx.fillRect(bx0,G.top,bw,G.bot-G.top);ctx.globalAlpha=1;}
+  if(grain){ctx.globalAlpha=.5;ctx.fillStyle=grain;ctx.fillRect(bx0,G.top,bw,G.bot-G.top);ctx.globalAlpha=1;}
   // printed ink, multiplied into the aged celluloid so stains show through
   ctx.globalCompositeOperation='multiply';
   for(const r of G.rows)drawRow(r,L,cx,w);
@@ -648,7 +644,11 @@ function updateFlipLbl(){const t=st.face==='front'?'back':'front';$('#flipLbl').
    · pinch → zoom
    ===================================================================== */
 const ptrs=new Map();let drag=null,pinch=null;
-function local(e){const r=cv.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+const rotated=()=>matchMedia('(orientation: portrait)').matches;
+function local(e){
+  if(rotated()){const sg=$('#stage');return {x:e.clientY-sg.offsetLeft,y:(innerWidth-e.clientX)-sg.offsetTop};}
+  const r=cv.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};
+}
 function gain(v,key){
   const lo=.33,hi=key==='s'?2.2:3.5;
   if(v<.04)return lo;
@@ -1224,7 +1224,7 @@ $('#gearBtn').onclick=openSettings;
    ===================================================================== */
 load();if(settings.flickFlip===undefined)settings.flickFlip=true;buildKeypad();makeGrain();loadTex();updateFlipLbl();
 new ResizeObserver(measure).observe($('#stage'));
-window.addEventListener('orientationchange',()=>setTimeout(measure,250));
+window.addEventListener('orientationchange',()=>setTimeout(measure,250));window.addEventListener('resize',measure);
 setMode(st.mode);
 if(settings.hint0&&st.mode!=='learn'){const h=$('#hint0');h.hidden=false;}
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>invalidate());
