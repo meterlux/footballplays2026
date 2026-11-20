@@ -152,10 +152,9 @@ body:not([data-mode="expert"]) #xbtns{display:none}
     <canvas id="rule" aria-label="Slide rule. Drag to move the rule or the slide."></canvas>
     <div id="probe"></div>
     <div id="caption" hidden></div>
-    <div id="hint0" hidden>Swipe the glass to move the rule · drag the middle strip to move the slide · pinch to zoom</div>
+    <div id="hint0" hidden>Drag the glass to move the rule · drag the middle strip to move the slide · flick sideways to flip · pinch to zoom</div>
     <div id="xbtns">
       <button id="xMenu" aria-label="Leave Expert mode">‹ Modes</button>
-      <button id="xFlip" aria-label="Flip the rule"><span class="flipLbl">Flip</span></button>
     </div>
     <div id="bubble" hidden></div>
   </div>
@@ -206,6 +205,7 @@ body:not([data-mode="expert"]) #xbtns{display:none}
   </div>
 </div>
 
+<script src="textures.js"></script>
 <script>
 (()=>{
 'use strict';
@@ -309,7 +309,7 @@ const FACES={
   back:{top:['LL01','K','A'],slide:['B','T','ST','S'],bot:['D','L','LL1']}
 };
 const SLIDE=new Set(['CF','CIF','CI','C','B','T','ST','S']);
-const RANGE_TXT={LL02:'−0.1 to −1.0',LL03:'−1.0 to −10',LL3:'1.0 to 10',LL2:'0.1 to 1.0',LL01:'−0.01 to −0.1',LL1:'0.01 to 0.1'};
+const RANGE_TXT={LL02:'−0.1 to −1.0',LL03:'−1.0 to −10.0',LL3:'1.0 to 10.0',LL2:'0.1 to 1.0',LL01:'−0.01 to −0.1',LL1:'0.01 to 0.1',T:['10.0 to 1.0','0.1 to 1.0'],ST:'0.01 to 0.1',S:'0.1 to 1.0'};
 const RED_NAME=new Set(['CI','CIF','LL01','LL02','LL03']);
 
 /* plain-language reference for each scale (tap a name) */
@@ -342,7 +342,7 @@ INFO.LL1[1]='<p>From 1.0101 to 1.105. With D read as 0.01 to 0.1, LL1 shows eˣ 
 const ZOOM_DEF={learn:1.3,practice:1.3,test:1.3,expert:2.4};
 const st={mode:'learn',face:'front',xc:0.5,s:0};
 let zoom={...ZOOM_DEF};
-const settings={readLearn:true,readPractice:false,names:true,hair:'black',momentum:true,hint0:true};
+const settings={readLearn:true,readPractice:false,names:true,hair:'black',flickFlip:true,hint0:true};
 const prog={lesson:0,step:0,done:{}};
 let best={}; let cats=['mul','div'];
 function load(){
@@ -357,6 +357,8 @@ function save(){ try{localStorage.setItem('decitrig.v1',JSON.stringify({st,zoom,
 
 /* =====================================================================
    CANVAS + GEOMETRY
+   Vertical layout follows the photographed rule: face rows v = 0..320,
+   slide between v 98.5 and 207.5 (same on both faces).
    ===================================================================== */
 const cv=$('#rule'), ctx=cv.getContext('2d');
 const view={w:0,h:0,dpr:1,sl:0,sr:0};
@@ -370,70 +372,90 @@ function measure(){
   invalidate();
 }
 const Lpx=()=>zoom[st.mode]*Math.max(view.w,640);
+const VF=301,VS0=98.5,VS1=207.5,VEDGE=312;
 function geom(){
-  const H=view.h, m=clamp(H*0.05,12,22);
-  const rowH=Math.min(46,(H-2*m-8)/10), gap=3;
-  const ruleH=rowH*10+gap*2, top=Math.round((H-ruleH)/2);
-  const f=FACES[st.face], rows=[];
-  let y=top;
-  f.top.forEach(n=>{rows.push({name:n,y,h:rowH,side:'up',slide:false});y+=rowH;});
-  const slideTop=y+gap; y=slideTop;
-  f.slide.forEach((n,i)=>{rows.push({name:n,y,h:rowH,side:i<2?'down':'up',slide:true});y+=rowH;});
-  const slideBot=y; y+=gap;
-  f.bot.forEach(n=>{rows.push({name:n,y,h:rowH,side:'down',slide:false});y+=rowH;});
-  return {top,bot:y,slideTop,slideBot,rowH,m,rows,gap};
+  const H=view.h, m=clamp(H*0.055,14,26);
+  const ruleH=Math.min(H-2*m-6,470), top=Math.round((H-ruleH)/2), k=ruleH/VF;
+  const vy=v=>top+v*k;
+  const slideTop=vy(VS0),slideBot=vy(VS1),bot=vy(VF);
+  const f=FACES[st.face],rows=[];
+  const band=(names,y0,y1,side,slide)=>{const h=(y1-y0)/names.length;names.forEach((n,i)=>rows.push({name:n,y:y0+i*h,h,side:typeof side==='function'?side(i):side,slide}));};
+  band(f.top,top,slideTop,'up',false);
+  band(f.slide,slideTop,slideBot,i=>i<2?'down':'up',true);
+  band(f.bot,slideBot,bot,'down',false);
+  return {top,bot,slideTop,slideBot,rowH:ruleH/10,m,rows,k,vy};
 }
 const X=(x)=>view.w/2+(x-st.xc)*Lpx();
 
-/* aged-celluloid grain, made once */
+/* photo textures (from textures.js) */
+const TEX={};let TEXM={},deskPat=null;
+function loadTex(){
+  const S=window.SR_TEX;if(!S)return;TEXM=S.meta;
+  for(const k in S.img){const im=new Image();im.onload=()=>{if(k==='desk')deskPat=null;invalidate();};im.src=S.img[k];TEX[k]=im;}
+}
+const ready=k=>TEX[k]&&TEX[k].complete&&TEX[k].naturalWidth>0;
+/* draw part of a texture: fractions clipped to [c0,c1], rows clipped to [vA,vB] (face v units), offset by slide */
+function drawTex(key,off,G,c0,c1,vA,vB){
+  if(!ready(key))return false;
+  const im=TEX[key],mt=TEXM[key],L=Lpx(),cx=view.w/2;
+  vA=vA??mt.v0;vB=vB??mt.v1;
+  const f0=Math.max(mt.f0,c0??-9,st.xc-cx/L-off-.002),f1=Math.min(mt.f1,c1??9,st.xc+(view.w-cx)/L-off+.002);
+  if(f1<=f0)return true;
+  const kx=im.naturalWidth/(mt.f1-mt.f0),ky=im.naturalHeight/(mt.v1-mt.v0);
+  ctx.drawImage(im,(f0-mt.f0)*kx,(vA-mt.v0)*ky,(f1-f0)*kx,(vB-vA)*ky,cx+(f0+off-st.xc)*L,G.vy(vA),(f1-f0)*L,G.vy(vB)-G.vy(vA));
+  return true;
+}
+/* fine celluloid grain so the enlarged photo stays crisp */
 let grain=null;
 function makeGrain(){
-  const c=document.createElement('canvas');c.width=c.height=160;const g=c.getContext('2d');const id=g.createImageData(160,160);
-  for(let i=0;i<id.data.length;i+=4){const v=Math.random()*255;id.data[i]=id.data[i+1]=id.data[i+2]=v;id.data[i+3]=Math.random()<.5?10:4;}
+  const c=document.createElement('canvas');c.width=c.height=192;const g=c.getContext('2d');const id=g.createImageData(192,192);
+  for(let i=0;i<id.data.length;i+=4){const v=Math.random()<.5?0:255;id.data[i]=id.data[i+1]=id.data[i+2]=v;id.data[i+3]=Math.random()*9;}
   g.putImageData(id,0,0);grain=ctx.createPattern(c,'repeat');
 }
-
-const INK='#1e1a15', RED='#b42a1f', MARK='#1767c2';
+const INK='#2a2520', RED='#b3392b', MARK='#1767c2';
 const LEN=[.5,.4,.32,.25,.19];
 const FONT=(px,w=500)=>`${w} ${px.toFixed(1)}px "Barlow Condensed","Avenir Next Condensed","Arial Narrow",sans-serif`;
+const BODY=[-0.072,1.07], SLIDE_EXT=[-0.13,1.13];
 
 function draw(){
   const {w,h,dpr}=view, L=Lpx(), cx=w/2;
   ctx.setTransform(dpr,0,0,dpr,0,0);
-  const bg=ctx.createRadialGradient(cx,h/2,h*.2,cx,h/2,Math.max(w,h)*.8);
-  bg.addColorStop(0,'#1a1d20');bg.addColorStop(1,'#0b0c0e');
-  ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
-  const G=geom();
+  ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+  // desk (cropped from the owner's photo)
+  if(ready('desk')){if(!deskPat)deskPat=ctx.createPattern(TEX.desk,'repeat');ctx.fillStyle=deskPat;}else ctx.fillStyle='#121315';
+  ctx.fillRect(0,0,w,h);
+  const vg=ctx.createRadialGradient(cx,h/2,h*.25,cx,h/2,Math.max(w,h)*.75);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.55)');ctx.fillStyle=vg;ctx.fillRect(0,0,w,h);
+  const G=geom(), front=st.face, s=st.s;
   ctx.save();
   if(flipK!==1){const my=(G.top+G.bot)/2;ctx.translate(0,my);ctx.scale(1,Math.max(.02,Math.abs(flipK)));ctx.translate(0,-my);}
-  const bx0=X(-0.105),bx1=X(1.105),sx0=X(-0.105+st.s),sx1=X(1.105+st.s);
-  // shadow + wood edge
-  ctx.fillStyle='rgba(0,0,0,.45)';ctx.fillRect(bx0+4,G.top+6,bx1-bx0,G.bot-G.top+2);
-  ctx.fillStyle='#4a2d1c';ctx.fillRect(bx0,G.top-3,bx1-bx0,3);ctx.fillRect(bx0,G.bot,bx1-bx0,3);
-  // gap behind slide
-  ctx.fillStyle='#2a221a';ctx.fillRect(bx0,G.slideTop-G.gap,bx1-bx0,G.slideBot-G.slideTop+2*G.gap);
-  // stators
-  const sg=ctx.createLinearGradient(0,G.top,0,G.bot);sg.addColorStop(0,'#ece2c3');sg.addColorStop(.5,'#f1e8cc');sg.addColorStop(1,'#e8ddbd');
-  ctx.fillStyle=sg;ctx.fillRect(bx0,G.top,bx1-bx0,G.slideTop-G.gap-G.top);ctx.fillRect(bx0,G.slideBot+G.gap,bx1-bx0,G.bot-G.slideBot-G.gap);
+  // cast shadows on the desk: stators, then slide
+  // (shapes are drawn far off-screen; only their shadows land here)
+  const OFF=20000;
+  ctx.save();ctx.shadowColor='rgba(0,0,0,.62)';ctx.shadowBlur=16;ctx.shadowOffsetX=4+OFF;ctx.shadowOffsetY=8;ctx.fillStyle='#000';
+  ctx.fillRect(X(-0.125)-OFF,G.top,X(1.125)-X(-0.125),G.slideTop-G.top);ctx.fillRect(X(-0.125)-OFF,G.slideBot,X(1.125)-X(-0.125),G.vy(VEDGE)-G.slideBot);
+  ctx.fillRect(X(SLIDE_EXT[0]+s)-OFF,G.slideTop,(SLIDE_EXT[1]-SLIDE_EXT[0])*L,G.slideBot-G.slideTop);
+  ctx.restore();
+  // body: the two stators only; the channel between them is open (a duplex frame)
+  const okB=drawTex(front+'_body',0,G,BODY[0],BODY[1],0,VS0)&&drawTex(front+'_body',0,G,BODY[0],BODY[1],VS1,VEDGE);
+  if(!okB){ctx.fillStyle='#ece2c3';ctx.fillRect(X(BODY[0]),G.top,(BODY[1]-BODY[0])*L,G.slideTop-G.top);ctx.fillRect(X(BODY[0]),G.slideBot,(BODY[1]-BODY[0])*L,G.bot-G.slideBot);}
   // slide
-  ctx.fillStyle='#f3ead0';ctx.fillRect(sx0,G.slideTop,sx1-sx0,G.slideBot-G.slideTop);
-  if(grain){ctx.fillStyle=grain;ctx.fillRect(bx0,G.top,bx1-bx0,G.bot-G.top);ctx.fillRect(sx0,G.slideTop,sx1-sx0,G.slideBot-G.slideTop);}
-  ctx.fillStyle='rgba(60,40,20,.18)';ctx.fillRect(sx0,G.slideTop,sx1-sx0,1);ctx.fillRect(sx0,G.slideBot-1,sx1-sx0,1);
-  // rows
+  if(!drawTex(front+'_slide',s,G,SLIDE_EXT[0],SLIDE_EXT[1])){ctx.fillStyle='#f3ead0';ctx.fillRect(X(SLIDE_EXT[0]+s),G.slideTop,(SLIDE_EXT[1]-SLIDE_EXT[0])*L,G.slideBot-G.slideTop);}
+  // slide end faces + seams against the stators
+  ctx.fillStyle='rgba(70,40,20,.55)';
+  ctx.fillRect(X(SLIDE_EXT[0]+s),G.slideTop,1,G.slideBot-G.slideTop);ctx.fillRect(X(SLIDE_EXT[1]+s)-1,G.slideTop,1,G.slideBot-G.slideTop);
+  const bx0=X(BODY[0]),bw=(BODY[1]-BODY[0])*L;
+  ctx.fillStyle='rgba(45,28,12,.55)';ctx.fillRect(bx0,G.slideTop-.5,bw,1);ctx.fillRect(bx0,G.slideBot-.5,bw,1);
+  ctx.fillStyle='rgba(255,255,255,.35)';ctx.fillRect(bx0,G.slideTop+.6,bw,.6);ctx.fillRect(bx0,G.slideBot+.6,bw,.6);
+  if(grain){ctx.globalAlpha=.9;ctx.fillStyle=grain;ctx.fillRect(bx0,G.top,bw,G.bot-G.top);ctx.globalAlpha=1;}
+  // printed ink, multiplied into the aged celluloid so stains show through
+  ctx.globalCompositeOperation='multiply';
   for(const r of G.rows)drawRow(r,L,cx,w);
-  // maker's mark on slide end
-  if(st.face==='front'){ctx.fillStyle=RED;ctx.font=FONT(G.rowH*.5,600);ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText('4081-3',X(1.016+st.s),(G.slideTop+G.slideBot)/2);}
-  else{ctx.fillStyle='#8a7c63';ctx.font=FONT(G.rowH*.36,500);ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText('DECITRIG',X(1.016+st.s),(G.slideTop+G.slideBot)/2);}
+  ctx.globalCompositeOperation='source-over';
   drawMarks(G,L,cx);
-  // end brackets
-  for(const [a,b] of [[-0.105,-0.077],[1.077,1.105]]){
-    const x0=X(a),x1=X(b);if(x1<0||x0>w)continue;
-    const g=ctx.createLinearGradient(x0,0,x1,0);g.addColorStop(0,'#8f959a');g.addColorStop(.35,'#dfe3e6');g.addColorStop(.7,'#b5bbbf');g.addColorStop(1,'#7c8287');
-    ctx.fillStyle=g;ctx.fillRect(x0,G.top-5,x1-x0,G.bot-G.top+10);
-    ctx.strokeStyle='rgba(0,0,0,.35)';ctx.lineWidth=1;ctx.strokeRect(x0+.5,G.top-4.5,x1-x0-1,G.bot-G.top+9);
-    const sxm=(x0+x1)/2,rr=Math.min(5,(x1-x0)*.18);
-    for(const yy of [G.top+G.rowH*.8,G.bot-G.rowH*.8]){ctx.fillStyle='#9ea4a8';ctx.beginPath();ctx.arc(sxm,yy,rr,0,7);ctx.fill();ctx.strokeStyle='#5d6266';ctx.beginPath();ctx.moveTo(sxm-rr*.8,yy);ctx.lineTo(sxm+rr*.8,yy);ctx.stroke();}
-  }
+  // the real end brackets, cut from the photos
+  for(const sd of ['L','R']){const k=`br_${front}_${sd}`;
+    if(!drawTex(k,0,G)){const a=sd==='L'?[-0.1,-0.07]:[1.066,1.096];ctx.fillStyle='#a9afb3';ctx.fillRect(X(a[0]),G.top,(a[1]-a[0])*L,G.bot-G.top);}}
+  if(flipK!==1){ctx.fillStyle=`rgba(0,0,0,${(1-Math.abs(flipK))*.55})`;ctx.fillRect(0,G.top-10,w,G.bot-G.top+20);}
   ctx.restore();
   drawCursor(G,L);
   drawGutters(G,L);
@@ -444,9 +466,8 @@ function drawRow(r,L,cx,w){
   const xa=st.xc-cx/L-off-.02, xb=st.xc+(w-cx)/L-off+.02;
   const base=r.side==='up'?r.y+r.h:r.y, dir=r.side==='up'?-1:1;
   const ink=sc.ink==='r'?RED:INK;
-  if(hl.has(r.name)){ctx.fillStyle='rgba(232,168,40,.22)';const a=Math.max(0,X(-0.077+off)),b=Math.min(w,X(1.077+off));ctx.fillRect(a,r.y,b-a,r.h);}
-  // baseline
-  ctx.strokeStyle=ink;ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(X(off),base+dir*.3);ctx.lineTo(X(1+off),base+dir*.3);ctx.stroke();
+  if(hl.has(r.name)){ctx.fillStyle='rgba(255,196,90,.55)';const a=Math.max(0,X(-0.06+off)),b=Math.min(w,X(1.06+off));ctx.fillRect(a,r.y,b-a,r.h);}
+  ctx.strokeStyle=ink;ctx.lineWidth=.55;ctx.beginPath();ctx.moveTo(X(off),base+dir*.3);ctx.lineTo(X(1+off),base+dir*.3);ctx.stroke();
   const T=sc.ticks;let i=lowerBound(T,xa);
   const minor=new Path2D(),major=new Path2D();
   for(;i<T.length&&T[i].x<=xb;i++){
@@ -456,15 +477,14 @@ function drawRow(r,L,cx,w){
     const p=t.lv===0?major:minor;
     p.moveTo(px,base);p.lineTo(px,base+dir*r.h*LEN[Math.min(t.lv,4)]);
   }
-  ctx.lineWidth=dpr>=2?1.6/dpr:1;ctx.stroke(minor);
-  ctx.lineWidth=dpr>=2?2.7/dpr:1.5;ctx.stroke(major);
-  // labels
+  ctx.lineWidth=dpr>=2?1.5/dpr:.9;ctx.stroke(minor);
+  ctx.lineWidth=dpr>=2?2.4/dpr:1.3;ctx.stroke(major);
   const fs=r.h*.4, fss=r.h*.31;
   ctx.textBaseline='middle';let cur='';
   for(const lab of sc.labs){
     if(lab.x<xa||lab.x>xb)continue;
     if(lab.tier===1&&L<1500)continue;
-    const size=lab.sm?fss:fs, f=FONT(size,lab.sm?500:600);
+    const size=lab.sm?fss:fs, f=FONT(size,lab.sm?400:500);
     if(f!==cur){ctx.font=f;cur=f;}
     const px=cx+(lab.x+off-st.xc)*L;
     const y=base+dir*(r.h*LEN[0]+2+size*.52);
@@ -473,17 +493,19 @@ function drawRow(r,L,cx,w){
     else if(lab.pos==='l'){ctx.textAlign='right';ctx.fillText(lab.t,px-1.5,y);}
     else{ctx.textAlign='center';ctx.fillText(lab.t,px,y);}
   }
-  // name in left margin + range in right margin
-  ctx.font=FONT(r.h*.46,600);ctx.textAlign='right';ctx.fillStyle=RED_NAME.has(r.name)?RED:INK;
-  ctx.fillText(r.name,X(-0.014+off),r.y+r.h/2);
-  if(RANGE_TXT[r.name]){ctx.font=FONT(r.h*.32,500);ctx.textAlign='left';ctx.fillStyle=INK;ctx.fillText(RANGE_TXT[r.name],X(1.012+off),r.y+r.h/2);}
+  ctx.font=FONT(r.h*.46,400);ctx.textAlign='right';ctx.fillStyle=RED_NAME.has(r.name)?RED:INK;
+  ctx.fillText(r.name.split('').join(String.fromCharCode(8202)),X(-0.014+off),r.y+r.h/2);
+  const rt=RANGE_TXT[r.name];
+  if(rt){ctx.font=FONT(r.h*.33,400);ctx.textAlign='left';ctx.fillStyle=INK;
+    if(Array.isArray(rt)){ctx.fillText(rt[0],X(1.012+off),r.y+r.h*.22);ctx.fillText(rt[1],X(1.012+off),r.y+r.h*.62);}
+    else ctx.fillText(rt,X(1.012+off),r.y+r.h/2);}
 }
 function drawMarks(G,L,cx){
   for(const [name,v,txt] of marks){
     const r=G.rows.find(q=>q.name===name);if(!r)continue;
     let x=SC[name].f(v)+(r.slide?st.s:0);
     const px=cx+(x-st.xc)*L;if(px<-20||px>view.w+20)continue;
-    ctx.fillStyle=MARK;ctx.globalAlpha=.9;ctx.fillRect(px-1.25,r.y+1,2.5,r.h-2);ctx.globalAlpha=1;
+    ctx.fillStyle=MARK;ctx.globalAlpha=.85;ctx.fillRect(px-1.25,r.y+1,2.5,r.h-2);ctx.globalAlpha=1;
     const up=r.side==='up', ty=up?r.y+r.h:r.y;
     ctx.beginPath();ctx.moveTo(px,ty);ctx.lineTo(px-6,ty+(up?7:-7));ctx.lineTo(px+6,ty+(up?7:-7));ctx.closePath();ctx.fill();
     if(txt){ctx.font=FONT(13,600);const tw=ctx.measureText(txt).width+12,ly=up?r.y+r.h+9:r.y-23;
@@ -491,24 +513,49 @@ function drawMarks(G,L,cx){
   }
 }
 function roundRect(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
-const glassW=()=>clamp(Lpx()*.06,72,128);
+function rrPath(p,x,y,w,h,r){p.moveTo(x+r,y);p.arcTo(x+w,y,x+w,y+h,r);p.arcTo(x+w,y+h,x,y+h,r);p.arcTo(x,y+h,x,y,r);p.arcTo(x,y,x+w,y,r);p.closePath();}
+/* the cursor: glass in a thin aluminum frame, proportioned like the original (about 1/8 of the scale length) */
+const glassW=()=>clamp(Lpx()*.118,96,300);
 function drawCursor(G,L){
-  const dpr=view.dpr,cx=Math.round(view.w/2*dpr)/dpr,gw=glassW(),x0=cx-gw/2;
-  const y0=G.top-G.m*.8,y1=G.bot+G.m*.8;
-  ctx.fillStyle='rgba(200,225,232,.10)';ctx.fillRect(x0,y0,gw,y1-y0);
-  const sh=ctx.createLinearGradient(x0,y0,x0+gw,y1);sh.addColorStop(0,'rgba(255,255,255,.10)');sh.addColorStop(.35,'rgba(255,255,255,0)');sh.addColorStop(.62,'rgba(255,255,255,.05)');sh.addColorStop(1,'rgba(255,255,255,0)');
-  ctx.fillStyle=sh;ctx.fillRect(x0,y0,gw,y1-y0);
-  ctx.strokeStyle='rgba(255,255,255,.35)';ctx.lineWidth=1;ctx.strokeRect(x0+.5,y0+.5,gw-1,y1-y0-1);
-  ctx.strokeStyle='rgba(0,0,0,.25)';ctx.strokeRect(x0+1.5,y0+1.5,gw-3,y1-y0-3);
-  // metal frame tabs
-  for(const [ya,yb] of [[y0-2,G.top-1],[G.bot+1,y1+2]]){
-    const g=ctx.createLinearGradient(0,ya,0,yb);g.addColorStop(0,'#e3e6e8');g.addColorStop(.5,'#a9afb3');g.addColorStop(1,'#7f858a');
-    ctx.fillStyle=g;roundRect(x0-5,ya,gw+10,yb-ya,3);ctx.fill();
-    for(const sx of [x0+4,x0+gw-4]){ctx.fillStyle='#6f757a';ctx.beginPath();ctx.arc(sx,(ya+yb)/2,Math.min(3,(yb-ya)*.3),0,7);ctx.fill();}
+  const dpr=view.dpr,cx=Math.round(view.w/2*dpr)/dpr,gw=glassW(),x0=cx-gw/2,x1=cx+gw/2;
+  const barH=clamp(G.m*.85,11,20), y0=G.top-barH-2, y1=G.bot+barH+2;
+  const rim=3, r=Math.min(14,gw*.12);
+  // soft shadow the cursor casts on the rule
+  ctx.save();ctx.shadowColor='rgba(0,0,0,.35)';ctx.shadowBlur=10;ctx.shadowOffsetX=3;ctx.shadowOffsetY=4;
+  const outer=new Path2D();rrPath(outer,x0-rim,y0,gw+2*rim,y1-y0,r);
+  const glass=new Path2D();rrPath(glass,x0,G.top-3,gw,G.bot-G.top+6,Math.min(10,r*.7));
+  const frame=new Path2D();frame.addPath(outer);frame.addPath(glass);
+  ctx.fillStyle='rgba(0,0,0,.001)';ctx.fill(frame,'evenodd');ctx.restore();
+  // glass body: faint tint, green edge refraction, specular sweep
+  ctx.save();ctx.clip(glass);
+  ctx.fillStyle='rgba(225,240,236,.07)';ctx.fillRect(x0,G.top-3,gw,G.bot-G.top+6);
+  const eL=ctx.createLinearGradient(x0,0,x0+7,0);eL.addColorStop(0,'rgba(90,140,120,.45)');eL.addColorStop(1,'rgba(90,140,120,0)');ctx.fillStyle=eL;ctx.fillRect(x0,G.top-3,7,G.bot-G.top+6);
+  const eR=ctx.createLinearGradient(x1,0,x1-7,0);eR.addColorStop(0,'rgba(90,140,120,.45)');eR.addColorStop(1,'rgba(90,140,120,0)');ctx.fillStyle=eR;ctx.fillRect(x1-7,G.top-3,7,G.bot-G.top+6);
+  const sp=ctx.createLinearGradient(x0,G.top,x1,G.bot);sp.addColorStop(0,'rgba(255,255,255,.13)');sp.addColorStop(.28,'rgba(255,255,255,0)');sp.addColorStop(.55,'rgba(255,255,255,0)');sp.addColorStop(.6,'rgba(255,255,255,.07)');sp.addColorStop(.7,'rgba(255,255,255,0)');
+  ctx.fillStyle=sp;ctx.fillRect(x0,G.top-3,gw,G.bot-G.top+6);
+  ctx.restore();
+  // aluminum frame
+  const mg=ctx.createLinearGradient(0,y0,0,y1);
+  mg.addColorStop(0,'#eef0f1');mg.addColorStop(.02,'#b9bfc3');mg.addColorStop(.035,'#8d9398');mg.addColorStop(.5,'#c6cbce');mg.addColorStop(.965,'#8d9398');mg.addColorStop(.98,'#c3c8cb');mg.addColorStop(1,'#6c7277');
+  ctx.fillStyle=mg;ctx.fill(frame,'evenodd');
+  ctx.strokeStyle='rgba(0,0,0,.45)';ctx.lineWidth=.8;ctx.stroke(outer);
+  ctx.strokeStyle='rgba(255,255,255,.55)';ctx.lineWidth=.6;ctx.stroke(glass);
+  // brushed lines on the bars
+  ctx.save();ctx.beginPath();ctx.rect(x0-rim,y0,gw+2*rim,G.top-3-y0);ctx.rect(x0-rim,G.bot+3,gw+2*rim,y1-G.bot-3);ctx.clip();
+  ctx.globalAlpha=.18;ctx.strokeStyle='#fff';ctx.lineWidth=.5;
+  for(let yy=y0+1.5;yy<y1;yy+=1.7){if(yy>G.top-3&&yy<G.bot+3)continue;ctx.beginPath();ctx.moveTo(x0-rim,yy);ctx.lineTo(x1+rim,yy+(((yy*7)%3)-1)*.3);ctx.stroke();}
+  ctx.restore();
+  // corner screws
+  const sr=clamp(barH*.26,2.6,4.6);
+  for(const [sx,sy] of [[x0+sr+3,(y0+G.top-3)/2],[x1-sr-3,(y0+G.top-3)/2],[x0+sr+3,(y1+G.bot+3)/2],[x1-sr-3,(y1+G.bot+3)/2]]){
+    const sg=ctx.createRadialGradient(sx-sr*.35,sy-sr*.35,sr*.2,sx,sy,sr);sg.addColorStop(0,'#e9e4d2');sg.addColorStop(1,'#7d7a6e');
+    ctx.fillStyle=sg;ctx.beginPath();ctx.arc(sx,sy,sr,0,7);ctx.fill();
+    ctx.strokeStyle='rgba(40,38,30,.75)';ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(sx-sr*.75,sy+sr*.2);ctx.lineTo(sx+sr*.75,sy-sr*.2);ctx.stroke();
   }
-  // hairline
-  ctx.fillStyle=settings.hair==='red'?'#c81e1e':'#121212';
-  const hw=Math.max(.67,2/dpr);ctx.fillRect(cx-hw/2,G.top-2,hw,G.bot-G.top+4);
+  // hairline, scribed on the underside of the glass, with its faint shadow
+  const hw=Math.max(.6,1.9/dpr);
+  ctx.fillStyle='rgba(0,0,0,.16)';ctx.fillRect(cx-hw/2+1.1,G.top-2,hw,G.bot-G.top+4);
+  ctx.fillStyle=settings.hair==='red'?'#c81e1e':'#151412';ctx.fillRect(cx-hw/2,G.top-2,hw,G.bot-G.top+4);
 }
 function readoutsOn(){return (st.mode==='learn'&&settings.readLearn)||(st.mode==='practice'&&settings.readPractice);}
 function drawGutters(G,L){
@@ -518,14 +565,11 @@ function drawGutters(G,L){
     const alphas=G.rows.map(r=>{const a=clamp((view.sl+70-X(-0.014+(r.slide?st.s:0)))/40,0,1);if(a>0)any=true;return a;});
     if(any){
       for(let i=0;i<G.rows.length;i++){const r=G.rows[i],a=alphas[i];if(!a)continue;
-        ctx.globalAlpha=a;ctx.fillStyle=hl.has(r.name)?'rgba(80,58,14,.94)':'rgba(16,18,20,.86)';ctx.fillRect(0,r.y,gwid,r.h);
+        ctx.globalAlpha=a;ctx.fillStyle=hl.has(r.name)?'rgba(80,58,14,.94)':'rgba(16,18,20,.86)';ctx.fillRect(0,r.y,gwid,r.h+.5);
         ctx.font=FONT(Math.min(17,r.h*.5),600);ctx.textAlign='center';ctx.textBaseline='middle';
         ctx.fillStyle=hl.has(r.name)?'#f3c463':RED_NAME.has(r.name)?'#ff8f7f':'#ece5d3';
         ctx.fillText(r.name,view.sl+23,r.y+r.h/2);}
       ctx.globalAlpha=1;
-      ctx.fillStyle='rgba(16,18,20,.86)';
-      // groove filler so the gutter reads as one strip
-      const a=Math.max(...alphas);ctx.globalAlpha=a;ctx.fillRect(0,G.slideTop-G.gap,gwid,G.gap);ctx.fillRect(0,G.slideBot,gwid,G.gap);ctx.globalAlpha=1;
     }
   }
   if(readoutsOn()){
@@ -562,7 +606,7 @@ function on(n,v,tol=.0025){let d=posUnder(n)-SC[n].f(v);if(SC[n].folded)d-=Math.
 /* =====================================================================
    RENDER LOOP, ANIMATION, FLIP
    ===================================================================== */
-let pending=false,anim=null,flipA=null,inertia=null;
+let pending=false,anim=null,flipA=null;
 function invalidate(){if(!pending){pending=true;requestAnimationFrame(frame);}}
 function frame(t){
   pending=false;let more=false;
@@ -573,17 +617,14 @@ function frame(t){
     if(anim.to.xc!==undefined)st.xc=anim.fx+(anim.to.xc-anim.fx)*e;
     if(anim.to.s!==undefined)st.s=anim.fs+(anim.to.s-anim.fs)*e;
     if(k>=1){const r=anim.res;anim=null;r();checkTry();}else more=true;}
-  if(inertia){const dt=Math.min(40,t-(inertia.t||t));inertia.t=t;
-    const key=inertia.key;let val=st[key]+inertia.v*dt;const lim=LIM[key];
-    if(val<lim[0]||val>lim[1]){val=clamp(val,lim[0],lim[1]);inertia=null;}else{inertia.v*=Math.exp(-dt/320);if(Math.abs(inertia.v*Lpx())<.02)inertia=null;else more=true;}
-    st[key]=val;checkTry();if(!inertia)save();}
   draw();if(more)invalidate();
 }
 const LIM={xc:[-0.07,1.07],s:[-1.02,1.02]};
 function flipTo(face){
   if(face===st.face)return Promise.resolve();
+  if(flipA)return Promise.resolve();
   if(REDUCED){st.face=face;updateFlipLbl();invalidate();return Promise.resolve();}
-  return new Promise(res=>{flipA={to:face,dur:440,res};invalidate();});
+  return new Promise(res=>{flipA={to:face,dur:460,res};invalidate();});
 }
 async function goTo(s,speed=1){
   if(!s)return;
@@ -594,44 +635,74 @@ async function goTo(s,speed=1){
   const dur=REDUCED?1:clamp(380+d*1000,420,1300)/speed;
   return new Promise(res=>{if(anim)anim.res();anim={fx:st.xc,fs:st.s,to,dur,res};invalidate();});
 }
-function stopMotion(){if(anim){const r=anim.res;anim=null;r();}inertia=null;}
-function updateFlipLbl(){const t=st.face==='front'?'back':'front';$('#flipLbl').textContent='⟲ Show '+t;$('#xFlip .flipLbl').textContent='⟲ '+t;}
+function stopMotion(){if(anim){const r=anim.res;anim=null;r();}}
+function updateFlipLbl(){const t=st.face==='front'?'back':'front';$('#flipLbl').textContent='⟲ Show '+t;}
 
 /* =====================================================================
-   TOUCH: glass/body = whole rule, slide strip = slide, pinch = zoom
+   TOUCH
+   · drag on the glass or the body  → whole rule moves (same as sliding the cursor)
+   · drag the middle strip off the glass → slide only
+   · speed-sensitive: slow = fine (about 1/3 of finger travel), normal = 1:1,
+     fast = up to 3.5× so you can cross the rule in one stroke
+   · quick sideways flick anywhere → flip the rule over
+   · pinch → zoom
    ===================================================================== */
 const ptrs=new Map();let drag=null,pinch=null;
 function local(e){const r=cv.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+function gain(v,key){
+  const lo=.33,hi=key==='s'?2.2:3.5;
+  if(v<.04)return lo;
+  if(v<.3)return lo+(1-lo)*(v-.04)/.26;
+  if(v<.8)return 1;
+  return Math.min(hi,1+(v-.8)*2.2);
+}
 cv.addEventListener('pointerdown',e=>{
   cv.setPointerCapture(e.pointerId);const p=local(e);ptrs.set(e.pointerId,p);
   if(walking)cancelWalk();stopMotion();hideHint0();
   if(ptrs.size===1){
     const G=geom(),inGlass=Math.abs(p.x-view.w/2)<=glassW()/2+4,inSlide=p.y>=G.slideTop&&p.y<=G.slideBot;
-    const key=(!inGlass&&inSlide)?'s':'xc';
-    drag={key,x0:p.x,y0:p.y,v0:st[key],t0:performance.now(),moved:false,samples:[[performance.now(),st[key]]]};
+    const key=(!inGlass&&inSlide)?'s':'xc',now=performance.now();
+    drag={key,x0:p.x,y0:p.y,v0:st[key],t0:now,lx:p.x,lt:now,vs:0,moved:false,live:false,held:0,samples:[[now,p.x,p.y]]};
   }else if(ptrs.size===2){
-    const [a,b]=[...ptrs.values()];pinch={d0:Math.hypot(a.x-b.x,a.y-b.y)||1,z0:zoom[st.mode]};drag=null;
+    const [a,b]=[...ptrs.values()];pinch={d0:Math.hypot(a.x-b.x,a.y-b.y)||1,z0:zoom[st.mode]};
+    if(drag&&drag.live){st[drag.key]=drag.v0;}drag=null;invalidate();
   }
 });
 cv.addEventListener('pointermove',e=>{
   if(!ptrs.has(e.pointerId))return;const p=local(e);ptrs.set(e.pointerId,p);
   if(pinch&&ptrs.size>=2){const [a,b]=[...ptrs.values()];const d=Math.hypot(a.x-b.x,a.y-b.y);
     zoom[st.mode]=clamp(pinch.z0*d/pinch.d0,.8,7);invalidate();return;}
-  if(!drag)return;const dx=p.x-drag.x0;
-  if(!drag.moved&&Math.hypot(dx,p.y-drag.y0)>5)drag.moved=true;
-  if(!drag.moved)return;
-  const L=Lpx();const v=drag.key==='xc'?drag.v0-dx/L:drag.v0+dx/L;
-  st[drag.key]=clamp(v,LIM[drag.key][0],LIM[drag.key][1]);
-  const now=performance.now();drag.samples.push([now,st[drag.key]]);while(drag.samples.length>2&&now-drag.samples[0][0]>110)drag.samples.shift();
+  if(!drag)return;
+  const now=performance.now(),step=p.x-drag.lx,dt=Math.max(1,now-drag.lt);
+  drag.lx=p.x;drag.lt=now;drag.samples.push([now,p.x,p.y]);while(drag.samples.length>2&&now-drag.samples[0][0]>90)drag.samples.shift();
+  drag.vs=drag.vs*.55+(Math.abs(step)/dt)*.45;
+  if(!drag.moved){if(Math.hypot(p.x-drag.x0,p.y-drag.y0)>5)drag.moved=true;else return;}
+  // hold back a fast start for a moment: if it turns out to be a flick, the rule never moved
+  if(!drag.live){
+    if(now-drag.t0<130&&drag.vs>.5){drag.held+=step;return;}
+    drag.live=true;
+    const L=Lpx();st[drag.key]=clamp(st[drag.key]+(drag.key==='xc'?-1:1)*drag.held/L,LIM[drag.key][0],LIM[drag.key][1]);
+  }
+  const L=Lpx(),d=step*gain(drag.vs,drag.key)/L;
+  st[drag.key]=clamp(st[drag.key]+(drag.key==='xc'?-d:d),LIM[drag.key][0],LIM[drag.key][1]);
   checkTry();invalidate();
 });
+function isFlick(p){
+  if(!settings.flickFlip)return false;
+  const now=performance.now(),T=now-drag.t0,dx=p.x-drag.x0,dy=p.y-drag.y0;
+  const s=drag.samples,a=s[0],b=s[s.length-1],v=(b[1]-a[1])/Math.max(1,b[0]-a[0]);
+  return T<320&&Math.abs(dx)>40&&Math.abs(dx)>2.2*Math.abs(dy)&&Math.abs(v)>.55&&now-b[0]<80;
+}
 function endPtr(e){
   if(!ptrs.has(e.pointerId))return;const p=local(e);ptrs.delete(e.pointerId);
   if(pinch){if(ptrs.size<2){pinch=null;save();}drag=null;return;}
   if(!drag)return;
   if(!drag.moved&&performance.now()-drag.t0<400){tap(p);drag=null;return;}
-  if(settings.momentum&&e.type==='pointerup'){const s=drag.samples,a=s[0],b=s[s.length-1],dt=b[0]-a[0];
-    if(dt>8&&performance.now()-b[0]<60){const v=(b[1]-a[1])/dt;if(Math.abs(v*Lpx())>.35){inertia={key:drag.key,v,t:0};invalidate();}}}
+  if(e.type==='pointerup'&&isFlick(p)){
+    const k=drag.key,v0=drag.v0;drag=null;
+    if(Math.abs(st[k]-v0)>1e-6){const to={};to[k]=v0;goTo(to,3);}
+    doFlip();return;
+  }
   drag=null;save();
 }
 cv.addEventListener('pointerup',endPtr);cv.addEventListener('pointercancel',endPtr);
@@ -677,13 +748,13 @@ const LESSONS=[
    <p>Your rule’s serial number, 601428, fits K&amp;E’s numbering for about 1951 or about 1962 (the counter rolled over in 1955). Its back face labels the small-angle scale <b>ST</b>; K&amp;E renamed it SRT in 1956, which points to the early 1950s. See Settings → About this rule for how to confirm.</p>`},
   {t:'Body, slide and cursor',st:{xc:.36,s:.12},
    b:'The top and bottom strips are the <b>body</b>. The middle strip is the <b>slide</b>. The glass window is the <b>cursor</b>; here it stays centered and the rule moves under it.',
-   m:`<ul><li><b>Swipe on the glass</b> (or the top/bottom strips) to move the whole rule. That is the same as sliding the cursor on a real rule.</li><li><b>Drag the middle strip</b> outside the glass to move the slide alone.</li><li><b>Flick</b> to coast. Touch again to stop.</li><li><b>Pinch</b> to zoom in for fine readings, out to see more of the rule.</li><li><b>Tap a scale name</b> in the left margin for what it does.</li></ul>`},
+   m:`<ul><li><b>Drag on the glass</b> (or the top/bottom strips) to move the whole rule. That is the same as sliding the cursor on a real rule.</li><li><b>Drag the middle strip</b> outside the glass to move the slide alone.</li><li><b>Speed matters:</b> move slowly for fine adjustment (the rule moves about a third as far as your finger); move faster and it speeds up so one stroke crosses the rule.</li><li><b>Flick sideways</b> quickly to turn the rule over.</li><li><b>Pinch</b> to zoom in for fine readings, out to see more of the rule.</li><li><b>Tap a scale name</b> in the left margin for what it does.</li></ul>`},
   {t:'The indexes',st:{xc:.02,s:0},hl:['C','D'],mk:[['C',1,'left index'],['D',1]],
    b:'The <b>1</b> at each end of C and D is an <b>index</b>. This is the left index. Almost every operation starts by putting an index somewhere.'},
   {t:'The right index',st:{xc:.98,s:0},hl:['C','D'],mk:[['C',10,'right index'],['D',10]],
    b:'And this is the <b>right index</b>, also marked 1. It is the same number one decade up: 10, or 100, or 0.1.'},
   {t:'Two faces',st:{face:'back',xc:.5,s:0},
-   b:'Tap <b>Flip</b> to turn the rule over. The hairline runs straight through, so a setting on one face lines up with the other. D appears on both faces for that reason.',
+   b:'<b>Flick sideways</b> quickly (or tap <b>Show back</b>) to turn the rule over. The hairline runs straight through, so a setting on one face lines up with the other. D appears on both faces for that reason.',
    m:`<p><b>Front:</b> LL02, LL03, DF · slide CF, CIF, CI, C · D, LL3, LL2. Multiplication, division, reciprocals, π, and powers of e.</p>
    <p><b>Back:</b> LL01, K, A · slide B, T, ST, S · D, L, LL1. Squares, cubes, logarithms, trigonometry.</p>
    <p><b>Red</b> means “runs backwards”: inverted scales (CI, CIF), the negative-exponent LL0 scales, and the complementary angles on S and T.</p>`},
@@ -1094,7 +1165,7 @@ function setMode(m){
 $$('.seg [data-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
 $('#xMenu').onclick=()=>setMode('learn');
 const doFlip=()=>{cancelWalk();flipTo(st.face==='front'?'back':'front').then(()=>{save();checkTry();});};
-$('#flipBtn').onclick=doFlip;$('#xFlip').onclick=doFlip;
+$('#flipBtn').onclick=doFlip;
 $('#nextBtn').onclick=nextStep;$('#prevBtn').onclick=prevStep;
 $('#moreBtn').onclick=()=>{if(bubbleKind==='more'){hideBubble();return;}const s=stepState();if(s.m)showBubble(s.t,s.m,'more');};
 $('#showBtn').onclick=()=>{lessonSol();showMe();};
@@ -1136,11 +1207,11 @@ function openSettings(){
    <div class="set"><div><div>Readings in Practice</div><div class="d">Off is closer to the real thing</div></div>${tog('sRP',settings.readPractice)}</div>
    <div class="set"><div><div>Scale names in margin</div><div class="d">Keeps names visible when the rule’s ends are off screen</div></div>${tog('sN',settings.names)}</div>
    <div class="set"><div><div>Red hairline</div><div class="d">Easier to see than the original black</div></div>${tog('sH',settings.hair==='red')}</div>
-   <div class="set"><div><div>Momentum</div><div class="d">Let a flick coast</div></div>${tog('sM',settings.momentum)}</div>
+   <div class="set"><div><div>Flick to flip</div><div class="d">A quick sideways flick turns the rule over</div></div>${tog('sM',settings.flickFlip)}</div>
    <div class="btnrow"><button id="sReset">Center the rule</button><button id="sZoom">Reset zoom</button><button id="sAbout">About this rule</button></div>`,
    el=>{
      const bind=(id,fn)=>{const b=el.querySelector('#'+id);b.onclick=()=>{const v=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(v));fn(v);save();invalidate();};};
-     bind('sR',v=>settings.readLearn=v);bind('sRP',v=>settings.readPractice=v);bind('sN',v=>settings.names=v);bind('sH',v=>settings.hair=v?'red':'black');bind('sM',v=>settings.momentum=v);
+     bind('sR',v=>settings.readLearn=v);bind('sRP',v=>settings.readPractice=v);bind('sN',v=>settings.names=v);bind('sH',v=>settings.hair=v?'red':'black');bind('sM',v=>settings.flickFlip=v);
      el.querySelector('#sReset').onclick=()=>{closeSheet();goTo({xc:.5,s:0});};
      el.querySelector('#sZoom').onclick=()=>{zoom={...ZOOM_DEF};save();invalidate();closeSheet();};
      el.querySelector('#sAbout').onclick=()=>openSheet('About this rule',ABOUT);
@@ -1151,7 +1222,7 @@ $('#gearBtn').onclick=openSettings;
 /* =====================================================================
    BOOT
    ===================================================================== */
-load();buildKeypad();makeGrain();updateFlipLbl();
+load();if(settings.flickFlip===undefined)settings.flickFlip=true;buildKeypad();makeGrain();loadTex();updateFlipLbl();
 new ResizeObserver(measure).observe($('#stage'));
 window.addEventListener('orientationchange',()=>setTimeout(measure,250));
 setMode(st.mode);
