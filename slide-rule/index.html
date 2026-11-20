@@ -584,7 +584,12 @@ function drawMarks(G,L,cx){
 function roundRect(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
 function rrPath(p,x,y,w,h,r){p.moveTo(x+r,y);p.arcTo(x+w,y,x+w,y+h,r);p.arcTo(x+w,y+h,x,y+h,r);p.arcTo(x,y+h,x,y,r);p.arcTo(x,y,x+w,y,r);p.closePath();}
 /* the cursor: glass in a thin aluminum frame, proportioned like the original (about 1/8 of the scale length) */
-const glassW=()=>clamp(Lpx()*.118,96,isUp()?view.w*.42:300);
+/* landscape: proportioned like the original (~1/8 of the scale length).
+   upright: 2/5 of the visible rule (the strip between the name and reading columns) */
+const glassW=()=>{
+  if(isUp()){const vis=view.w-(settings.names?view.sl+46:0)-(readoutsOn()?view.sr+80:0);return Math.max(56,vis*.4);}
+  return clamp(Lpx()*.118,96,300);
+};
 function drawCursor(G,L){
   const dpr=view.dpr,cx=Math.round(view.w/2*dpr)/dpr,gw=glassW(),x0=cx-gw/2,x1=cx+gw/2;
   const barH=clamp(G.m*.85,11,20), y0=G.top-barH-2, y1=G.bot+barH+2;
